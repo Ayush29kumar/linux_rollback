@@ -35,7 +35,7 @@ using TeeJee.System;
 using TeeJee.Misc;
 
 public Main App;
-public const string AppName = "Timeshift-gtk";
+public const string AppName = "LinuxRollback";
 public const string AppShortName = "timeshift";
 public const string AppVersion = Constants.VERSION;
 public const string AppAuthor = "Tony George";
@@ -131,7 +131,7 @@ public class AppGtk : GLib.Object {
 		msg += "  --h[elp]     " + _("Show all options") + "\n";
 		msg += "  --version    " + _("Print version number") + "\n";
 		msg += "\n\n";
-		msg += "\n%s\n".printf(_("Run 'timeshift' for the command-line version of this tool"));
+		msg += "\n%s\n".printf(_("Run 'linuxrollback' for the command-line version of this tool"));
 		return msg;
 	}
 

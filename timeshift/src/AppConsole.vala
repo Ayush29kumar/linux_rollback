@@ -36,7 +36,7 @@ using TeeJee.System;
 using TeeJee.Misc;
 
 public Main App;
-public const string AppName = "Timeshift";
+public const string AppName = "LinuxRollback";
 public const string AppShortName = "timeshift";
 public const string AppVersion = Constants.VERSION;
 public const string AppAuthor = "Tony George";
@@ -242,13 +242,13 @@ public class AppConsole : GLib.Object {
 
 				case "--backup":
 					log_error("Option --backup has been replaced by option --check");
-					log_error("Run 'timeshift --help' to list all available options");
+					log_error("Run 'linuxrollback --help' to list all available options");
 					App.exit_app(1);
 					break;
 
 				case "--backup-now":
 					log_error("Option --backup-now has been replaced by option --create");
-					log_error("Run 'timeshift --help' to list all available options");
+					log_error("Run 'linuxrollback --help' to list all available options");
 					App.exit_app(1);
 					break;
 					
@@ -353,11 +353,11 @@ public class AppConsole : GLib.Object {
 		msg += "\n";
 		msg += "Syntax:\n";
 		msg += "\n";
-		msg += "  timeshift --check\n";
-		msg += "  timeshift --create [OPTIONS]\n";
-		msg += "  timeshift --restore [OPTIONS]\n";
-		msg += "  timeshift --delete-[all] [OPTIONS]\n";
-		msg += "  timeshift --list-{snapshots|devices} [OPTIONS]\n";
+		msg += "  linuxrollback --check\n";
+		msg += "  linuxrollback --create [OPTIONS]\n";
+		msg += "  linuxrollback --restore [OPTIONS]\n";
+		msg += "  linuxrollback --delete-[all] [OPTIONS]\n";
+		msg += "  linuxrollback --list-{snapshots|devices} [OPTIONS]\n";
 		msg += "\n";
 		msg += _("Options") + ":\n";
 		msg += "\n";
@@ -398,13 +398,13 @@ public class AppConsole : GLib.Object {
 
 		msg += _("Examples") + ":\n";
 		msg += "\n";
-		msg += "timeshift --list\n";
-		msg += "timeshift --list --snapshot-device /dev/sda1\n";
-		msg += "timeshift --create --comments \"after update\" --tags D\n";
-		msg += "timeshift --restore \n";
-		msg += "timeshift --restore --snapshot '2014-10-12_16-29-08' --target /dev/sda1\n";
-		msg += "timeshift --delete  --snapshot '2014-10-12_16-29-08'\n";
-		msg += "timeshift --delete-all \n";
+		msg += "linuxrollback --list\n";
+		msg += "linuxrollback --list --snapshot-device /dev/sda1\n";
+		msg += "linuxrollback --create --comments \"after update\" --tags D\n";
+		msg += "linuxrollback --restore \n";
+		msg += "linuxrollback --restore --snapshot '2014-10-12_16-29-08' --target /dev/sda1\n";
+		msg += "linuxrollback --delete  --snapshot '2014-10-12_16-29-08'\n";
+		msg += "linuxrollback --delete-all \n";
 		msg += "\n";
 
 		msg += _("Notes") + ":\n";

@@ -95,14 +95,14 @@ sources_app_gtk = files([
   'AppGtk.vala',
 ])
 
-timeshift = executable('timeshift',
+linuxrollback = executable('linuxrollback',
   sources_app_console + sources_core + sources_utility,
   config_header,
   dependencies: dependencies,
   install: true
 )
 
-timeshift_gtk = executable('timeshift-gtk',
+linuxrollback_gtk = executable('linuxrollback-gtk',
   sources_app_gtk + sources_core + sources_utility + sources_gtk,
   config_header,
   dependencies: dependencies,
@@ -110,11 +110,11 @@ timeshift_gtk = executable('timeshift-gtk',
 )
 
 install_data(
-  sources : 'timeshift-launcher',
+  sources : 'linuxrollback-launcher',
   install_dir : get_option('bindir')
 )
 install_data(
-  sources : 'timeshift-gtk.desktop',
+  sources : 'linuxrollback.desktop',
   install_dir : join_paths(get_option('datadir'), 'applications')
 )
 

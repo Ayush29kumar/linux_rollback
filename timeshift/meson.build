@@ -1,5 +1,5 @@
 project(
-  'timeshift',
+  'linuxrollback',
   'vala',
   'c',
   version : '25.07.7',
