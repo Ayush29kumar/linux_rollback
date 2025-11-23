@@ -227,6 +227,10 @@ class MainWindow : Gtk.Window{
 		snapshot_list_box.browse_selected.connect(browse_selected);
 
 		snapshot_list_box.view_snapshot_log.connect(view_snapshot_log);
+		
+		snapshot_list_box.export_selected.connect(export_snapshot);
+		
+		snapshot_list_box.view_changes.connect(view_snapshot_changes);
     }
 
 	private void init_ui_statusbar(){
@@ -731,6 +735,173 @@ class MainWindow : Gtk.Window{
 						this.show();
 					});
 				}
+
+				return;
+			}
+			iterExists = store.iter_next (ref iter);
+		}
+	}
+
+	public void export_snapshot(){
+		
+		var sel = snapshot_list_box.treeview.get_selection ();
+		
+		if (sel.count_selected_rows() == 0){
+			gtk_messagebox(
+				_("Select Snapshot"),
+				_("Please select a snapshot to export!"),
+				this, false);
+			return;
+		}
+
+		TreeIter iter;
+		var store = (Gtk.ListStore) snapshot_list_box.treeview.model;
+
+		bool iterExists = store.get_iter_first (out iter);
+		
+		while (iterExists) {
+			
+			if (sel.iter_is_selected (iter)){
+				
+				Snapshot bak;
+				store.get (iter, 0, out bak, -1);
+
+				// Create file chooser dialog
+				var dialog = new Gtk.FileChooserDialog(
+					_("Select Destination Folder"),
+					this,
+					Gtk.FileChooserAction.SELECT_FOLDER,
+					_("Cancel"), Gtk.ResponseType.CANCEL,
+					_("Export"), Gtk.ResponseType.ACCEPT
+				);
+				
+				dialog.set_current_folder(Environment.get_home_dir());
+				
+				if (dialog.run() == Gtk.ResponseType.ACCEPT) {
+					string dest_folder = dialog.get_filename();
+					string dest_path = Path.build_filename(dest_folder, bak.name);
+					
+					dialog.destroy();
+					
+					// Check if destination already exists
+					if (dir_exists(dest_path)) {
+						var msg_dialog = new Gtk.MessageDialog(
+							this,
+							Gtk.DialogFlags.MODAL,
+							Gtk.MessageType.QUESTION,
+							Gtk.ButtonsType.YES_NO,
+							_("Destination folder already exists. Overwrite?")
+						);
+						msg_dialog.set_title(_("Destination Exists"));
+						var confirm = msg_dialog.run();
+						msg_dialog.destroy();
+						
+						if (confirm == Gtk.ResponseType.NO) {
+							return;
+						}
+					}
+					
+					// Show progress dialog
+					var progress_dialog = new Gtk.Dialog.with_buttons(
+						_("Exporting Snapshot"),
+						this,
+						Gtk.DialogFlags.MODAL,
+						_("Cancel"), Gtk.ResponseType.CANCEL
+					);
+					
+					var content = progress_dialog.get_content_area();
+					var label = new Gtk.Label(_("Exporting snapshot: %s").printf(bak.name));
+					label.margin = 12;
+					content.add(label);
+					
+					var progress = new Gtk.ProgressBar();
+					progress.margin = 12;
+					progress.set_text(_("Copying files..."));
+					progress.set_show_text(true);
+					content.add(progress);
+					
+					progress_dialog.show_all();
+					
+					// Execute rsync in background
+					string cmd = "rsync -av '%s/' '%s/' 2>&1".printf(bak.path, dest_path);
+					
+					try {
+						new Thread<void*>("export-snapshot", () => {
+							string std_out, std_err;
+							int status = exec_sync(cmd, out std_out, out std_err);
+							
+							Idle.add(() => {
+								progress_dialog.destroy();
+								
+								if (status == 0) {
+									gtk_messagebox(
+										_("Export Complete"),
+										_("Snapshot exported successfully to:\n%s").printf(dest_path),
+										this, false
+									);
+								} else {
+									gtk_messagebox(
+										_("Export Failed"),
+										_("Failed to export snapshot.\n\nError: %s").printf(std_err),
+										this, true
+									);
+								}
+								
+								return false;
+							});
+							
+							return null;
+						});
+					} catch (Error e) {
+						log_error(e.message);
+					}
+					
+				} else {
+					dialog.destroy();
+				}
+
+				return;
+			}
+			iterExists = store.iter_next (ref iter);
+		}
+	}
+
+	public void view_snapshot_changes(){
+		
+		var sel = snapshot_list_box.treeview.get_selection ();
+		
+		if (sel.count_selected_rows() == 0){
+			gtk_messagebox(
+				_("Select Snapshot"),
+				_("Please select a snapshot to view changes!"),
+				this, false);
+			return;
+		}
+
+		TreeIter iter;
+		var store = (Gtk.ListStore) snapshot_list_box.treeview.model;
+
+		bool iterExists = store.get_iter_first (out iter);
+		
+		while (iterExists) {
+			
+			if (sel.iter_is_selected (iter)){
+				
+				Snapshot bak;
+				store.get (iter, 0, out bak, -1);
+
+				if (bak.btrfs_mode) {
+					gtk_messagebox(
+						_("Not Available"),
+						_("Change tracking is only available for RSYNC snapshots."),
+						this, false);
+					return;
+				}
+
+				// Show changes details dialog
+				var dialog = new ChangesDetailsWindow(bak, this);
+				dialog.run();
+				dialog.destroy();
 
 				return;
 			}

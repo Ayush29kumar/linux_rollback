@@ -41,6 +41,7 @@ class SnapshotListBox : Gtk.Box{
     private Gtk.TreeViewColumn col_unshared;
     private Gtk.TreeViewColumn col_system;
     private Gtk.TreeViewColumn col_desc;
+    private Gtk.TreeViewColumn col_changes;
 	private int treeview_sort_column_index = 0;
 	private bool treeview_sort_column_desc = true;
 
@@ -50,6 +51,8 @@ class SnapshotListBox : Gtk.Box{
 	private Gtk.ImageMenuItem mi_mark;
 	private Gtk.ImageMenuItem mi_view_log_create;
 	private Gtk.ImageMenuItem mi_view_log_restore;
+	private Gtk.ImageMenuItem mi_export;
+	private Gtk.ImageMenuItem mi_view_changes;
 	
 	private Gtk.Window parent_window;
 
@@ -57,6 +60,8 @@ class SnapshotListBox : Gtk.Box{
 	public signal void mark_selected();
 	public signal void browse_selected();
 	public signal void view_snapshot_log(bool show_restore_log);
+	public signal void export_selected();
+	public signal void view_changes();
 
 	public SnapshotListBox (Gtk.Window _parent_window) {
 
@@ -241,6 +246,17 @@ class SnapshotListBox : Gtk.Box{
 			bak.update_control_file();
 		});
 
+		//col_changes
+		col_changes = new TreeViewColumn();
+		col_changes.title = _("Changes");
+		col_changes.resizable = true;
+		col_changes.min_width = 80;
+		var cell_changes = new CellRendererText();
+		cell_changes.xalign = (float) 1.0;
+		col_changes.pack_start(cell_changes, false);
+		col_changes.set_cell_data_func(cell_changes, cell_changes_render);
+		treeview.append_column(col_changes);
+
 		var col_buffer = new TreeViewColumn();
 		var cell_text = new CellRendererText();
 		cell_text.width = 20;
@@ -337,6 +353,26 @@ class SnapshotListBox : Gtk.Box{
 		item.activate.connect(()=> { view_snapshot_log(true); });
 		menu_snapshots.append(item);
 		mi_view_log_restore = item;
+
+		// separator
+		menu_snapshots.append(new Gtk.SeparatorMenuItem());
+
+		// mi_export
+		item = new ImageMenuItem.with_label(_("Export Snapshot..."));
+        item.image = IconManager.lookup_image("document-save", 16);
+		item.activate.connect(()=> { export_selected(); });
+		menu_snapshots.append(item);
+		mi_export = item;
+
+		// mi_view_changes
+		item = new ImageMenuItem.with_label(_("View Changes Details..."));
+        item.image = IconManager.lookup_image("document-properties", 16);
+		item.activate.connect(()=> { view_changes(); });
+		menu_snapshots.append(item);
+		mi_view_changes = item;
+
+		// separator
+		menu_snapshots.append(new Gtk.SeparatorMenuItem());
 
 		// mi_remove
 		item = new ImageMenuItem.with_label(_("Delete"));
@@ -440,7 +476,14 @@ class SnapshotListBox : Gtk.Box{
 			ctxt.text = format_file_size(size);
 		}
 		else{
-			ctxt.text = "";
+			// RSYNC mode
+			if (bak.size_bytes > 0) {
+				ctxt.text = format_file_size(bak.size_bytes);
+			} else {
+				ctxt.text = _("Calculating...");
+				// Trigger async calculation
+				bak.calculate_size_async();
+			}
 		}
 		
 		ctxt.sensitive = !bak.marked_for_deletion;
@@ -531,12 +574,44 @@ class SnapshotListBox : Gtk.Box{
 		}
 	}
 
+	private void cell_changes_render(
+		CellLayout cell_layout, CellRenderer cell, TreeModel model, TreeIter iter){
+		Snapshot bak;
+		model.get (iter, 0, out bak, -1);
+
+		var ctxt = (cell as Gtk.CellRendererText);
+		
+		if (bak.btrfs_mode) {
+			ctxt.text = "—"; // BTRFS doesn't track file changes
+		} else {
+			int changes = bak.get_change_count();
+			if (changes > 0) {
+				ctxt.text = "%d".printf(changes);
+			} else if (changes == 0) {
+				ctxt.text = "0";
+			} else {
+				ctxt.text = "—";
+			}
+		}
+		
+		ctxt.sensitive = !bak.marked_for_deletion;
+
+		if (bak.live){
+			ctxt.markup = "<b>%s</b>".printf(ctxt.text);
+		}
+		else{
+			ctxt.markup = ctxt.text;
+		}
+	}
+
 	private bool menu_snapshots_popup (Gtk.Menu popup, Gdk.EventButton? event) {
 		
 		var selected = selected_snapshots();
 		
 		mi_remove.sensitive = (selected.size > 0);
 		mi_mark.sensitive = (selected.size > 0);
+		mi_export.sensitive = (selected.size == 1); // Only one snapshot at a time
+		mi_view_changes.sensitive = (selected.size == 1) && !App.btrfs_mode; // Only for RSYNC snapshots
 		mi_view_log_create.sensitive = !App.btrfs_mode;
 		mi_view_log_restore.sensitive = !App.btrfs_mode;
 
@@ -619,7 +694,8 @@ class SnapshotListBox : Gtk.Box{
 			model.set (iter, 0, bak);
 		}
 
-		col_size.visible = App.btrfs_qgroups_enabled;
+		// Always show size column for both BTRFS and RSYNC
+		col_size.visible = true;
 		col_unshared.visible = App.btrfs_qgroups_enabled;
 
 		treeview.set_model (model);

@@ -41,6 +41,8 @@ public class Snapshot : GLib.Object{
 	public string app_version = "";
 	public string description = "";
 	public int64 file_count = 0;
+	public int64 size_bytes = 0;
+	public int change_count = -1; // -1 = not calculated, 0 = no changes, >0 = number of changes
 	public Gee.ArrayList<string> tags;
 	public Gee.ArrayList<string> exclude_list;
 	public Gee.HashMap<string,Subvolume> subvolumes;
@@ -225,6 +227,8 @@ public class Snapshot : GLib.Object{
 			description = json_get_string(config,"comments","");
 			app_version = json_get_string(config,"app-version","");
 			file_count = (int64) json_get_uint64(config,"file_count",file_count);
+			size_bytes = (int64) json_get_uint64(config,"size_bytes",size_bytes);
+			change_count = (int) json_get_uint64(config,"change_count",change_count);
 			live = json_get_bool(config,"live",false);
 			string type = config.get_string_member_with_default("type", "rsync");
 
@@ -359,6 +363,8 @@ public class Snapshot : GLib.Object{
 				config.set_string_member("tags", taglist);
 				config.set_string_member("comments", description);
 				config.set_string_member("live", live.to_string());
+				config.set_string_member("size_bytes", size_bytes.to_string());
+				config.set_string_member("change_count", change_count.to_string());
 
 				if (btrfs_mode){
 					var subvols = new Json.Object();
@@ -577,5 +583,148 @@ public class Snapshot : GLib.Object{
 		/* Parses and archives rsync-log file, creates rsync-log-changes */
 		var task = new RsyncTask();
 		task.parse_log(rsync_log_file);
+	}
+
+	public int get_change_count() {
+		/* Get number of file changes in this snapshot */
+		
+		if (change_count >= 0) {
+			return change_count; // Already calculated
+		}
+		
+		if (btrfs_mode) {
+			change_count = 0; // BTRFS doesn't track individual file changes
+			return 0;
+		}
+		
+		// Check if rsync-log-changes exists
+		if (!file_exists(rsync_changes_log_file)) {
+			// Try to parse from rsync-log
+			if (file_exists(rsync_log_file)) {
+				parse_log_file();
+			}
+		}
+		
+		if (file_exists(rsync_changes_log_file)) {
+			// Count lines in changes file (each line = one changed file)
+			int count = 0;
+			try {
+				var file = File.new_for_path(rsync_changes_log_file);
+				var dis = new DataInputStream(file.read());
+				string line;
+				
+				while ((line = dis.read_line(null)) != null) {
+					line = line.strip();
+					if (line.length > 0 && !line.has_prefix("#")) {
+						count++;
+					}
+				}
+			} catch (Error e) {
+				log_debug("Error counting changes: %s".printf(e.message));
+			}
+			
+			change_count = count;
+			update_control_file(); // Save for next time
+			return count;
+		}
+		
+		change_count = 0;
+		return 0;
+	}
+
+	public ChangesSummary get_changes_summary() {
+		/* Get detailed summary of changes in this snapshot */
+		
+		var summary = new ChangesSummary();
+		
+		if (btrfs_mode) {
+			return summary; // BTRFS doesn't track file changes
+		}
+		
+		// Parse rsync log to get file changes
+		if (!file_exists(rsync_changes_log_file)) {
+			if (file_exists(rsync_log_file)) {
+				parse_log_file();
+			}
+		}
+		
+		if (file_exists(rsync_changes_log_file)) {
+			var task = new RsyncTask();
+			var items = task.parse_log(rsync_changes_log_file);
+			
+			foreach (var item in items) {
+				summary.all_items.add(item);
+				
+				switch (item.file_status) {
+					case "created":
+						summary.files_created++;
+						summary.created_items.add(item);
+						break;
+					case "deleted":
+						summary.files_deleted++;
+						summary.deleted_items.add(item);
+						break;
+					case "modified":
+						summary.files_modified++;
+						summary.modified_items.add(item);
+						break;
+				}
+			}
+		}
+		
+		return summary;
+	}
+
+	public void calculate_size_async() {
+		/* Calculate size for RSYNC snapshots using du command - OPTIMIZED */
+		
+		if (btrfs_mode) {
+			// BTRFS size already calculated in subvolumes
+			return;
+		}
+		
+		if (size_bytes > 0) {
+			// Already calculated
+			return;
+		}
+		
+		// Quick estimate using directory size (very fast but inaccurate)
+		try {
+			var file = File.new_for_path(path);
+			var info = file.query_info("standard::*", FileQueryInfoFlags.NONE);
+			int64 quick_size = info.get_size();
+			
+			if (quick_size > 0) {
+				size_bytes = quick_size * 1000; // Rough estimate
+				log_debug("Quick estimate for %s: %s".printf(name, format_file_size(size_bytes)));
+			}
+		} catch (Error e) {
+			// Ignore errors
+		}
+		
+		// Now calculate accurate size in background
+		new Thread<void*>.try("calc-size-%s".printf(name), () => {
+			// Use faster du command with timeout
+			string cmd = "timeout 30 du -s --block-size=1 '%s' 2>/dev/null | cut -f1".printf(path);
+			string std_out, std_err;
+			int status = exec_sync(cmd, out std_out, out std_err);
+			
+			if (status == 0 && std_out.length > 0) {
+				int64 accurate_size = int64.parse(std_out.strip());
+				if (accurate_size > 0) {
+					size_bytes = accurate_size;
+					// Save to control file
+					update_control_file();
+					log_debug("Calculated accurate size for %s: %s".printf(name, format_file_size(size_bytes)));
+				}
+			} else if (status == 124) {
+				// Timeout - use estimate
+				log_debug("Size calculation timed out for %s, using estimate".printf(name));
+			} else {
+				log_debug("Failed to calculate size for %s".printf(name));
+			}
+			
+			return null;
+		});
 	}
 }

@@ -19,6 +19,7 @@ sources_core = files([
   'Core/AppExcludeEntry.vala',
   'Core/Main.vala',
   'Core/Snapshot.vala',
+  'Core/ChangesSummary.vala',
   'Core/SnapshotRepo.vala',
   'Core/Subvolume.vala',
 ])
@@ -79,6 +80,7 @@ sources_gtk = files([
   'Gtk/RestoreWindow.vala',
   'Gtk/RsyncLogBox.vala',
   'Gtk/RsyncLogWindow.vala',
+  'Gtk/ChangesDetailsWindow.vala',
   'Gtk/ScheduleBox.vala',
   'Gtk/SettingsWindow.vala',
   'Gtk/SetupWizardWindow.vala',
