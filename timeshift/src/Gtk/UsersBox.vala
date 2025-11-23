@@ -41,6 +41,7 @@ class UsersBox : Gtk.Box{
 	private Gtk.Box box_btrfs;
 	private Gtk.Label lbl_message;
 	private Gtk.CheckButton chk_include_btrfs_home;
+	private Gtk.CheckButton chk_include_user_configs;
 	private bool restore_mode = false;
 	
 	public UsersBox (Gtk.Window _parent_window, ExcludeBox _exclude_box, bool _restore_mode) {
@@ -72,6 +73,8 @@ class UsersBox : Gtk.Box{
 		add(box_btrfs);
 
 		init_btrfs_home_option(box_btrfs);
+		
+		init_user_config_option();
 		
 		refresh();
 
@@ -343,6 +346,33 @@ class UsersBox : Gtk.Box{
 		}
 	}
 
+	private void init_user_config_option(){
+		
+		// Add checkbox for user configuration backup
+		chk_include_user_configs = new Gtk.CheckButton.with_label(
+			_("Include User Configurations (WiFi, Bluetooth, Desktop Customizations)")
+		);
+		
+		string tooltip = _("When enabled, backs up:\n") +
+			"• " + _("WiFi passwords and network settings") + "\n" +
+			"• " + _("Bluetooth device pairings") + "\n" +
+			"• " + _("Desktop themes, icons, and fonts") + "\n" +
+			"• " + _("Window manager and compositor configs") + "\n" +
+			"• " + _("Shell configurations (.bashrc, .zshrc, etc.)") + "\n" +
+			"• " + _("Application settings (editors, terminals, etc.)") + "\n" +
+			"• " + _("Git and development tool configs") + "\n\n" +
+			_("NOTE: Private SSH/GPG keys are NOT backed up for security.");
+		
+		chk_include_user_configs.set_tooltip_text(tooltip);
+		
+		add(chk_include_user_configs);
+		
+		chk_include_user_configs.toggled.connect(()=>{
+			App.include_user_configs = chk_include_user_configs.active;
+			log_msg("User config backup: %s".printf(App.include_user_configs ? "ENABLED" : "DISABLED"));
+		});
+	}
+
 	// helpers
 
 	public void refresh(){
@@ -377,6 +407,9 @@ class UsersBox : Gtk.Box{
 			box_btrfs.hide();
 			box_btrfs.set_no_show_all(true);
 		}
+		
+		// Update user config checkbox state
+		chk_include_user_configs.active = App.include_user_configs;
 
 		show_all();
 	}

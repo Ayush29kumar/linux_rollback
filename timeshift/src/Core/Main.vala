@@ -52,6 +52,7 @@ public class Main : GLib.Object{
 	public bool btrfs_mode = true;
 	public bool include_btrfs_home_for_backup = false;
 	public bool include_btrfs_home_for_restore = false;
+	public bool include_user_configs = false; // NEW: Include WiFi, Bluetooth, desktop customizations
     public static bool btrfs_version__can_recursive_delete = false;
 	
 	public bool stop_cron_emails = true;
@@ -750,6 +751,137 @@ public class Main : GLib.Object{
 		log_debug("Main: add_default_exclude_entries(): exit");
 	}
 
+	public void add_user_config_include_patterns(){
+		
+		log_debug("Main: add_user_config_include_patterns()");
+		
+		// System-level configs (WiFi, Bluetooth) - ALWAYS backed up
+		exclude_list_user.add("+ /etc/NetworkManager/system-connections/**");
+		exclude_list_user.add("+ /var/lib/bluetooth/**");
+		exclude_list_user.add("+ /var/lib/NetworkManager/**");
+		
+		if (include_user_configs) {
+			log_msg("User configuration backup is ENABLED");
+			
+			// Desktop Environment configs
+			exclude_list_user.add("+ /home/*/.config/gtk-3.0/**");
+			exclude_list_user.add("+ /home/*/.config/gtk-4.0/**");
+			exclude_list_user.add("+ /home/*/.config/kde*/**");
+			exclude_list_user.add("+ /home/*/.config/plasma*/**");
+			exclude_list_user.add("+ /home/*/.config/xfce4/**");
+			exclude_list_user.add("+ /home/*/.config/cinnamon/**");
+			exclude_list_user.add("+ /home/*/.config/mate/**");
+			exclude_list_user.add("+ /home/*/.config/lxqt/**");
+			exclude_list_user.add("+ /home/*/.config/gnome*/**");
+			
+			// Themes and customizations
+			exclude_list_user.add("+ /home/*/.themes/**");
+			exclude_list_user.add("+ /home/*/.icons/**");
+			exclude_list_user.add("+ /home/*/.fonts/**");
+			exclude_list_user.add("+ /home/*/.local/share/themes/**");
+			exclude_list_user.add("+ /home/*/.local/share/icons/**");
+			exclude_list_user.add("+ /home/*/.local/share/fonts/**");
+			exclude_list_user.add("+ /home/*/.local/share/plasma/**");
+			
+			// Shell configs
+			exclude_list_user.add("+ /home/*/.bashrc");
+			exclude_list_user.add("+ /home/*/.bash_profile");
+			exclude_list_user.add("+ /home/*/.bash_aliases");
+			exclude_list_user.add("+ /home/*/.bash_logout");
+			exclude_list_user.add("+ /home/*/.zshrc");
+			exclude_list_user.add("+ /home/*/.zsh_history");
+			exclude_list_user.add("+ /home/*/.oh-my-zsh/**");
+			exclude_list_user.add("+ /home/*/.profile");
+			exclude_list_user.add("+ /home/*/.xinitrc");
+			exclude_list_user.add("+ /home/*/.xprofile");
+			exclude_list_user.add("+ /home/*/.Xresources");
+			exclude_list_user.add("+ /home/*/.Xdefaults");
+			
+			// Terminal emulator configs
+			exclude_list_user.add("+ /home/*/.config/alacritty/**");
+			exclude_list_user.add("+ /home/*/.config/kitty/**");
+			exclude_list_user.add("+ /home/*/.config/terminator/**");
+			exclude_list_user.add("+ /home/*/.config/tilix/**");
+			
+			// Window manager configs
+			exclude_list_user.add("+ /home/*/.config/i3/**");
+			exclude_list_user.add("+ /home/*/.config/sway/**");
+			exclude_list_user.add("+ /home/*/.config/bspwm/**");
+			exclude_list_user.add("+ /home/*/.config/awesome/**");
+			exclude_list_user.add("+ /home/*/.config/openbox/**");
+			exclude_list_user.add("+ /home/*/.config/qtile/**");
+			exclude_list_user.add("+ /home/*/.config/hypr/**");
+			
+			// Application launchers
+			exclude_list_user.add("+ /home/*/.config/rofi/**");
+			exclude_list_user.add("+ /home/*/.config/dmenu/**");
+			exclude_list_user.add("+ /home/*/.config/ulauncher/**");
+			exclude_list_user.add("+ /home/*/.config/albert/**");
+			
+			// Status bars
+			exclude_list_user.add("+ /home/*/.config/polybar/**");
+			exclude_list_user.add("+ /home/*/.config/waybar/**");
+			exclude_list_user.add("+ /home/*/.config/lemonbar/**");
+			
+			// Compositor configs
+			exclude_list_user.add("+ /home/*/.config/picom/**");
+			exclude_list_user.add("+ /home/*/.config/compton/**");
+			
+			// SSH and GPG (PUBLIC KEYS ONLY - NO PRIVATE KEYS)
+			exclude_list_user.add("+ /home/*/.ssh/config");
+			exclude_list_user.add("+ /home/*/.ssh/known_hosts");
+			exclude_list_user.add("+ /home/*/.ssh/*.pub");
+			exclude_list_user.add("+ /home/*/.gnupg/gpg.conf");
+			exclude_list_user.add("+ /home/*/.gnupg/pubring.kbx");
+			// Explicitly exclude private keys for security
+			exclude_list_user.add("/home/*/.ssh/id_*");
+			exclude_list_user.add("! /home/*/.ssh/*.pub");
+			exclude_list_user.add("/home/*/.gnupg/private-keys-v1.d/**");
+			
+			// Git config
+			exclude_list_user.add("+ /home/*/.gitconfig");
+			exclude_list_user.add("+ /home/*/.config/git/**");
+			
+			// Editor configs
+			exclude_list_user.add("+ /home/*/.vimrc");
+			exclude_list_user.add("+ /home/*/.vim/**");
+			exclude_list_user.add("+ /home/*/.config/nvim/**");
+			exclude_list_user.add("+ /home/*/.emacs.d/**");
+			exclude_list_user.add("+ /home/*/.config/Code/User/settings.json");
+			exclude_list_user.add("+ /home/*/.config/Code/User/keybindings.json");
+			exclude_list_user.add("+ /home/*/.config/Code/User/snippets/**");
+			
+			// Desktop files and autostart
+			exclude_list_user.add("+ /home/*/.local/share/applications/**");
+			exclude_list_user.add("+ /home/*/.config/autostart/**");
+			
+			// Wallpapers (if in standard locations)
+			exclude_list_user.add("+ /home/*/.local/share/wallpapers/**");
+			exclude_list_user.add("+ /home/*/Pictures/Wallpapers/**");
+			
+			// Notification daemon configs
+			exclude_list_user.add("+ /home/*/.config/dunst/**");
+			exclude_list_user.add("+ /home/*/.config/mako/**");
+			
+			// File manager configs
+			exclude_list_user.add("+ /home/*/.config/nautilus/**");
+			exclude_list_user.add("+ /home/*/.config/nemo/**");
+			exclude_list_user.add("+ /home/*/.config/thunar/**");
+			exclude_list_user.add("+ /home/*/.config/pcmanfm/**");
+			
+			// Audio configs
+			exclude_list_user.add("+ /home/*/.config/pulse/**");
+			exclude_list_user.add("+ /home/*/.config/pipewire/**");
+			
+			log_msg("Added user configuration include patterns");
+		}
+		else {
+			log_msg("User configuration backup is DISABLED (system configs like WiFi/Bluetooth still backed up)");
+		}
+		
+		log_debug("Main: add_user_config_include_patterns(): exit");
+	}
+
 	public void add_app_exclude_entries(){
 
 		log_debug("Main: add_app_exclude_entries()");
@@ -786,6 +918,9 @@ public class Main : GLib.Object{
 		log_debug("Main: create_exclude_list_for_backup()");
 		
 		var list = new Gee.ArrayList<string>();
+
+		// Add user configuration include patterns (WiFi, Bluetooth, desktop customizations)
+		add_user_config_include_patterns();
 
 		// add user entries from current setting
 		// user entry is first since rsync prioritizes the first
@@ -3332,6 +3467,7 @@ public class Main : GLib.Object{
 		config.set_string_member("do_first_run", false.to_string());
 		config.set_string_member("btrfs_mode", btrfs_mode.to_string());
 		config.set_string_member("include_btrfs_home_for_backup", include_btrfs_home_for_backup.to_string());
+		config.set_string_member("include_user_configs", include_user_configs.to_string());
 		config.set_string_member("include_btrfs_home_for_restore", include_btrfs_home_for_restore.to_string());
 		config.set_string_member("stop_cron_emails", stop_cron_emails.to_string());
 
@@ -3440,6 +3576,7 @@ public class Main : GLib.Object{
 		}
 		else{
 			include_btrfs_home_for_backup = json_get_bool(config, "include_btrfs_home_for_backup", include_btrfs_home_for_backup);
+			include_user_configs = json_get_bool(config, "include_user_configs", include_user_configs);
 		}
 		
 		include_btrfs_home_for_restore = json_get_bool(config, "include_btrfs_home_for_restore", include_btrfs_home_for_restore);
