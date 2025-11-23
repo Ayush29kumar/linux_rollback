@@ -1,25 +1,4 @@
-/*
- * MainWindow.vala
- *
- * Copyright 2012-2018 Tony George <teejeetech@gmail.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
- *
- *
- */
+
 
 using Gtk;
 using Gee;
@@ -802,60 +781,149 @@ class MainWindow : Gtk.Window{
 					}
 					
 					// Show progress dialog
-					var progress_dialog = new Gtk.Dialog.with_buttons(
-						_("Exporting Snapshot"),
-						this,
-						Gtk.DialogFlags.MODAL,
-						_("Cancel"), Gtk.ResponseType.CANCEL
-					);
+				var progress_dialog = new Gtk.Dialog.with_buttons(
+					_("Exporting Snapshot"),
+					this,
+					Gtk.DialogFlags.MODAL,
+					_("Cancel"), Gtk.ResponseType.CANCEL
+				);
+				
+				var content = progress_dialog.get_content_area();
+				content.margin = 12;
+				content.spacing = 6;
+				
+				var label = new Gtk.Label(_("Exporting snapshot: %s").printf(bak.name));
+				label.margin = 6;
+				content.add(label);
+				
+				// Size label
+				var lbl_size = new Gtk.Label("");
+				lbl_size.xalign = 0;
+				lbl_size.margin = 6;
+				if (bak.size_bytes > 0) {
+					lbl_size.label = _("Size: %s").printf(format_file_size(bak.size_bytes));
+				} else {
+					lbl_size.label = _("Size: Calculating...");
+				}
+				content.add(lbl_size);
+				
+				// Time label
+				var lbl_time = new Gtk.Label(_("Elapsed: 0s"));
+				lbl_time.xalign = 0;
+				lbl_time.margin = 6;
+				content.add(lbl_time);
+				
+				var progress = new Gtk.ProgressBar();
+				progress.margin = 12;
+				progress.set_text(_("Copying files..."));
+				progress.set_show_text(true);
+				progress.pulse();
+				content.add(progress);
+				
+				progress_dialog.show_all();
+				
+				// Track elapsed time
+				int64 start_time = get_monotonic_time();
+				
+				// Pulse the progress bar while copying
+				bool export_cancelled = false;
+				bool export_complete = false;
+				
+				uint timeout_id = Timeout.add(100, () => {
+					if (export_complete || export_cancelled) {
+						return false; // Stop timeout
+					}
+					progress.pulse();
 					
-					var content = progress_dialog.get_content_area();
-					var label = new Gtk.Label(_("Exporting snapshot: %s").printf(bak.name));
-					label.margin = 12;
-					content.add(label);
+					// Update elapsed time
+					int64 elapsed_us = get_monotonic_time() - start_time;
+					int elapsed_sec = (int)(elapsed_us / 1000000);
+					int minutes = elapsed_sec / 60;
+					int seconds = elapsed_sec % 60;
 					
-					var progress = new Gtk.ProgressBar();
-					progress.margin = 12;
-					progress.set_text(_("Copying files..."));
-					progress.set_show_text(true);
-					content.add(progress);
-					
-					progress_dialog.show_all();
-					
-					// Execute rsync in background
-					string cmd = "rsync -av '%s/' '%s/' 2>&1".printf(bak.path, dest_path);
-					
-					try {
-						new Thread<void*>("export-snapshot", () => {
-							string std_out, std_err;
-							int status = exec_sync(cmd, out std_out, out std_err);
-							
-							Idle.add(() => {
-								progress_dialog.destroy();
-								
-								if (status == 0) {
-									gtk_messagebox(
-										_("Export Complete"),
-										_("Snapshot exported successfully to:\n%s").printf(dest_path),
-										this, false
-									);
-								} else {
-									gtk_messagebox(
-										_("Export Failed"),
-										_("Failed to export snapshot.\n\nError: %s").printf(std_err),
-										this, true
-									);
-								}
-								
-								return false;
-							});
-							
-							return null;
-						});
-					} catch (Error e) {
-						log_error(e.message);
+					if (minutes > 0) {
+						lbl_time.label = _("Elapsed: %dm %ds").printf(minutes, seconds);
+					} else {
+						lbl_time.label = _("Elapsed: %ds").printf(seconds);
 					}
 					
+					return true; // Continue pulsing
+				});
+				
+				// Handle cancel button
+				progress_dialog.response.connect((response_id) => {
+					if (response_id == Gtk.ResponseType.CANCEL) {
+						export_cancelled = true;
+					}
+				});
+				
+				// Execute rsync in background
+			// Need sudo because snapshot files are owned by root
+			// For RSYNC snapshots, files are in the "localhost" subdirectory
+			string source_path = bak.btrfs_mode ? bak.path : (bak.path + "/localhost");
+			// Use --info=progress2 for progress tracking (removed --delete as it's dangerous for export)
+			// Note: No shell redirection needed - exec_sync() captures stdout/stderr separately
+			string cmd = "pkexec rsync -a --info=progress2 '%s/' '%s/'".printf(source_path, dest_path);
+				
+				try {
+					new Thread<void*>("export-snapshot", () => {
+						string std_out = "";
+						string std_err = "";
+						int status = -1;
+						
+						if (!export_cancelled) {
+							status = exec_sync(cmd, out std_out, out std_err);
+						}
+						
+						Idle.add(() => {
+							export_complete = true;
+							Source.remove(timeout_id);
+							progress_dialog.destroy();
+							
+							if (export_cancelled) {
+								gtk_messagebox(
+									_("Export Cancelled"),
+									_("Snapshot export was cancelled."),
+									this, false
+								);
+							} else if (status == 0) {
+								gtk_messagebox(
+									_("Export Complete"),
+									_("Snapshot exported successfully to:\n%s").printf(dest_path),
+									this, false
+								);
+							} else {
+								// Show detailed error
+								string error_msg = std_err;
+								if (error_msg.length == 0) {
+									error_msg = std_out;
+								}
+								if (error_msg.length > 500) {
+									error_msg = error_msg.substring(0, 500) + "...";
+								}
+								
+								gtk_messagebox(
+									_("Export Failed"),
+									_("Failed to export snapshot.\n\nError:\n%s").printf(error_msg),
+									this, true
+								);
+							}
+							
+							return false;
+						});
+						
+						return null;
+					});
+				} catch (Error e) {
+					log_error(e.message);
+					Source.remove(timeout_id);
+					progress_dialog.destroy();
+					gtk_messagebox(
+						_("Export Error"),
+						_("Failed to start export: %s").printf(e.message),
+						this, true
+					);
+				}
 				} else {
 					dialog.destroy();
 				}

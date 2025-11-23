@@ -606,7 +606,7 @@ public class Snapshot : GLib.Object{
 		}
 		
 		if (file_exists(rsync_changes_log_file)) {
-			// Count lines in changes file (each line = one changed file)
+			// Count only actual file changes (not directory metadata)
 			int count = 0;
 			try {
 				var file = File.new_for_path(rsync_changes_log_file);
@@ -615,7 +615,22 @@ public class Snapshot : GLib.Object{
 				
 				while ((line = dis.read_line(null)) != null) {
 					line = line.strip();
-					if (line.length > 0 && !line.has_prefix("#")) {
+					
+					// Skip empty lines and comments
+					if (line.length == 0 || line.has_prefix("#")) {
+						continue;
+					}
+					
+					// Only count actual file changes, not directory metadata
+					// File changes start with ">f" or "<f" (created/deleted files)
+					// Directory changes start with "cd" or ".d" (metadata only)
+					if (line.has_prefix(">f") || line.has_prefix("<f") || 
+					    line.has_prefix("*f") || line.has_prefix(".f")) {
+						count++;
+					}
+					// Also count symlinks
+					else if (line.has_prefix(">L") || line.has_prefix("<L") ||
+					         line.has_prefix("*L") || line.has_prefix(".L")) {
 						count++;
 					}
 				}
@@ -653,6 +668,11 @@ public class Snapshot : GLib.Object{
 			var items = task.parse_log(rsync_changes_log_file);
 			
 			foreach (var item in items) {
+				// Only process actual files and symlinks, skip directories
+				if (item.file_type == FileType.DIRECTORY) {
+					continue; // Skip directory entries
+				}
+				
 				summary.all_items.add(item);
 				
 				switch (item.file_status) {
@@ -665,6 +685,12 @@ public class Snapshot : GLib.Object{
 						summary.deleted_items.add(item);
 						break;
 					case "modified":
+					case "checksum":
+					case "size":
+					case "timestamp":
+					case "permissions":
+					case "owner":
+					case "group":
 						summary.files_modified++;
 						summary.modified_items.add(item);
 						break;
