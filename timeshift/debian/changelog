@@ -1,0 +1,900 @@
+timeshift (25.07.7) zara; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 26 Aug 2025 18:02:04 +0200
+
+timeshift (25.07.6) zara; urgency=medium
+
+  [ Michael Webster ]
+  * Add startup check of btrfs-progs version to determine capabilities.
+  * Main.vala: Improve readability of btrfs-progs version check.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 26 Aug 2025 16:42:22 +0200
+
+timeshift (25.07.5) zara; urgency=medium
+
+  [ Ukang'a Dickson ]
+  * Error if both lsb_release n os_release are missing (#431)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 06 Aug 2025 18:06:36 +0200
+
+timeshift (25.07.4) zara; urgency=medium
+
+  [ Michael Webster ]
+  * TeeJee.Process.vala: Use GLib read_link instead of Posix readlink.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 31 Jul 2025 16:40:41 +0200
+
+timeshift (25.07.3) zara; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 31 Jul 2025 12:32:57 +0200
+
+timeshift (25.07.2) zara; urgency=medium
+
+  [ Michael Webster ]
+  * Don't flag new log messages for translations.
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 30 Jul 2025 16:49:20 +0200
+
+timeshift (25.07.1) zara; urgency=medium
+
+  [ Michael Webster ]
+  * Subvolume.vala: (btrfs) Wait for async file operations to complete.
+
+  [ Pierre Carru ]
+  * Btrfs: support default subvolid!=0 (#334)
+
+  [ entith ]
+  * Allow explicitly setting ondemand tag from CLI (#399)
+
+  [ suve ]
+  * AppStream metadata fixes (#391)
+
+  [ Yannis Gerlach ]
+  * Remove dependencies to external binarys (#333)
+
+  [ snwbrds2922 ]
+  * Add user settings before defaults (#342)
+
+  [ Yannis Gerlach ]
+  * query the correct root path on btrfs (#377)
+  * add "timeshift" to the tempdir names (#395)
+  * refactor LinuxDistro (#376)
+
+  [ Michael Webster ]
+  * Main.vala: Don't check for distro name on every device.
+
+  [ mwoz123 ]
+  * BTRFS custom hooks (#381)
+
+  [ Shyliuli ]
+  * Specify the environment variables named DISPLAY and XAUTHORITY (#384)
+
+  [ TechManWalker ]
+  * Always delete brfs volumes recursively (#423)
+
+  [ Yannis Gerlach ]
+  * only kill a task if its pid is set (#427)
+
+  [ Nikita Stelmashenko ]
+  * Add full non-interactive mode (#388)
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 30 Jul 2025 16:42:06 +0200
+
+timeshift (24.06.6) xia; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 06 Jan 2025 14:15:15 +0000
+
+timeshift (24.06.5) xia; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 05 Dec 2024 10:54:22 +0000
+
+timeshift (24.06.4) xia; urgency=medium
+
+  [ Maxim Ostapenko ]
+  * Added a way to install and uninstall a program in ALT Linux (#312)
+
+  [ Yannis Gerlach ]
+  * always have an config object (#371)
+
+  [ dampfwal3477 ]
+  * Update timeshift.appdata.xml (#356)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 03 Dec 2024 10:14:50 +0000
+
+timeshift (24.06.3) wilma; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 21 Jul 2024 10:41:56 +0100
+
+timeshift (24.06.2) wilma; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 18 Jun 2024 20:56:08 +0100
+
+timeshift (24.06.1) wilma; urgency=medium
+
+  [ mostghost ]
+  * Relocated 'delete' to a safer position. (#268)
+  * Added confirmation dialog on delete. (#269)
+
+  [ Clement Lefebvre ]
+  * Add missing l10n to previous commit
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 06 Jun 2024 11:54:24 +0100
+
+timeshift (24.01.1) virginia; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 04 Jan 2024 17:02:16 +0000
+
+timeshift (23.12.2) virginia; urgency=medium
+
+  [ KeithB ]
+  * Fix RAID handling in device lookup (#252)
+
+  [ Michael Webster ]
+  * Check /proc/cmdline for the live-session check.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 28 Dec 2023 11:50:28 +0000
+
+timeshift (23.12.1) virginia; urgency=medium
+
+  [ Boyuan Yang ]
+  * docs/man/meson.build: Use -N for help2man to avoid texinfo section (#217)
+
+  [ Robin Candau ]
+  * Add the installation/removal instructions for the timeshift Arch package (#220)
+
+  [ Yegor Yefremov ]
+  * docs/development.md: fix meson setup command (#224)
+  * README.md: point to development docs for the installation from source (#226)
+
+  [ Michael Webster ]
+  * Remove INSTALL file.
+
+  [ Clement Lefebvre ]
+  * Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 03 Dec 2023 15:46:39 +0000
+
+timeshift (23.07.1) victoria; urgency=medium
+
+  [ Bobby Rong ]
+  * build: allow installing default.json to sysconfdir (#208)
+  * treewide: use /usr/bin/env bash for shebang (#209)
+
+  [ Clement Lefebvre ]
+  * Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 08 Jul 2023 18:11:01 +0200
+
+timeshift (23.06.2) victoria; urgency=medium
+
+  [ AsciiWolf ]
+  * Fix the desktop file name + project license in appdata (#204)
+
+  [ Clement Lefebvre ]
+  * Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 08 Jun 2023 12:16:43 +0100
+
+timeshift (23.06.1) victoria; urgency=medium
+
+  [ GHelliot ]
+  * Update Device.vala
+
+  [ TotalCaesar659 ]
+  * Update URLs to HTTPS
+
+  [ Yegor Yefremov ]
+  * README.md: fix a typo
+
+  [ Vlasov Yuriy ]
+  * Added extra constraints to BTRFS mode in Supported System Configurations (#103)
+
+  [ Yegor Yefremov ]
+  * src/Utility: fix deprecated Thread.create usage (#151)
+
+  [ Michael Webster ]
+  * AsyncTask: Use a mutex to guard access to AsyncTask.status_line.
+
+  [ Yegor Yefremov ]
+  * Fix printf format warnings (#162)
+  * Don't use deprecated from_timeval_utc function
+  * Fix deprecated Thread.create usage
+  * Fix segmentation fault (#169)
+
+  [ Ivan Skodje ]
+  * Added missing documentation regarding tags abbrevation which was difficult to find (#168)
+
+  [ Yegor Yefremov ]
+  * Console: add --version option (#175)
+
+  [ Ivan Skodje ]
+  * Development documentation for easier accessibility (#170)
+
+  [ Yegor Yefremov ]
+  * Remove timeshift-uninstall binary (#176)
+  * Debian clean up (#180)
+  * Console: add --version option description to the help massages (#181)
+  * src/makefile: remove VTE_291_OLD and VTE_291 symbols (#183)
+  * Fix project's license (#189)
+  * Use help2man utility to create a man page. (#178)
+  * meson support (#173)
+  * Fix deprecated Gtk.Widget.margin_left and Gtk.Widget.margin_right properties
+  * Use get_hadjustment via casting TreeView to Gtk.Scrollable
+  * meson: add project's license definition
+  * Don't use the deprecated Gtk.TreeView.rules_hint feature (#201)
+  * docs: automatically generate timeshift-gtk manpage (#194)
+  * Use an unsafe cast (#200)
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 01 Jun 2023 11:46:39 +0100
+
+timeshift (22.11.2) vera; urgency=medium
+
+  [ Michael Webster ]
+  * Main.vala: Turn the initial btrfs quota error into a message if we think we know what the error is.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 07 Jan 2023 16:04:11 +0000
+
+timeshift (22.11.1) vera; urgency=medium
+
+  [ Matin Lotfaliei ]
+  * Update README.md to include build dependencies and instructions (#45)
+
+  [ Isaac Carter ]
+  * Changes man page to GROFF format (#73)
+
+  [ Michael Webster ]
+  * Add github workflow.
+  * Clean up debian/control, appdata, build file.
+  * debian/control: Restore newline.
+
+  [ Tony George ]
+  * #939, #937: Fix crash on ArchLinux and Ubuntu 22.10 Kinetic
+  * Don't show message when unmounting temporary mount points
+  * Remove some unused code and functions
+  * Use -Os for compilation instead of -O3
+
+  [ JungHee Lee ]
+  * Update timeshift-gtk.desktop
+
+  [ Tony George ]
+  * Fix typo in timeshift-gtk.desktop
+
+  [ Michael Webster ]
+  * Fix some file permissions.
+
+  [ Tony George ]
+  * Delete the empty 'timeshift-wiki' folder
+  * Remove mention of installer in README; Remove config file for installer
+  * Remove config file for old GitHub pages site
+  * Remove empty NOTES file
+  * Remove BUILD_CONFIG
+
+  [ Thomas Praxl ]
+  * Restore btrfs qgroups size & unshared size columns
+
+  [ Michael Webster ]
+  * Main.vala: Don't continue to try to get btrfs quota info if it fails the first time.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 22 Nov 2022 10:07:06 +0000
+
+timeshift (22.06.5) vanessa; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 24 Jul 2022 12:31:39 +0200
+
+timeshift (22.06.4) vanessa; urgency=medium
+
+  [ Michael Webster ]
+  * Disable selection of the btrfs backend when there are no btrfs filesystems found.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 15 Jul 2022 15:26:43 +0200
+
+timeshift (22.06.3) vanessa; urgency=medium
+
+  [ Michael Webster ]
+  * settings: Clear the initial snapshot size and file count when all snapshots are deleted.
+  * rsync: Calculate required space before attempting to perform an (#19)
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 30 Jun 2022 15:18:13 +0200
+
+timeshift (22.06.2) vanessa; urgency=medium
+
+  [ luz paz ]
+  * Fix various typos in the source
+
+  [ icarter09 ]
+  * Removes lines about paypal account.
+
+  [ Clement Lefebvre ]
+  * Remove donation window
+  * About: Update info and use a Gtk.AboutDialog
+  * SnapshotListBox: Fix distro name LinuxMint -> Linux Mint
+  * l10n: Update POT
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 27 Jun 2022 11:31:04 +0200
+
+timeshift (22.06.1) focal; urgency=medium
+
+  * Fix #895, #809, #689, #653, #10: Unmount devices that were mounted by Timeshift before exit
+  * Fix #865, #839, #680: Do not create or remove Qgroups when snapshots are created or removed
+  * Fix #900, #891: Force C locale for Rsync
+  * Install app icon in /usr/share/pixmaps directory
+  * Remove columns 'Size' and 'Unshared Size' for BTRFS snapshots.
+  * Rsync: Restore: Delete files using --delete-before instead of --delete-after
+  * Fix #260: No text on Summary page under 'Warning' and 'Disclaimer' heading
+  * Rsync: Restore: Improve UI for the device selection page
+  * Code cleanup: Remove unused functions and code
+  * Update donation window
+  * Update translations
+  * Fix a build failure
+
+ -- Tony George <teejeetech@gmail.com>  Sat, 28 May 2022 10:00:00 +0530
+
+timeshift (21.09.1) focal; urgency=medium
+
+  * Fix #676 Build fails with xapp 2.0.0
+  * Fix #676 Update references to GLib.Object
+  * Fix #425, #753, #755
+  * Fix #589
+  * Fix #186
+  * Fix compiler warnings
+  * Update README
+
+ -- Tony George <teejeetech@gmail.com>  Sat, 25 Sep 2021 10:00:00 +0530
+
+timeshift (21.06) focal; urgency=medium
+
+  * Update packaging
+  
+  * Update translations
+  
+  * Update website links
+  
+  * Fix for parsing lsblk output - #425, #753, #755
+
+ -- Tony George <teejeetech@gmail.com>  Sun, 06 Jun 2021 10:00:00 +0530
+
+timeshift (20.11.1) focal; urgency=medium
+
+  * Fix #631: Escape single quote in LUKS password when unlocking device
+  
+  * Fix #626: Filters: Save filter order changes when clicking OK
+    
+  * Fix #643: Filters: Save changes after Include/Exclude radio is toggled
+
+  * Fix #668: Filters: Save changes immediately after pattern is edited
+
+  * Fix #666: Filters: Save changes immediately after adding a pattern;
+  and before clicking Summary button
+  
+  * Move config file to /etc/timeshift/timeshift.json
+  
+  * Move default config to /etc/timeshift/default.json
+  
+  * AppStream: Install only under /usr/share/metainfo. Don't install 
+  under /usr/share/appdata/
+  
+  * Fix #497, #467: Fix missing hourly backups
+  
+  * Option to unmark snapshots that are marked for deletion
+  
+  * Remove unused functions and code
+  
+  * pkexec: Don't pass DISPLAY and AUTHORITY in launcher script
+
+ -- Tony George <teejeetech@gmail.com>  Sun, 15 Nov 2020 20:00:00 +0530
+
+
+timeshift (20.03) xenial; urgency=medium
+
+  * Fix an issue with script execution
+
+ -- Tony George <teejeetech@gmail.com>  Thu, 05 Mar 2020 05:00:00 +0530
+
+
+timeshift (20.02) xenial; urgency=medium
+
+  * Fix bind-mount issues (#528, #535, #536, #555)
+
+  * Mount devices to /run/timeshift instead of /mnt/timeshift
+
+  * Update translation files
+
+ -- Tony George <teejeetech@gmail.com>  Sat, 29 Feb 2020 10:00:00 +0530
+
+
+timeshift (19.08.1) xenial; urgency=medium
+
+  * #375 Fix build errors with vala 0.42.5; Remove --threads from makefile;
+
+  * #443 Add support for custom date format; Add new page for Misc settings;
+
+  * Add OK button to Settings window
+
+  * Improve the layout of Prev/Next/Finish navigation buttons
+
+  * Fix incorrect date format for path string
+
+  * Use the --sparse option with rsync
+
+  * #437 Exclude package manager cache for rsync snapshots
+
+  * #436 Add man page
+
+  * #386 Fix an issue with check for admin access
+
+  * Update translation template and translation files
+
+ -- Tony George <teejeetech@gmail.com>  Sun, 11 Aug 2019 18:00:00 +0530
+
+
+timeshift (19.01) xenial; urgency=medium
+
+  * Exclude /snap by default
+
+  * Updated translations
+
+  * #362 - Don't delete snapshots older than X interval if count < max
+
+  * #211 - Snapshots with comments will not be auto-removed
+
+ -- Tony George <teejeetech@gmail.com>  Sun, 20 Jan 2019 10:00:00 +0530
+
+
+timeshift (18.9.1) xenial; urgency=medium
+
+  * Updated donation window message
+
+ -- Tony George <teejeetech@gmail.com>  Wed, 05 Sep 2018 10:00:00 +0530
+
+
+timeshift (18.9) xenial; urgency=medium
+
+  * Updated donation window
+
+  * Display donation button in toolbar
+
+ -- Tony George <teejeetech@gmail.com>  Sat, 01 Sep 2018 10:00:00 +0530
+
+
+timeshift (18.8) xenial; urgency=medium
+
+  * #196 Fixed a typo
+
+  * #191 Don't exclude /var/spool
+
+  * Add makepot file
+  
+  * Launcher: Explicitly pass DISPLAY and XAUTHORITY to pkexec
+
+  * Use -O3 optimization when compiling with gcc
+
+  * #278 Increased the width of Setup Wizard window
+
+  * Fixed: Unencrypted partionless disk could not be used as backup device
+
+  * Added support for using F2FS and ZFS filesystems for RSYNC backups
+
+  * Workaround for Docker mounting rootfs on /var/lib/docker/plugins
+
+  * Added support for raid5 and dmraid
+
+  * Translation fixes
+
+ -- Tony George <teejeetech@gmail.com>  Sun, 26 Aug 2018 10:00:00 +0530
+
+
+timeshift (18.6.1) xenial; urgency=medium
+
+  * Rsync: Read fstab to exclude devices mounted on non-standard locations
+
+  * UI: Hide snapshot type information behind an expander
+
+  * UI: Added frame around messages; Use smaller bullet characters;
+
+  * Wizard: Add "Users" page to Setup Wizard for selecting home directory
+
+  * Fixed build issue with newer version of libvte291
+
+ -- Tony George <teejeetech@gmail.com>  Sun, 24 Jun 2018 17:00:00 +0530
+
+
+timeshift (18.6) xenial; urgency=medium
+
+  * Exclude /swapfile for rsync snapshots
+
+  * Translation fixes
+
+ -- Tony George <teejeetech@gmail.com>  Sat, 23 Jun 2018 20:00:00 +0530
+
+timeshift (18.4) xenial; urgency=medium
+
+  * UI Improvements
+
+  * Added option to keep BTRFS qgroups disabled
+
+  * Added a fix for nested subvolume issue
+
+ -- Tony George <teejeetech@gmail.com>  Sun, 01 Apr 2018 10:00:00 +0530
+
+
+timeshift (18.2.1) xenial; urgency=medium
+
+  * Fixed an issue in parsing subvol name from fstab
+
+ -- Tony George <teejeetech@gmail.com>  Mon, 12 Feb 2018 10:00:00 +0530
+
+
+timeshift (18.2) xenial; urgency=medium
+
+  * Updated rsync log viewer
+
+  * Display preview of files to be restored for rsync snapshots
+
+  * Enable "View Log for Restore" menu item only if restore log exits
+
+  * Appdata: Install to both /appdata and /metainfo for compatibility
+
+  * Skip parsing log file after creating rsync snapshot
+
+  * Disable deleted count label while creating snapshot as this info
+  is not applicable while creating snapshots
+
+  * makefile: Remove rpath; Break commands over multiple lines;
+
+  * Removed menu item for "Refresh Snapshot List"
+
+  * Statusbar: DIsplay status items in separate frames
+
+  * Restore: Allow compare action to be cancelled
+
+  * Fixed: Unchanged files count was not displayed
+
+ -- Tony George <teejeetech@gmail.com>  Sat, 03 Feb 2018 10:00:00 +0530
+
+
+timeshift (18.1.1) xenial; urgency=medium
+
+  * Fixed an issue where home directory would get deleted while
+  restoring rsync snapshot. This happened in scenarios where the user
+  had created a snapshot excluding home directory, and later
+  restored the snapshot after including home directory in Settings.
+  To avoid such scenarios, user-specified include filters
+  will be ignored for restore. Exclude list that was created during
+  snapshot creation will be used instead, along with any additional
+  exclude filters.
+
+ -- Tony George <teejeetech@gmail.com>  Thu, 25 Jan 2018 10:00:00 +0530
+
+
+timeshift (18.1) xenial; urgency=medium
+
+  * Added messages to Settings window to answer common questions
+
+  * Added 3 options for including and excluding home directory contents
+
+  * Number of snapshots to keep will be enabled, even if snapshot level
+  is not selected.
+
+  * Excluded paths/devices will not be mounted during restore
+
+  * /var/lib/schroot will be excluded by default to prevent an issue
+  with the snapshot never completing
+
+  * /DATA and /sdcard will be excluded by default, as some users mount
+  devices at these locations.
+
+  * Added a check for "notify-send" before sending a desktop
+  notification. "notify-send" is not available on some systems.
+
+  * About window was updated to include the GPL license text. Web links
+  will open web browser as non-admin user.
+
+  * #95 Added support for selecting partition-less devices as snapshot device
+  
+  * #97 PARTLABEL and LABEL will be displayed in device list
+
+ -- Tony George <teejeetech@gmail.com>  Sun, 14 Jan 2018 10:00:00 +0530
+
+
+timeshift (17.11) xenial; urgency=medium
+
+  * Added appdata file
+
+  * Prefer pkexec for starting timeshift in Wayland session
+
+  * Added a Polkit policy file
+
+  * Add hidpi support for icons
+
+  * Updated translations
+  
+ -- Tony George <teejeetech@gmail.com>  Sun, 05 Nov 2017 10:00:00 +0530
+
+
+timeshift (17.10) xenial; urgency=medium
+
+  * [Changed] Entire contents of home directories will be excluded by
+  default. Any data to be included from home directories must be
+  explicitly selected from Settings window.
+   
+  * [Fixed] Encrypted home directories will be backed-up and restored
+  using encrypted files in /home/.ecryptfs. Decrypted contents will
+  NOT be saved to backup location.
+
+  * [Added] Added support for BTRFS systems with @ on BTRFS volume
+  and /home mounted on non-BTRFS partition
+
+  * [Added] Support for window progress in Cinnamon 3.6 using libxapp
+
+  * [Added] Install a default configuration file in 
+  /etc/default/timeshift.json
+
+  * [Removed] Removed the Exclude Apps page in restore wizard
+
+  * [Removed] Unnecessary dependency on libxml2 and libsoup
+
+  * [Fixed] Inverted mouse cursor was displayed for some cursor themes
+  on KDE and GTK
+
+  * [Fixed] Message dialog was unreadable when timeshift-gtk was
+  started without admin access on a system with newer versions of GTK+
+
+  * [Fixed] Updated timeshift-launcher to work with Wayland in Fedora
+
+  * [Fixed] Snapshots were saved on root device if backup device was missing
+  
+  * [Fixed] Build error with valac-0.36
+
+  * [Fixed] Build error with libvte-2.91 on Debian 9
+
+  * [Fixed] Scheduled tasks will be added only after user clicks 
+  Next on Schedule page. Tasks will not be added if user quits the
+  Setup Wizard without clicking Next on the Schedule page.
+
+  * [Changed] Use symbolic icons in toolbar for better contrast with
+  light and dark GTK themes
+
+  * [Updated] Donation window
+
+  * [Updated] Improved installer; More robust and supports more systems
+
+  * [Updated] Added new translations by Linux Mint translation teams
+  
+ -- Tony George <teejeetech@gmail.com>  Sun, 01 Oct 2017 10:00:00 +0530
+
+
+timeshift (17.2) trusty; urgency=medium
+
+  * Use StackWidget for Settings window
+
+  * Fixed: Hourly task was not created correctly
+
+  * Settings: Updated messages in Schedule tab to avoid confusion
+  
+ -- Tony George <teejeetech@gmail.com>  Thu, 26 Jan 2017 10:00:00 +0530
+
+
+timeshift (17.1) trusty; urgency=medium
+
+  * Added support for BTRFS snapshots. There's a new tab in Settings
+  Window to select the snapshot type as BTRFS or RSYNC. Application will
+  default to BTRFS snapshots on supported systems.
+
+  * Added support for BTRFS systems with @ and @home on different disks
+
+  * Exclude: Added /var/lib/docker to default exclude list. This will
+  prevent recursive backups which can cause the disk to run out of
+  space. 
+
+  * Exclude: Added /timeshift-btrfs and /var/log/timeshift to
+  default exclude list
+
+  * Scheduling: Scripts will be created in /etc/cron.*/ instead of
+  adding entries to root user's crontab. This allows users to create
+  custom jobs for timeshift without any conflict with jobs created
+  automatically by the application.
+
+  * Console: Replaced options '--backup' with '--check', and
+  '--backup-now' with '--create'
+
+  * Console: Added option --tags to specify backup level while creating
+  snapshots
+
+  * Console: Added options --btrfs and --rsync to specify snapshot type
+
+  * Console: Fixed: Progress was not displayed when first snapshot was
+  taken. System size will be estimated before creating first snapshot.
+
+  * Console: Fixed: Comments passed as command argument were not saved
+
+  * Settings: Removed Notes tab from SettingsWindow
+
+  * Settings: Added option to stop emails sent by cron service
+
+  * Use expanded ButtonBox if gtk+ version >= 3.18
+
+  * Package 'timeshift' now replaces package 'timeshift-btrfs'
+  if installed on the system
+
+  * Added Ukranian translation by Ihor Chomko
+
+  * Added Swedish translation by Åke Engelbrektson
+  
+ -- Tony George <teejeetech@gmail.com>  Sun, 15 Jan 2017 10:00:00 +0530
+
+
+timeshift (16.11.2) trusty; urgency=medium
+
+  * Fixed: Partitions were not detected correctly on LMDE2 Betsy
+
+  * Fixed some dependency issues while running installer on LMDE2.
+  Installer will be built using trusty as base instead of xenial for
+  better compatibility with older distros.
+  
+ -- Tony George <teejeetech@gmail.com>  Fri, 11 Nov 2016 14:00:00 +0530
+
+
+timeshift (16.11.1) trusty; urgency=medium
+
+  * Fixed an issue with application launcher
+  
+ -- Tony George <teejeetech@gmail.com>  Fri, 11 Nov 2016 14:00:00 +0530
+
+
+timeshift (16.11) trusty; urgency=medium
+
+  * Moved console and Gtk code to separate utilities:
+  'timeshift' and 'timeshift-gtk'
+
+  * Console: Display progress in terminal while creating and
+  deleting snapshots; Added --comments option for setting the comment
+  when new snapshot is created; Changed input timeout interval to
+  60 seconds;
+
+  * RestoreWindow: Removed loop devices from target device dropdowns;
+  Fixed some issues in device selection logic; Comboboxes would remain
+  unselected in some scenarios; User will be prompted to unlock
+  default devices before the restore window is displayed; LVM volume
+  names will be displayed on the target device selection tab;
+
+  * RestoreWindow: Added new options to reinstall GRUB,
+  update initramfs and update GRUB menu; Fixed: Progress will be
+  displayed when restoring another system in GUI mode; Added
+  right-click menu option to view restore log file;
+
+  * RestoreWindow: Exclude Apps: Populate items from destination home
+  directories as well as snapshot's home directories.
+
+  * Restore: Bind /dev/pts when chrooting the restored system;
+
+  * Restore: Check and repair file systems after offline restore;
+
+  * UI: Added borders around statusbar; 
+
+  * OS Support: Fedora/RedHat: Fixed detection of Live USB mode;
+  Fixed an issue with grub update;
+
+  * Create: Exclude /var/spool and ~/.dbus while creating snapshots;
+  File count will be saved when snapshots are created; 
+
+  * Fixed the handling of leading and trailing spaces in device
+  labels and mount paths;
+
+  * SettingsWindow: Replaced Include and Exclude tabs with a single
+  tab for Filters; Resized the window size to match Main Window; Main
+  Window will be hidden when the Settings Window is displayed;
+
+  * Exclude /etc/timeshift.json so that it is not replaced when a
+  snapshot is restored
+
+ -- Tony George <teejeetech@gmail.com>  Fri, 11 Nov 2016 10:00:00 +0530
+
+
+timeshift (16.10.6) trusty; urgency=medium
+
+  * Fixed scheduled backups; Initialize display for the scheduled cron task;
+  
+ -- Tony George <teejeetech@gmail.com>  Sun, 16 Oct 2016 14:00:00 +0530
+
+
+timeshift (16.10.5) trusty; urgency=medium
+
+  * Fixed build errors on trusty; Removed references to
+  Gtk.ButtonBoxStyle.EXPAND;
+
+  * Added support for BTRFS systems with @ and @home on separate
+  devices
+
+  * Added workaround for older versions of lsblk; Fixed support for
+  Ubuntu 14.04 and Mint 17.x;
+
+  * Updated list of donors in Credits section
+
+  * Use valac-0.26
+  
+ -- Tony George <teejeetech@gmail.com>  Sat, 15 Oct 2016 14:00:00 +0530
+
+
+timeshift (16.10.3) trusty; urgency=medium
+
+  * Statusbar: Display dates in 24-hr format;
+
+  * Check system uuid when linking from previous snapshot; This allows
+  snapshots of multiple systems to be saved on the same backup device
+  without wasting space;
+
+  * Fixed error handling for udisks automount() and unmount()
+  
+ -- Tony George <teejeetech@gmail.com>  Sat, 08 Oct 2016 14:00:00 +0530
+
+
+timeshift (16.10.2) xenial; urgency=medium
+
+  * Fixed: AM/PM is not displayed by some locales; Snapshot date will
+  be displayed in 24-hr format to avoid this issue;
+
+  * Fixed: RestoreWindow: Subvolume column is sometimes hidden when
+  window is opened for the first time;
+  
+ -- Tony George <teejeetech@gmail.com>  Sat, 08 Oct 2016 10:00:00 +0530
+
+
+timeshift (16.10.1) xenial; urgency=medium
+
+  * Major release with re-designed UI and features
+  
+ -- Tony George <teejeetech@gmail.com>  Fri, 07 Oct 2016 10:00:00 +0530
+
+
+timeshift (16.7.11) trusty; urgency=medium
+
+  * Fixed: First snapshot size estimation fails in some cases
+  
+  * Fixed: Statusbar padding
+
+  * Moved extra toolbar items to dropdown menu
+  
+  * Updated list of contributors and translators in About > Credits
+
+ -- Tony George <teejeetech@gmail.com>  Wed, 06 Jul 2016 10:00:00 +0530
+
+
+timeshift (16.3) trusty; urgency=medium
+
+  * Fix Gtk.Switch
+
+  * Update translation template
+
+  * Update localization files
+
+ -- Maxim Taranov <png2378@gmail.com>  Wed, 06 Jul 2016 10:00:00 +0530

@@ -1,0 +1,2679 @@
+# Hindi translation for linuxmint
+# Copyright (c) 2017 Rosetta Contributors and Canonical Ltd 2017
+# This file is distributed under the same license as the linuxmint package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: linuxmint\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2025-07-30 16:49+0200\n"
+"PO-Revision-Date: 2024-12-05 10:00+0000\n"
+"Last-Translator: Clement Lefebvre <root@linuxmint.com>\n"
+"Language-Team: Hindi <hi@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2025-08-26 15:24+0000\n"
+"X-Generator: Launchpad (build 919009172d854f2b8e4e8262db447f12f11d25eb)\n"
+"Language: hi\n"
+
+#: src/AppConsole.vala:628
+#, c-format
+msgid ""
+"\n"
+"Press ENTER to continue..."
+msgstr ""
+"\n"
+"जारी रखने के लिए ENTER दबाए..."
+
+#: src/Core/SnapshotRepo.vala:560
+#, c-format
+msgid "%d snapshots, %s free"
+msgstr "%d स्नैपशॉट, %s मुफ्त"
+
+#: src/AppConsole.vala:944
+#, c-format
+msgid "'%s' will be on '%s'"
+msgstr "'%s' '%s' पर होगा।"
+
+#: src/AppConsole.vala:941
+#, c-format
+msgid "'%s' will be on root device"
+msgstr "'%s' रूट डिवाइस पर होगा"
+
+#: src/Gtk/BootOptionsBox.vala:118
+msgid "(Re)install GRUB2 on:"
+msgstr "(Re)install GRUB2 को फिर से स्थापित करें:"
+
+#: src/Core/Main.vala:381
+msgid "** Uninstalled Timeshift BTRFS **"
+msgstr "टाइमशिफ्ट बीटीआरएफएस को अनइंस्टॉल किया गया है"
+
+#: src/Core/Main.vala:3572
+msgid "/ is mapped to device"
+msgstr "/ डिवाइस पर मैप है"
+
+#: src/Core/Main.vala:3594
+msgid "/boot is mapped to device"
+msgstr "/boot डिवाइस पर मैप है"
+
+#: src/Core/Main.vala:3605
+msgid "/boot/efi is mapped to device"
+msgstr "/boot/efi डिवाइस पर मैप है"
+
+#: src/Core/Main.vala:3583
+msgid "/home is mapped to device"
+msgstr "/home डिवाइस के लिए मैप किया गया है"
+
+#: src/Gtk/SnapshotListBox.vala:289
+msgid "<b>Comments</b> (double-click to edit)"
+msgstr "<b>टिप्पणियाँ</b> (संपादित करने के लिए दो बार क्लिक करें)"
+
+#: src/Gtk/ScheduleBox.vala:168
+msgid ""
+"A maintenance task runs once every hour and creates snapshots as needed."
+msgstr ""
+"एक रखरखाव कार्य हर घंटे एक बार चलता है और आवश्यकतानुसार स्नैपशॉट बनाता है।"
+
+#: src/AppConsole.vala:714 src/AppConsole.vala:784 src/AppConsole.vala:924
+#: src/AppConsole.vala:1027 src/AppConsole.vala:1078 src/AppConsole.vala:1124
+#: src/AppConsole.vala:1142
+msgid "Aborted."
+msgstr "रोका गया।"
+
+#: src/Gtk/MainWindow.vala:375
+msgid "About"
+msgstr "बारे में"
+
+#: src/Gtk/RsyncLogBox.vala:471
+msgid "Action"
+msgstr "क्रिया"
+
+#: src/Gtk/ExcludeBox.vala:225
+msgid "Add"
+msgstr "जोड़ें"
+
+#: src/Gtk/ExcludeBox.vala:242
+msgid "Add Files"
+msgstr "फ़ाइलें जोड़ें"
+
+#: src/Gtk/ExcludeBox.vala:248
+msgid "Add Folders"
+msgstr "फोल्डर जोड़ें"
+
+#: src/Gtk/ExcludeBox.vala:225
+msgid "Add custom pattern"
+msgstr "कस्टम पैटर्न जोड़ें"
+
+#: src/Gtk/ExcludeBox.vala:248
+msgid "Add directories"
+msgstr "निर्देशिकाओं को जोड़ें"
+
+#: src/Gtk/ExcludeBox.vala:242
+msgid "Add files"
+msgstr "फाइलें जोड़ें"
+
+#: src/AppConsole.vala:372
+msgid "Add tags to snapshot (default: O)"
+msgstr "स्नैपशॉट में टैग जोड़ें (डिफ़ॉल्ट: ओ)"
+
+#: src/Utility/CronTab.vala:312
+msgid "Added cron task"
+msgstr "क्रॉन कार्य जोड़ा गया"
+
+#: src/AppGtk.vala:147
+msgid "Admin Access Required"
+msgstr "व्यवस्थापक पहुँच की आवश्यकता है"
+
+#: src/AppGtk.vala:142
+msgid "Admin access is required to backup and restore system files."
+msgstr ""
+"सिस्टम फ़ाइलों की बैकअप और रीस्टोर करने के लिए एडमिन एक्सेस की आवश्यकता होती "
+"है।"
+
+#: src/Gtk/RsyncLogBox.vala:363
+msgid "All Files"
+msgstr "सभी फाइलें"
+
+#: src/Gtk/SnapshotBackendBox.vala:197
+msgid ""
+"All files are copied when first snapshot is created. Subsequent snapshots "
+"are incremental. Unchanged files will be hard-linked from the previous "
+"snapshot if available."
+msgstr ""
+"पहली स्नैपशॉट बनाई जाती है तो सभी फ़ाइलें कॉपी हो जाती हैं। आगामी स्नैपशॉट "
+"अतिरिक्त होते हैं। अपरिवर्तित फ़ाइलें पिछले स्नैपशॉट से हार्ड-लिंक की जाएंगी "
+"अगर उपलब्ध हैं।"
+
+#: src/Gtk/ExcludeMessageWindow.vala:129
+msgid "All other files and folders are excluded."
+msgstr "सभी अन्य फ़ाइलें और फ़ोल्डर्स बाहर हैं।"
+
+#: src/Gtk/RestoreDeviceBox.vala:486
+msgid ""
+"An encrypted device is selected for root file system (/). The boot directory "
+"(/boot) must be mounted on a non-encrypted device for the system to boot "
+"successfully.\n"
+"\n"
+"Either select a non-encrypted device for boot directory or select a non-"
+"encrypted device for root filesystem."
+msgstr ""
+"रूट फ़ाइल सिस्टम (/) के लिए एक एन्क्रिप्टेड डिवाइस का चयन किया जाता है। "
+"सिस्टम को सफलतापूर्वक बूट करने के लिए बूट डायरेक्टरी (/boot) को एक गैर-"
+"एन्क्रिप्टेड डिवाइस पर माउंट किया जाना चाहिए।\n"
+"\n"
+"या तो बूट डायरेक्टरी के लिए एक गैर-एन्क्रिप्टेड डिवाइस का चयन करें या रूट "
+"फ़ाइल सिस्टम के लिए एक गैर-एन्क्रिप्टेड डिवाइस का चयन करें।"
+
+#: src/Core/Main.vala:267
+msgid "Another instance of Timeshift is creating a snapshot."
+msgstr "टाइमशिफ्ट का एक और उदाहरण स्नैपशॉट बनाना है।"
+
+#: src/Utility/AppLock.vala:49
+msgid "Another instance of this application is running"
+msgstr "इस एप्लिकेशन का एक और उदाहरण चल रहा है।"
+
+#: src/Core/Main.vala:271
+msgid "Another instance of timeshift is currently running!"
+msgstr "टाइमशिफ्ट का एक और उदाहरण वर्तमान में चल रहा है!"
+
+#: src/AppConsole.vala:388
+msgid "Answer YES to all confirmation prompts"
+msgstr "सभी पुष्टिकरण प्रॉम्प्ट्स को हां करें"
+
+#: src/Core/Main.vala:3413
+msgid "App config loaded"
+msgstr "ऐप कॉन्फ़िग लोड हो गया है"
+
+#: src/Core/Main.vala:3295
+msgid "App config saved"
+msgstr "ऐप कॉन्फ़िग सहेजा गया"
+
+#: src/AppConsole.vala:107
+msgid "Application needs admin access."
+msgstr "एप्लिकेशन को एडमिन एक्सेस की आवश्यकता है।"
+
+#: src/Core/Main.vala:3749
+msgid "Application will exit"
+msgstr "एप्लिकेशन बंद हो जाएगा"
+
+#: src/Core/Main.vala:397
+msgid "Application will exit."
+msgstr "एप्लिकेशन बंद हो जाएगा।"
+
+#: src/Gtk/MainWindow.vala:561
+msgid "Are you sure you want to delete this snapshot?"
+msgstr "क्या आप वाक़िया इस स्नैपशॉट को हटाना चाहते हैं?"
+
+#: src/Gtk/MainWindow.vala:345
+msgid "Available"
+msgstr "उपलब्ध है"
+
+#: src/Gtk/SnapshotBackendBox.vala:95
+msgid "BTRFS"
+msgstr "BTRFS"
+
+#: src/Gtk/SnapshotBackendBox.vala:174
+msgid "BTRFS Snapshots"
+msgstr "BTRFS स्नैपशॉटस"
+
+#: src/Core/Main.vala:2234 src/Core/Main.vala:2238
+msgid "BTRFS device is not mounted"
+msgstr "BTRFS डिवाइस माउंट नहीं है।"
+
+#: src/Gtk/BackupDeviceBox.vala:98
+msgid ""
+"BTRFS snapshots are saved on system partition. Other partitions are not "
+"supported."
+msgstr ""
+"बीटीआरएफएस स्नैपशॉट्स सिस्टम पार्टीशन पर सहेजे जाते हैं। अन्य पार्टीशनों का "
+"समर्थन नहीं किया जाता है।"
+
+#: src/Gtk/FinishBox.vala:92
+msgid ""
+"BTRFS snapshots are saved on the same disk from which it is created. If the "
+"system disk fails, snapshots will be lost along with the system. Save "
+"snapshots to an external non-system disk in RSYNC mode to guard against disk "
+"failures."
+msgstr ""
+"बीटीआरएफएस स्नैपशॉट उसी डिस्क पर सहेजे जाते हैं जिससे वे बनाए जाते हैं। अगर "
+"सिस्टम डिस्क खराब हो जाता है, तो स्नैपशॉट सिस्टम के साथ खो जाएंगे। डिस्क "
+"फेलियर्स के खिलाफ एक बाहरी गैर-सिस्टम डिस्क में आरसिंक मोड में स्नैपशॉट "
+"सहेजें।"
+
+#: src/Gtk/SetupWizardWindow.vala:94
+msgid "Backend"
+msgstr "बैकेंड"
+
+#: src/Gtk/BackupWindow.vala:92 src/AppConsole.vala:368
+msgid "Backup"
+msgstr "बैकअप"
+
+#: src/Core/Main.vala:2210
+msgid "Backup Device"
+msgstr "बैकअप डिवाइस"
+
+#: src/Core/Main.vala:2205
+msgid "Backup device not specified!"
+msgstr "बैकअप डिवाइस निर्दिष्ट नहीं किया गया है!"
+
+#: src/Gtk/RestoreExcludeBox.vala:91
+msgid "Bittorrent Clients"
+msgstr "बिटटोरेंट क्लाइंट्स"
+
+#: src/Gtk/SnapshotListBox.vala:297 src/Gtk/ScheduleBox.vala:136
+msgid "Boot"
+msgstr "बूट"
+
+#: src/Gtk/RestoreDeviceBox.vala:485
+msgid "Boot device not selected"
+msgstr "बूट डिवाइस नहीं चुना गया है"
+
+#: src/Core/Main.vala:1063
+msgid "Boot snapshot failed!"
+msgstr "बूट स्नैपशॉट विफल हो गया!"
+
+#: src/Gtk/ScheduleBox.vala:169
+msgid ""
+"Boot snapshots are created with a delay of 10 minutes after system startup."
+msgstr ""
+"बूट स्नैपशॉट सिस्टम स्टार्टअप के 10 मिनट के बाद एक देर के साथ बनाए जाते हैं।"
+
+#: src/Core/Main.vala:1044
+msgid "Boot snapshots are enabled"
+msgstr "बूट स्नैपशॉट्स सक्षम हैं"
+
+#: src/Gtk/BootOptionsWindow.vala:49
+msgid "Bootloader Options"
+msgstr "बूटलोडर विकल्प"
+
+#: src/Gtk/RestoreDeviceBox.vala:402
+msgid "Bootloader Options (Advanced)"
+msgstr "बूटलोडर विकल्प (उन्नत)"
+
+#: src/Gtk/MainWindow.vala:170
+msgid "Browse"
+msgstr "ब्राउज़ करें"
+
+#: src/Gtk/SnapshotListBox.vala:321
+msgid "Browse Files"
+msgstr "फ़ाइलें ब्राउज़ करें"
+
+#: src/Gtk/MainWindow.vala:171
+msgid "Browse selected snapshot"
+msgstr "चयनित स्नैपशॉट ब्राउज़ करें"
+
+#: src/Core/Main.vala:2700
+msgid "Building file list..."
+msgstr "फ़ाइल सूची बना रहे हैं..."
+
+#: src/Core/Main.vala:1423
+msgid "Calculating required disk space..."
+msgstr "आवश्यक डिस्क स्थान की गणना कर रहे हैं..."
+
+#: src/Utility/Gtk/CustomMessageDialog.vala:152 src/Utility/GtkHelper.vala:109
+#: src/Gtk/RestoreWindow.vala:215 src/Gtk/RestoreWindow.vala:224
+#: src/Gtk/BackupWindow.vala:181 src/Gtk/SetupWizardWindow.vala:220
+#: src/Gtk/DeleteWindow.vala:190
+msgid "Cancel"
+msgstr "रद्द करें"
+
+#: src/Gtk/RestoreWindow.vala:230
+msgid "Cancel restore?"
+msgstr "पुनर्स्थापन रद्द करें?"
+
+#: src/Gtk/RestoreWindow.vala:232
+msgid ""
+"Cancelling the restore process will leave the target system in an "
+"inconsistent state. The system may fail to boot or you may run into various "
+"issues. After cancelling, you need to restore another snapshot, to bring the "
+"system to a consistent state. Click Yes to confirm."
+msgstr ""
+"पुनर्स्थापन प्रक्रिया को रद्द करने से लक्ष्य सिस्टम असंगत स्थिति में रहेगा। "
+"सिस्टम बूट नहीं हो सकता है या आपको विभिन्न समस्याओं का सामना करना पड़ सकता "
+"है। रद्द करने के बाद, आपको एक और स्नैपशॉट को पुनर्स्थापित करने की आवश्यकता "
+"होगी, ताकि सिस्टम को एक संरूप स्थिति में लाया जा सके। हाँ पर क्लिक करें ताकि "
+"पुष्टि करें"
+
+#: src/Gtk/MainWindow.vala:547
+msgid "Cannot Delete Live Snapshot"
+msgstr "लाइव स्नैपशॉट को हटा नहीं सकते"
+
+#: src/Gtk/BackupBox.vala:90 src/Gtk/RestoreBox.vala:125
+#: src/Gtk/RsyncLogBox.vala:380 src/Gtk/RsyncLogBox.vala:383
+#: src/Gtk/RsyncLogBox.vala:566 src/Gtk/RsyncLogBox.vala:587
+msgid "Changed"
+msgstr "बदला गया"
+
+#: src/Gtk/BackupBox.vala:92 src/Gtk/RestoreBox.vala:127
+msgid "Changed items:"
+msgstr "बदले गए आइटम:"
+
+#: src/Gtk/RestoreWindow.vala:104
+msgid "Checking Restore Actions (Dry Run)"
+msgstr "पुनर्स्थापन क्रियाएँ जांचना (सूखी दौड़)"
+
+#: src/Core/Main.vala:2933
+msgid "Checking file systems for errors..."
+msgstr "त्रुटियों के लिए फ़ाइल सिस्टम की जांच कर रहा है..."
+
+#: src/Gtk/BackupBox.vala:95 src/Gtk/RestoreBox.vala:130
+#: src/Gtk/RsyncLogBox.vala:390
+#, c-format
+msgid "Checksum"
+msgstr "चेकसम"
+
+#: src/Core/Main.vala:2581
+msgid "Cleaning up..."
+msgstr "साफ कर रहे हैं..."
+
+#: src/Gtk/ExcludeBox.vala:84 src/Gtk/UsersBox.vala:88
+msgid "Click to edit. Drag and drop to re-order."
+msgstr ""
+"संपादित करने के लिए क्लिक करें। पुनः क्रमबद्ध करने के लिए खींचें और छोड़ें।"
+
+#: src/Gtk/ExcludeBox.vala:59
+msgid "Click to edit. Drag-drop to re-order."
+msgstr ""
+"संपादित करने के लिए क्लिक करें। पुनः क्रमबद्ध करने के लिए ड्रैग-ड्रॉप करें।"
+
+#: src/Gtk/RestoreWindow.vala:69
+msgid "Clone System"
+msgstr "क्लोन सिस्टम"
+
+#: src/Gtk/RestoreFinishBox.vala:68
+msgid "Cloning"
+msgstr "क्लोनिंग"
+
+#: src/Core/Main.vala:2983
+msgid "Cloning system..."
+msgstr "क्लोनिंग सिस्टम"
+
+#: src/Gtk/BootOptionsWindow.vala:106 src/Gtk/RestoreWindow.vala:501
+#: src/Gtk/BackupWindow.vala:172 src/Gtk/RsyncLogBox.vala:266
+#: src/Gtk/DeleteWindow.vala:173
+msgid "Close"
+msgstr "बंद"
+
+#: src/Gtk/FinishBox.vala:101 src/Gtk/DeleteFinishBox.vala:71
+#: src/Gtk/RestoreFinishBox.vala:106 src/Gtk/BackupFinishBox.vala:70
+msgid "Close window to exit"
+msgstr "बाहर निकलने के लिए विंडो बंद करें"
+
+#: src/Core/Main.vala:366
+msgid "Commands listed below are not available on this system"
+msgstr "नीचे दी गई कमांड्स इस सिस्टम पर उपलब्ध नहीं हैं।"
+
+#: src/Gtk/SnapshotListBox.vala:223
+msgid "Comments (click to edit)"
+msgstr "टिप्पणियाँ (संपादित करने के लिए क्लिक करें)"
+
+#: src/Core/Main.vala:2976 src/Gtk/RestoreBox.vala:74
+#: src/Gtk/RestoreBox.vala:187
+msgid "Comparing Files (Dry Run)..."
+msgstr "फ़ाइलों की तुलना करना (ड्राई रन)..."
+
+#: src/Core/Main.vala:2742
+msgid "Comparing files with rsync..."
+msgstr "rsync के साथ फ़ाइलों की तुलना करते हुए..."
+
+#: src/Gtk/DeleteFinishBox.vala:50 src/Gtk/RestoreFinishBox.vala:50
+#: src/Gtk/RestoreFinishBox.vala:75 src/Gtk/BackupFinishBox.vala:50
+msgid "Completed"
+msgstr "कर दिया गया"
+
+#: src/Gtk/RestoreFinishBox.vala:78
+msgid "Completed With Errors"
+msgstr "गलतियों के साथ पूरा किया गया"
+
+#: src/Gtk/RestoreWindow.vala:109 src/Gtk/RsyncLogBox.vala:87
+msgid "Confirm Actions"
+msgstr "कार्रवाई की पुष्टि करें"
+
+#: src/AppConsole.vala:1117
+#, c-format
+msgid "Continue with restore? (y/n): "
+msgstr "पुनर्स्थापना के साथ जारी रखें? (y/n): "
+
+#: src/AppConsole.vala:856 src/AppConsole.vala:995
+msgid "Could not find device"
+msgstr "डिवाइस नहीं मिल सका"
+
+#: src/Utility/Device.vala:1330
+#, c-format
+msgid "Could not find file"
+msgstr "फ़ाइल नहीं मिल सकी"
+
+#: src/AppConsole.vala:747
+msgid "Could not find snapshot"
+msgstr "स्नैपशॉट नहीं मिल सका"
+
+#: src/Core/Main.vala:3156
+msgid "Could not find system subvolume"
+msgstr "सिस्टम सबवॉल्यूम नहीं मिल सका"
+
+#: src/Core/Main.vala:3184
+msgid "Could not find system subvolumes for creating pre-restore snapshot"
+msgstr ""
+"पूर्व-पुनर्स्थापना स्नैपशॉट बनाने के लिए सिस्टम सबवॉल्यूम्स नहीं मिल सके"
+
+#: src/Gtk/MainWindow.vala:140 src/Gtk/RsyncLogBox.vala:366
+#: src/Gtk/RsyncLogBox.vala:570
+#, c-format
+msgid "Create"
+msgstr "बनाऐं"
+
+#: src/Gtk/BackupWindow.vala:62
+msgid "Create Snapshot"
+msgstr "स्नैपशॉट बनाऐं"
+
+#: src/Gtk/ScheduleBox.vala:136
+msgid "Create one per boot"
+msgstr "प्रति बूट एक बनाएं"
+
+#: src/Gtk/ScheduleBox.vala:100
+msgid "Create one per day"
+msgstr "हर दिन एक बनाएं"
+
+#: src/Gtk/ScheduleBox.vala:118
+msgid "Create one per hour"
+msgstr "प्रति घंटे एक बनाएं।"
+
+#: src/Gtk/ScheduleBox.vala:64
+msgid "Create one per month"
+msgstr "प्रति महीने एक बनाएं"
+
+#: src/Gtk/ScheduleBox.vala:82
+msgid "Create one per week"
+msgstr "हर हफ्ते एक बनाएं।"
+
+#: src/AppConsole.vala:370
+msgid "Create snapshot (even if not scheduled)"
+msgstr "स्नैपशॉट बनाएं (यदि योजनित नहीं है)"
+
+#: src/AppConsole.vala:369
+msgid "Create snapshot if scheduled"
+msgstr "यदि निर्धारित हो तो स्नैपशॉट बनाएं"
+
+#: src/Gtk/MainWindow.vala:141
+msgid "Create snapshot of current system"
+msgstr "वर्तमान सिस्टम की स्नैपशॉट बनाएं"
+
+#: src/Gtk/MainWindow.vala:1044
+msgid ""
+"Create snapshots manually or enable scheduled snapshots to protect your "
+"system"
+msgstr ""
+"अपने सिस्टम की सुरक्षा के लिए स्नैपशॉट्स को मैन्युअल रूप से बनाएं या नियमित "
+"स्नैपशॉट्स को सक्षम करें।"
+
+#: src/Gtk/SnapshotBackendBox.vala:96
+msgid "Create snapshots using BTRFS"
+msgstr "BTRFS का उपयोग करके स्नैपशॉट बनाएं"
+
+#: src/Gtk/SnapshotBackendBox.vala:78
+msgid "Create snapshots using RSYNC tool and hard-links"
+msgstr "आरएसयूएनके उपयोग करके स्नैपशॉट बनाएं और हार्ड-लिंक्स का उपयोग करें।"
+
+#: src/Gtk/BackupBox.vala:88 src/Gtk/RestoreBox.vala:123
+#: src/Gtk/RsyncLogBox.vala:366 src/Gtk/RsyncLogBox.vala:570
+#: src/Gtk/RsyncLogBox.vala:591
+#, c-format
+msgid "Created"
+msgstr "बनाया गया"
+
+#: src/Core/Snapshot.vala:432
+msgid "Created control file"
+msgstr "नियंत्रण फ़ाइल बनाई गई"
+
+#: src/Utility/TeeJee.FileSystem.vala:284
+msgid "Created directory"
+msgstr "निर्मित निर्देशिका"
+
+#: src/Core/Main.vala:3206
+msgid "Created pre-restore snapshot"
+msgstr "पूर्व-पुनर्स्थापन स्नैपशॉट बनाया गया"
+
+#: src/Core/Main.vala:1678
+msgid "Created subvolume snapshot"
+msgstr "उपविभाग स्नैपशॉट बनाया गया"
+
+#: src/Gtk/BackupBox.vala:71
+msgid "Creating Snapshot..."
+msgstr "स्नैपशॉट बना रहे हैं..."
+
+#: src/Core/Main.vala:1616
+msgid "Creating new backup..."
+msgstr "नई बैकअप बना रहे हैं..."
+
+#: src/Core/Main.vala:1462
+msgid "Creating new snapshot..."
+msgstr "नई स्नैपशॉट बना रहे हैं..."
+
+#: src/Core/Main.vala:3134
+msgid "Creating pre-restore snapshot from system subvolumes..."
+msgstr "सिस्टम सबवॉल्यूम से पूर्व-पुनर्स्थापन स्नैपशॉट बनाना..."
+
+#: src/Core/Main.vala:3748
+msgid "Critical Error"
+msgstr "महत्वपूर्ण त्रुटि"
+
+#: src/Utility/CronTab.vala:136
+msgid "Cron job added"
+msgstr "क्रॉन जॉब जोड़ दिया गया"
+
+#: src/Utility/CronTab.vala:217
+msgid "Cron job removed"
+msgstr "क्रॉन जॉब हटा दिया गया"
+
+#: src/Utility/CronTab.vala:304
+msgid "Cron task exists"
+msgstr "क्रोन कार्य मौजूद है"
+
+#: src/Gtk/MiscBox.vala:94
+msgid "Custom"
+msgstr "अनुकूलित"
+
+#: src/Gtk/SnapshotListBox.vala:299 src/Gtk/ScheduleBox.vala:100
+msgid "Daily"
+msgstr "दैनिक"
+
+#: src/Core/Main.vala:1125
+msgid "Daily snapshot failed!"
+msgstr "दैनिक स्नैपशॉट विफल हो गया!"
+
+#: src/Core/Main.vala:1106
+msgid "Daily snapshots are enabled"
+msgstr "दैनिक स्नैपशॉट्स सक्षम हैं"
+
+#: src/Core/Main.vala:2304
+msgid "Data will be modified on following devices:"
+msgstr "डेटा निम्नलिखित उपकरणों पर संशोधित किया जाएगा:"
+
+#: src/Gtk/MiscBox.vala:67
+msgid "Date Format"
+msgstr "तारीख का प्रारूप"
+
+#: src/Gtk/SnapshotListBox.vala:342 src/Gtk/MainWindow.vala:160
+#: src/Gtk/RsyncLogBox.vala:370 src/Gtk/RsyncLogBox.vala:574
+#: src/Gtk/DeleteWindow.vala:98 src/AppConsole.vala:382
+#, c-format
+msgid "Delete"
+msgstr "मिटाऐं"
+
+#: src/Gtk/DeleteWindow.vala:62
+msgid "Delete Snapshots"
+msgstr "स्नैपशॉटस मिटायें"
+
+#: src/AppConsole.vala:384
+msgid "Delete all snapshots"
+msgstr "हर स्नैपशॉटस मिटायें"
+
+#: src/Gtk/MainWindow.vala:161
+msgid "Delete selected snapshot"
+msgstr "इस स्नैपशॉट को मिटायें"
+
+#: src/AppConsole.vala:383
+msgid "Delete snapshot"
+msgstr "स्नैपशॉट मिटायें"
+
+#: src/Gtk/BackupBox.vala:89 src/Gtk/RestoreBox.vala:124
+#: src/Gtk/RsyncLogBox.vala:370 src/Gtk/RsyncLogBox.vala:574
+#: src/Gtk/RsyncLogBox.vala:595
+#, c-format
+msgid "Deleted"
+msgstr "मिटाया गया"
+
+#: src/Utility/TeeJee.FileSystem.vala:357
+msgid "Deleted directory"
+msgstr "हटाए गए निर्देशिका"
+
+#: src/Core/Main.vala:3113 src/Core/Main.vala:3117 src/Core/Subvolume.vala:174
+#, c-format
+msgid "Deleted subvolume"
+msgstr "हटाए गए सबवॉल्यूम"
+
+#: src/Gtk/DeleteBox.vala:58
+msgid "Deleting Snapshots..."
+msgstr "स्नैपशॉट हटा रहे हैं..."
+
+#: src/Core/Subvolume.vala:141
+#, c-format
+msgid "Deleting subvolume"
+msgstr "सबवॉल्यूम हटा रहा है"
+
+#: src/Gtk/RestoreExcludeBox.vala:105
+msgid "Deluge, Transmission"
+msgstr "बाढ़, ट्रांसमिशन"
+
+#: src/AppConsole.vala:440 src/AppConsole.vala:556
+msgid "Description"
+msgstr "विवरण"
+
+#: src/Core/Subvolume.vala:195
+#, c-format
+msgid "Destroyed qgroup"
+msgstr "नष्ट समूह"
+
+#: src/Core/Subvolume.vala:185
+#, c-format
+msgid "Destroying qgroup"
+msgstr "समूह को नष्ट कर रहे हैं"
+
+#: src/Core/Main.vala:2307 src/Core/Main.vala:2339
+#: src/Core/SnapshotRepo.vala:74 src/Core/SnapshotRepo.vala:603
+#: src/Core/SnapshotRepo.vala:606 src/Utility/Device.vala:1954
+#: src/Utility/Device.vala:1964 src/Gtk/RestoreDeviceBox.vala:97
+#: src/AppConsole.vala:468 src/AppConsole.vala:507 src/AppConsole.vala:555
+#, c-format
+msgid "Device"
+msgstr "डिवाइस"
+
+#: src/Utility/Device.vala:1412
+msgid "Device is unlocked"
+msgstr "डिवाइस अनलॉक है"
+
+#: src/Utility/Device.vala:1307 src/Utility/Device.vala:1369
+msgid "Device name is empty!"
+msgstr "डिवाइस का नाम खाली है!"
+
+#: src/Core/Main.vala:3466 src/Core/SnapshotRepo.vala:483
+#: src/AppConsole.vala:679
+msgid "Device not found"
+msgstr "डिवाइस नहीं मिला"
+
+#: src/Gtk/BackupDeviceBox.vala:97
+#, c-format
+msgid "Devices displayed above have BTRFS file systems."
+msgstr "ऊपर दिखाए गए उपकरणों में BTRFS फ़ाइल सिस्टम है।"
+
+#: src/Gtk/BackupDeviceBox.vala:104
+#, c-format
+msgid "Devices displayed above have Linux file systems."
+msgstr "ऊपर दिखाए गए उपकरणों में लिनक्स फ़ाइल सिस्टम है।"
+
+#: src/Gtk/RestoreDeviceBox.vala:84
+msgid "Devices from which snapshot was created are pre-selected."
+msgstr "स्नैपशॉट बनाने के लिए उपकरण पहले से चयनित हैं।"
+
+#: src/AppConsole.vala:333
+msgid "Devices with Linux file systems"
+msgstr "लिनक्स फ़ाइल सिस्टम वाले उपकरण"
+
+#: src/Gtk/BackupDeviceBox.vala:105
+msgid "Devices with Windows file systems are not supported (NTFS, FAT, etc)."
+msgstr ""
+"विंडोज फ़ाइल सिस्टम वाले डिवाइस का समर्थन नहीं किया जाता है (एनटीएफएस, फैट, "
+"आदि)।"
+
+#: src/Core/Main.vala:2399 src/Gtk/RestoreSummaryBox.vala:64
+msgid "Disclaimer"
+msgstr "अस्वीकरण"
+
+#: src/Gtk/BackupDeviceBox.vala:127
+msgid "Disk"
+msgstr "डिस्क"
+
+#: src/Core/Main.vala:244
+msgid "Distribution"
+msgstr "वितरण"
+
+#: src/Gtk/MainWindow.vala:1038
+msgid "Enable scheduled snapshots to protect your system"
+msgstr ""
+"अपने सिस्टम को सुरक्षित करने के लिए नियोजित स्नैपशॉट्स को सक्षम करें।"
+
+#: src/Utility/Device.vala:1476
+msgid "Encrypted Device"
+msgstr "एन्क्रिप्टेड डिवाइस"
+
+#: src/Gtk/UsersBox.vala:232
+msgid "Encrypted Home Directory"
+msgstr "एन्क्रिप्टेड होम डायरेक्टरी"
+
+#: src/AppConsole.vala:914
+#, c-format
+msgid "Enter device name or number"
+msgstr "डिवाइस का नाम या नंबर दर्ज करें"
+
+#: src/AppConsole.vala:698 src/AppConsole.vala:1061
+#, c-format
+msgid "Enter device name or number (a=Abort)"
+msgstr "डिवाइस का नाम या नंबर दर्ज करें (a=रद्द करें)"
+
+#: src/Utility/Device.vala:1477
+#, c-format
+msgid "Enter passphrase to unlock '%s'"
+msgstr "अनलॉक करने के लिए पासफ्रेज़ दर्ज करें '%s'"
+
+#: src/AppConsole.vala:776
+#, c-format
+msgid "Enter snapshot number (a=Abort, p=Previous, n=Next)"
+msgstr "स्नैपशॉट संख्या दर्ज करें (a = निरस्त, p = पिछला, n = अगला)"
+
+#: src/Gtk/ExcludeBox.vala:231
+msgid "Enter the pattern to exclude (Ex: *.mp3, *.bak)"
+msgstr "निकालने के लिए पैटर्न दर्ज करें (उदा: *.mp3, *.bak)"
+
+#: src/Gtk/RestoreDeviceBox.vala:520
+msgid "Error"
+msgstr "स्मस्या"
+
+#: src/Gtk/RestoreWindow.vala:481
+msgid "Error running Rsync"
+msgstr "आरसिंक चलाने में त्रुटि"
+
+#: src/Gtk/BackupWindow.vala:82 src/Gtk/SetupWizardWindow.vala:99
+msgid "Estimate"
+msgstr "अनुमान"
+
+#: src/Gtk/EstimateBox.vala:56
+msgid "Estimating System Size..."
+msgstr "सिस्टम का आकार अनुमान लगाना..."
+
+#: src/Core/Main.vala:1458
+msgid "Estimating system size..."
+msgstr "सिस्टम का आकार अनुमान लगाना..."
+
+#: src/AppConsole.vala:399
+msgid "Examples"
+msgstr "उदाहरण"
+
+#: src/Gtk/UsersBox.vala:132
+msgid "Exclude All Files"
+msgstr "सभी फ़ाइलें छोड़ें"
+
+#: src/Gtk/RestoreExcludeBox.vala:55 src/Gtk/ExcludeAppsBox.vala:51
+msgid "Exclude Application Settings"
+msgstr "आवेदन सेटिंग्स को छोड़ें"
+
+#: src/Gtk/RestoreWindow.vala:99
+msgid "Exclude Apps"
+msgstr "ऐप्स को बाहर करें"
+
+#: src/Gtk/ExcludeMessageWindow.vala:70
+msgid "Exclude List"
+msgstr "सूची बहिष्कृत करें"
+
+#: src/Gtk/ExcludeListSummaryWindow.vala:49
+msgid "Exclude List Summary"
+msgstr "सूची सारांश बहिष्कृत करें"
+
+#: src/Gtk/ExcludeBox.vala:230
+msgid "Exclude Pattern"
+msgstr "पैटर्न बहिष्कृत करें"
+
+#: src/Gtk/ExcludeMessageWindow.vala:56
+msgid "Excluded Directories"
+msgstr "बहिष्कृत निर्देशिकाएँ"
+
+#: src/Core/Main.vala:1760
+msgid "Expected values: O, B, H, D, W, M"
+msgstr "अपेक्षित मान: O, B, H, D, W, M"
+
+#: src/Utility/CronTab.vala:132
+msgid "Failed to add cron job"
+msgstr "क्रॉन नौकरी जोड़ने में विफल"
+
+#: src/Utility/TeeJee.FileSystem.vala:171
+msgid "Failed to copy file"
+msgstr "फ़ाइल की प्रतिलिपि बनाने में विफल"
+
+#: src/Utility/TeeJee.FileSystem.vala:287
+#: src/Utility/TeeJee.FileSystem.vala:296
+msgid "Failed to create directory"
+msgstr "निर्देशिका बनाने में विफल"
+
+#: src/Core/Main.vala:1584
+msgid "Failed to create new snapshot"
+msgstr "नया स्नैपशॉट बनाने में विफल"
+
+#: src/Core/Main.vala:1338
+msgid "Failed to create snapshot"
+msgstr "स्नैपशॉट बनाने में विफल"
+
+#: src/Core/Main.vala:1674
+msgid "Failed to create subvolume snapshot"
+msgstr "सबवॉल्यूम स्नैपशॉट बनाने में विफल"
+
+#: src/Core/SnapshotRepo.vala:919 src/Core/SnapshotRepo.vala:923
+msgid "Failed to create symlinks"
+msgstr "सिम्लिंक्स बनाने में विफल"
+
+#: src/Utility/TeeJee.FileSystem.vala:360
+msgid "Failed to delete directory"
+msgstr "निर्देशिका को हटाने में विफल"
+
+#: src/Utility/TeeJee.FileSystem.vala:86
+msgid "Failed to delete file"
+msgstr "फ़ाइल हटाने में विफल"
+
+#: src/Core/Subvolume.vala:154
+msgid "Failed to delete snapshot nested subvolume"
+msgstr "स्नैपशॉट नेस्टेड सबवॉल्यूम हटाने में विफल"
+
+#: src/Core/Subvolume.vala:164
+msgid "Failed to delete snapshot subvolume"
+msgstr "स्नैपशॉट सबवॉल्यूम हटाने में विफल"
+
+#: src/Core/SnapshotRepo.vala:935
+msgid "Failed to delete symlinks"
+msgstr "सिम्लिंक्स हटाने में विफल"
+
+#: src/Core/Subvolume.vala:191
+msgid "Failed to destroy qgroup"
+msgstr "qgroup को नष्ट करने में विफल"
+
+#: src/Core/Main.vala:3958 src/Core/Main.vala:3964
+msgid "Failed to estimate system size"
+msgstr "सिस्टम आकार का अनुमान लगाने में विफल"
+
+#: src/Utility/CronTab.vala:257
+msgid "Failed to export crontab file"
+msgstr "क्रॉस्टैब फ़ाइल निर्यात करने में विफल"
+
+#: src/AppConsole.vala:713 src/AppConsole.vala:783 src/AppConsole.vala:923
+#: src/AppConsole.vala:1026 src/AppConsole.vala:1077 src/AppConsole.vala:1123
+msgid "Failed to get input from user in 3 attempts"
+msgstr "3 प्रयासों में उपयोगकर्ता से इनपुट प्राप्त करने में विफल"
+
+#: src/Utility/Device.vala:746
+msgid "Failed to get partition list"
+msgstr "विभाजन सूची प्राप्त करने में विफल"
+
+#: src/Core/Main.vala:3545
+msgid "Failed to get partition list."
+msgstr "विभाजन सूची प्राप्त करने में विफल."
+
+#: src/Utility/CronTab.vala:240
+msgid "Failed to install crontab file"
+msgstr "क्रॉस्टैब फ़ाइल स्थापित करने में विफल"
+
+#: src/Gtk/RestoreDeviceBox.vala:521
+msgid "Failed to mount devices"
+msgstr "डिवाइस माउंट करने में विफल"
+
+#: src/Utility/TeeJee.FileSystem.vala:190
+msgid "Failed to move file"
+msgstr "फ़ाइल ले जाने में विफल"
+
+#: src/Core/Main.vala:3171
+msgid "Failed to move system subvolume to snapshot directory"
+msgstr "सिस्टम सबवॉल्यूम को स्नैपशॉट निर्देशिका में ले जाने में विफल"
+
+#: src/Core/Main.vala:4071
+msgid "Failed to query subvolume list"
+msgstr "सबवॉल्यूम सूची क्वेरी करने में विफल"
+
+#: src/Core/Main.vala:4156
+msgid "Failed to query subvolume quota"
+msgstr "सबवॉल्यूम कोटा क्वेरी करने में विफल"
+
+#: src/Utility/CronTab.vala:50
+msgid "Failed to read cron tab"
+msgstr "क्रॉन टैब पढ़ने में विफल"
+
+#: src/Utility/TeeJee.FileSystem.vala:110
+#: src/Utility/TeeJee.FileSystem.vala:128
+msgid "Failed to read file"
+msgstr "फाइल पढ़ने में विफल"
+
+#: src/Core/SnapshotRepo.vala:895
+msgid "Failed to remove"
+msgstr "निकालने में विफल"
+
+#: src/Utility/CronTab.vala:213
+msgid "Failed to remove cron job"
+msgstr "क्रॉन कार्य को हटाने में विफल"
+
+#: src/Core/Snapshot.vala:532 src/Core/Snapshot.vala:544
+#: src/Core/Snapshot.vala:552
+msgid "Failed to remove snapshot"
+msgstr "स्नैपशॉट निकालने में विफल"
+
+#: src/Core/Subvolume.vala:243
+msgid "Failed to restore system subvolume"
+msgstr "सिस्टम सबवॉल्यूम पुनर्स्थापित करने में विफल"
+
+#: src/Core/Main.vala:1534
+msgid "Failed to save exclude list"
+msgstr "बहिष्कृत सूची सहेजने में विफल"
+
+#: src/Utility/Device.vala:1403 src/Utility/Device.vala:1457
+#: src/Utility/Device.vala:1482 src/Utility/Device.vala:1503
+#: src/Utility/Device.vala:1523
+msgid "Failed to unlock device"
+msgstr "डिवाइस अनलॉक करने में विफल"
+
+#: src/Utility/Device.vala:1755
+msgid "Failed to unmount"
+msgstr "अनमाउंट करने में विफल"
+
+#: src/Core/Main.vala:3749
+msgid "Failed to unmount device!"
+msgstr "डिवाइस को अनमाउंट करने में विफल!"
+
+#: src/Utility/TeeJee.FileSystem.vala:155
+msgid "Failed to write file"
+msgstr "फ़ाइल लिखने में विफल"
+
+#: src/Gtk/RsyncLogBox.vala:122
+msgid "File (snapshot)"
+msgstr "फ़ाइल (स्नैपशॉट)"
+
+#: src/Gtk/RsyncLogBox.vala:119
+msgid "File (system)"
+msgstr "फ़ाइल (सिस्टम)"
+
+#: src/Gtk/ExcludeMessageWindow.vala:97
+msgid "File Pattern"
+msgstr "फ़ाइल पैटर्न"
+
+#: src/Gtk/BackupBox.vala:83
+msgid "File and directory counts:"
+msgstr "फ़ाइल और निर्देशिका मायने रखता है:"
+
+#: src/Utility/CronTab.vala:225 src/Utility/RsyncTask.vala:298
+#: src/Utility/TeeJee.FileSystem.vala:185
+msgid "File not found"
+msgstr "फाइल नहीं मिली"
+
+#: src/Gtk/ExcludeListSummaryWindow.vala:62
+msgid ""
+"Files &amp; directories matching the patterns below will be excluded. "
+"Patterns starting with a + will include the item instead of excluding."
+msgstr ""
+"नीचे दिए गए पैटर्न से मेल खाने वाली फाइलें और निर्देशिकाएं बाहर रखी जाएंगी। "
+"+ से शुरू होने वाले पैटर्न में शामिल करने के बजाय आइटम शामिल होगा।"
+
+#: src/Gtk/SnapshotBackendBox.vala:201
+msgid "Files and directories can be excluded to save disk space."
+msgstr ""
+"डिस्क स्थान को बचाने के लिए फ़ाइलों और निर्देशिकाओं को बाहर रखा जा सकता है।"
+
+#: src/Gtk/RestoreBox.vala:119
+msgid "Files and directory counts:"
+msgstr "फ़ाइलें और निर्देशिका मायने रखती है:"
+
+#: src/Gtk/ExcludeMessageWindow.vala:76
+msgid "Files matching the following patterns will be excluded"
+msgstr "निम्नलिखित पैटर्न से मेल खाने वाली फ़ाइलों को बाहर रखा जाएगा"
+
+#: src/Utility/Device.vala:1972
+#, c-format
+msgid "Filesystem"
+msgstr "फ़ाइलसिस्टम"
+
+#: src/Gtk/RsyncLogBox.vala:302
+msgid "Filter by name or path"
+msgstr "नाम या पथ के आधार पर फ़िल्टर करें"
+
+#: src/Gtk/SettingsWindow.vala:103
+msgid "Filters"
+msgstr "निस्पंदक"
+
+#: src/Gtk/BackupWindow.vala:97 src/Gtk/SetupWizardWindow.vala:211
+#: src/Gtk/DeleteWindow.vala:103
+msgid "Finish"
+msgstr "समाप्त करें"
+
+#: src/Gtk/RestoreWindow.vala:130 src/Gtk/SetupWizardWindow.vala:120
+msgid "Finished"
+msgstr "समाप्त"
+
+#: src/Gtk/RestoreExcludeBox.vala:78
+msgid "Firefox, Chromium, Chrome, Opera, Epiphany, Midori"
+msgstr "फ़ायरफ़ॉक्स, क्रोमियम, क्रोम, ओपेरा, एपिफेनी, मिडोरी"
+
+#: src/Core/SnapshotRepo.vala:587
+msgid "First snapshot requires:"
+msgstr "पहले स्नैपशॉट की आवश्यकता है:"
+
+#: src/Core/Main.vala:3104
+msgid "Found existing pre-restore snapshot"
+msgstr "मौजूदा प्री-रिस्टोर स्नैपशॉट मिला"
+
+#: src/Gtk/BackupDeviceBox.vala:215
+msgid "Free"
+msgstr "मुक्त"
+
+#: src/Core/SnapshotRepo.vala:75 src/Core/SnapshotRepo.vala:145
+msgid "Free space"
+msgstr "मुक्त जगह"
+
+#: src/AppConsole.vala:1091
+msgid "GRUB Device"
+msgstr "GRUB डिवाइस"
+
+#: src/Gtk/RestoreDeviceBox.vala:497
+msgid "GRUB device not selected"
+msgstr "GRUB डिवाइस चयनित नहीं है"
+
+#: src/AppConsole.vala:1096
+msgid "GRUB will NOT be reinstalled"
+msgstr "GRUB को फिर से स्थापित नहीं किया जाएगा"
+
+#: src/Core/Main.vala:2541
+msgid "Generating initramfs..."
+msgstr "initramfs उत्पन्न कर रहा है ..."
+
+#: src/AppConsole.vala:386
+msgid "Global"
+msgstr "व्‍यापक"
+
+#: src/Gtk/BackupBox.vala:100 src/Gtk/RestoreBox.vala:135
+#: src/Gtk/RsyncLogBox.vala:400
+#, c-format
+msgid "Group"
+msgstr "समूह"
+
+#: src/Gtk/SnapshotBackendBox.vala:141
+msgid "Help"
+msgstr "मदद"
+
+#: src/Gtk/ExcludeMessageWindow.vala:128
+msgid ""
+"Hidden files and folders are included by default since they contain user-"
+"specific configuration files."
+msgstr ""
+"छिपी हुई फ़ाइलें और फ़ोल्डर डिफ़ॉल्ट रूप से शामिल होते हैं क्योंकि उनमें "
+"उपयोगकर्ता-विशिष्ट कॉन्फ़िगरेशन फ़ाइलें होती हैं।"
+
+#: src/Gtk/DeleteWindow.vala:181
+msgid "Hide"
+msgstr "छिपाऐं"
+
+#: src/AppConsole.vala:393
+msgid "Hide rsync output"
+msgstr "rsync आउटपुट छुपाएं"
+
+#: src/Gtk/DeleteWindow.vala:182
+msgid "Hide this window (files will be deleted in background)"
+msgstr "इस विंडो को छुपाएं (फ़ाइलें पृष्ठभूमि में हटा दी जाएंगी)"
+
+#: src/Gtk/UsersBox.vala:116
+msgid "Home"
+msgstr "Home"
+
+#: src/Gtk/ExcludeMessageWindow.vala:115
+msgid "Home Directory"
+msgstr "होम निर्देशिका"
+
+#: src/Gtk/SnapshotListBox.vala:298 src/Gtk/ScheduleBox.vala:118
+msgid "Hourly"
+msgstr "प्रतिघंटे"
+
+#: src/Core/Main.vala:1094
+msgid "Hourly snapshot failed!"
+msgstr "प्रति घंटा स्नैपशॉट विफल!"
+
+#: src/Core/Main.vala:1075
+msgid "Hourly snapshots are enabled"
+msgstr "प्रति घंटा स्नैपशॉट सक्षम हैं"
+
+#: src/Gtk/RestoreFinishBox.vala:102
+msgid ""
+"If the restored system fails to boot, then boot from the Live CD/USB, "
+"install Timeshift, and try restoring another snapshot."
+msgstr ""
+"जर पुनर्संचयित सिस्टम बूट करण्यात अयशस्वी झाल्यास, तर Live CD/USB वरून बूट "
+"करा, Timeshift स्थापित करा आणि दुसरा स्नैपशॉट पुनर्संचयित करण्याचा प्रयत्न "
+"करा."
+
+#: src/Core/Main.vala:2405
+msgid ""
+"If these terms are not acceptable to you, please do not proceed beyond this "
+"point!"
+msgstr ""
+"यदि ये शर्तें आपको स्वीकार्य नहीं हैं, तो कृपया इस बिंदु से आगे न बढ़ें!"
+
+#: src/Gtk/ExcludeBox.vala:54
+msgid "Include / Exclude Patterns"
+msgstr "शामिल करना /बाहर करना पैटर्न"
+
+#: src/Gtk/UsersBox.vala:336
+msgid "Include @home subvolume in backups"
+msgstr "बैकअप में @home सबवॉल्यूम शामिल करें"
+
+#: src/Gtk/UsersBox.vala:262
+msgid "Include All Files"
+msgstr "सभी फ़ाइलें शामिल करें"
+
+#: src/Gtk/UsersBox.vala:190
+msgid "Include Only Hidden Files"
+msgstr "केवल छुपी हुई फ़ाइलें शामिल करें"
+
+#: src/Core/Main.vala:2219
+msgid "Invalid Snapshot"
+msgstr "अमान्य स्नैपशॉट"
+
+#: src/AppConsole.vala:258
+#, c-format
+msgid "Invalid command line arguments"
+msgstr "अमान्य कमांड लाइन तर्क"
+
+#: src/Gtk/MainWindow.vala:831
+msgid "Invalid snapshot"
+msgstr "अमान्य स्नैपशॉट"
+
+#: src/Gtk/ExcludeBox.vala:282
+msgid "Items Not Selected"
+msgstr "आइटम्स चयनित नहीं हैं"
+
+#: src/Gtk/ScheduleBox.vala:283
+msgid "Keep"
+msgstr "रखें"
+
+#: src/Gtk/RestoreExcludeBox.vala:112
+msgid ""
+"Keep configuration files for bittorrent clients like Deluge, Transmission, "
+"etc. If un-checked, previous configuration files will be restored from "
+"snapshot."
+msgstr ""
+"बिटटोरेंट क्लाइंट जैसे डेल्यूज, ट्रांसमिशन आदि के लिए कॉन्फ़िगरेशन फ़ाइलें "
+"रखें। यदि अनचेक किया गया है, तो पिछली कॉन्फ़िगरेशन फ़ाइलें स्नैपशॉट से "
+"पुनर्स्थापित की जाएंगी।"
+
+#: src/Gtk/RestoreExcludeBox.vala:85
+msgid ""
+"Keep configuration files for web browsers like Firefox and Chrome. If un-"
+"checked, previous configuration files will be restored from snapshot"
+msgstr ""
+"Firefox और Chrome जैसे वेब ब्राउज़र के लिए कॉन्फ़िगरेशन फ़ाइलें रखें. यदि "
+"अनचेक किया गया है, तो पिछली कॉन्फ़िगरेशन फ़ाइलें स्नैपशॉट से पुनर्स्थापित की "
+"जाएंगी"
+
+#: src/Gtk/RestoreDeviceBox.vala:244
+msgid "Keep on Root Device"
+msgstr "रूट डिवाइस पर रखें"
+
+#: src/Gtk/RestoreDeviceBox.vala:229
+msgid "Keep this mount path on the root filesystem"
+msgstr "इस माउंट पथ को रूट फाइल सिस्टम पर रखें"
+
+#: src/Gtk/SnapshotListBox.vala:523
+msgid "LIVE"
+msgstr "रहना"
+
+#: src/Utility/Device.vala:1973 src/Gtk/BackupDeviceBox.vala:254
+#: src/AppConsole.vala:472 src/AppConsole.vala:511
+#, c-format
+msgid "Label"
+msgstr "लेबल"
+
+#: src/Core/Main.vala:1056
+#, c-format
+msgid "Last boot snapshot is %d hours old"
+msgstr "अंतिम बूट स्नैपशॉट %d घंटे पुराना है"
+
+#: src/Core/Main.vala:1051
+msgid "Last boot snapshot is older than system start time"
+msgstr "अंतिम बूट स्नैपशॉट सिस्टम प्रारंभ समय से पुराना है"
+
+#: src/Core/Main.vala:1047
+msgid "Last boot snapshot not found"
+msgstr "अंतिम बूट स्नैपशॉट नहीं मिला"
+
+#: src/Core/Main.vala:1118
+#, c-format
+msgid "Last daily snapshot is %d hours old"
+msgstr "अंतिम दैनिक स्नैपशॉट %d घंटे पुराना है"
+
+#: src/Core/Main.vala:1113
+msgid "Last daily snapshot is more than 1 day old"
+msgstr "अंतिम दैनिक स्नैपशॉट 1 दिन से अधिक पुराना है"
+
+#: src/Core/Main.vala:1109
+msgid "Last daily snapshot not found"
+msgstr "अंतिम दैनिक स्नैपशॉट नहीं मिला"
+
+#: src/Core/Main.vala:1087
+#, c-format
+msgid "Last hourly snapshot is %d minutes old"
+msgstr "अंतिम प्रति घंटा स्नैपशॉट %d मिनट पुराना है"
+
+#: src/Core/Main.vala:1082
+msgid "Last hourly snapshot is more than 1 hour old"
+msgstr "अंतिम प्रति घंटा स्नैपशॉट 1 घंटे से अधिक पुराना है"
+
+#: src/Core/Main.vala:1078
+msgid "Last hourly snapshot not found"
+msgstr "अंतिम घंटे का स्नैपशॉट नहीं मिला"
+
+#: src/Core/Main.vala:1180
+#, c-format
+msgid "Last monthly snapshot is %d days old"
+msgstr "पिछला मासिक स्नैपशॉट %d दिन पुराना है"
+
+#: src/Core/Main.vala:1175
+msgid "Last monthly snapshot is more than 1 month old"
+msgstr "अंतिम मासिक स्नैपशॉट 1 महीने से अधिक पुराना है"
+
+#: src/Core/Main.vala:1171
+msgid "Last monthly snapshot not found"
+msgstr "अंतिम मासिक स्नैपशॉट नहीं मिला"
+
+#: src/Core/Main.vala:1149
+#, c-format
+msgid "Last weekly snapshot is %d days old"
+msgstr "पिछला साप्ताहिक स्नैपशॉट %d दिन पुराना है"
+
+#: src/Core/Main.vala:1144
+msgid "Last weekly snapshot is more than 1 week old"
+msgstr "अंतिम साप्ताहिक स्नैपशॉट 1 सप्ताह से अधिक पुराना है"
+
+#: src/Core/Main.vala:1140
+msgid "Last weekly snapshot not found"
+msgstr "अंतिम साप्ताहिक स्नैपशॉट नहीं मिला"
+
+#: src/Gtk/MainWindow.vala:1019
+#, c-format
+msgid "Latest snapshot"
+msgstr "नवीनतम स्नैपशॉट"
+
+#: src/Core/Main.vala:1523
+#, c-format
+msgid "Linking from snapshot"
+msgstr "स्नैपशॉट से लिंक करना"
+
+#: src/AppConsole.vala:364
+msgid "List"
+msgstr "सूची"
+
+#: src/AppConsole.vala:366
+msgid "List devices"
+msgstr "सूची डिवाइस"
+
+#: src/AppConsole.vala:365
+msgid "List snapshots"
+msgstr "स्नैपशॉट सूचीबद्ध करें"
+
+#: src/Gtk/MainWindow.vala:970
+msgid "Live USB Mode (Restore Only)"
+msgstr "लाइव USB मोड (केवल पुनर्स्थापित करें)"
+
+#: src/Gtk/SettingsWindow.vala:90 src/Gtk/BackupWindow.vala:87
+#: src/Gtk/SetupWizardWindow.vala:104
+msgid "Location"
+msgstr "स्थान"
+
+#: src/Gtk/MainWindow.vala:441
+msgid "Main window closed by user"
+msgstr "उपयोगकर्ता द्वारा बंद की गई मुख्य विंडो"
+
+#: src/Gtk/SnapshotListBox.vala:349
+msgid "Mark/Unmark for Deletion"
+msgstr "हटाने के लिए चिह्न/चिह्न"
+
+#: src/Core/SnapshotRepo.vala:632 src/Core/SnapshotRepo.vala:675
+msgid "Maximum backups exceeded for backup level"
+msgstr "बैकअप स्तर के लिए अधिकतम बैकअप पार हो गए"
+
+#: src/Gtk/MainWindow.vala:207
+msgid "Menu"
+msgstr "मेन्यू"
+
+#: src/Gtk/SettingsWindow.vala:105
+msgid "Misc"
+msgstr "विविध"
+
+#: src/Core/Main.vala:253
+msgid "Missing Dependencies"
+msgstr "बैकअप स्तर के लिए अधिकतम बैकअप पार हो गए"
+
+#: src/Core/SnapshotRepo.vala:609
+#, c-format
+msgid "Mode"
+msgstr "मोड"
+
+#: src/Utility/Device.vala:1956
+#, c-format
+msgid "Model"
+msgstr "मॉडल"
+
+#: src/Gtk/SnapshotListBox.vala:301 src/Gtk/ScheduleBox.vala:64
+msgid "Monthly"
+msgstr "मासिक"
+
+#: src/Core/Main.vala:1168
+msgid "Monthly snapshot are enabled"
+msgstr "मासिक स्नैपशॉट सक्षम हैं"
+
+#: src/Core/Main.vala:1187
+msgid "Monthly snapshot failed!"
+msgstr "मासिक स्नैपशॉट विफल!"
+
+#: src/Core/Main.vala:2306 src/Core/Main.vala:2339
+msgid "Mount"
+msgstr "माउन्ट"
+
+#: src/Core/Main.vala:3178
+msgid "Moved system subvolume to snapshot directory"
+msgstr "सिस्टम सबवॉल्यूम को स्नैपशॉट निर्देशिका में ले जाया गया"
+
+#: src/Gtk/MainWindow.vala:807
+msgid "Multiple snapshots selected"
+msgstr "एकाधिक स्नैपशॉट चयनित"
+
+#: src/Gtk/BackupDeviceBox.vala:235 src/Gtk/RsyncLogBox.vala:491
+#: src/AppConsole.vala:438
+msgid "Name"
+msgstr "नाम"
+
+#: src/Gtk/RestoreWindow.vala:201 src/Gtk/BackupWindow.vala:164
+#: src/Gtk/SetupWizardWindow.vala:203 src/Gtk/DeleteWindow.vala:165
+msgid "Next"
+msgstr "अगला"
+
+#: src/Utility/Gtk/CustomMessageDialog.vala:157
+msgid "No"
+msgstr "नहीं"
+
+#: src/Gtk/BackupBox.vala:87 src/Gtk/RestoreBox.vala:122
+msgid "No Change"
+msgstr "कोई बदलाव नहीं"
+
+#: src/Gtk/MainWindow.vala:616 src/Gtk/DeleteWindow.vala:335
+msgid "No Snapshots Selected"
+msgstr "कोई स्नैपशॉट चयनित नहीं"
+
+#: src/Gtk/MainWindow.vala:1043
+msgid "No snapshots available"
+msgstr "स्नैपशॉटस उपलब्ध नहीं"
+
+#: src/Core/SnapshotRepo.vala:834 src/Gtk/MainWindow.vala:987
+#: src/AppConsole.vala:327
+msgid "No snapshots found"
+msgstr "स्नैपशॉटस नहीं मिले"
+
+#: src/AppConsole.vala:756
+msgid "No snapshots found on device"
+msgstr "डिवाइस पर स्नैपशॉटस नहीं मिले"
+
+#: src/Gtk/MainWindow.vala:537
+msgid "No snapshots on device"
+msgstr "डिवाइस पर स्नैपशॉटस नहीं हैं"
+
+#: src/Core/SnapshotRepo.vala:585
+msgid "No snapshots on this device"
+msgstr "इस डिवाइस पर स्नैपशॉटस नहीं मिले"
+
+#: src/Gtk/MainWindow.vala:800
+msgid "No snapshots selected"
+msgstr "कोई स्नैपशॉट चयनित नहीं"
+
+#: src/Gtk/MainWindow.vala:1020 src/Gtk/MainWindow.vala:1022
+msgid "None"
+msgstr "कोई नहीं"
+
+#: src/Core/Subvolume.vala:225
+#, c-format
+msgid "Not Found"
+msgstr "नहीं मिला"
+
+#: src/Core/SnapshotRepo.vala:603
+msgid "Not Selected"
+msgstr "चयनित नहीं"
+
+#: src/Core/Main.vala:398
+msgid "Not Supported"
+msgstr "असमर्थित"
+
+#: src/Core/SnapshotRepo.vala:547 src/Core/SnapshotRepo.vala:576
+msgid "Not enough disk space"
+msgstr "पर्याप्त डिस्क स्पेस नहीं"
+
+#: src/Gtk/FinishBox.vala:55 src/AppConsole.vala:410
+msgid "Notes"
+msgstr "टिप्पणियां"
+
+#: src/Core/Main.vala:1198
+msgid "Nothing to do!"
+msgstr "कुछ नहीं करना है!"
+
+#: src/AppConsole.vala:436 src/AppConsole.vala:466 src/AppConsole.vala:505
+#: src/AppConsole.vala:553
+msgid "Num"
+msgstr "जड़"
+
+#: src/Gtk/ScheduleBox.vala:282
+msgid ""
+"Number of snapshots to keep.\n"
+"Older snapshots will be removed once this limit is exceeded."
+msgstr ""
+"रखने के लिए स्नैपशॉट की संख्या।\n"
+"इस सीमा के पार हो जाने पर पुराने स्नैपशॉट हटा दिए जाएंगे।"
+
+#: src/Core/SnapshotRepo.vala:558 src/Utility/Gtk/CustomMessageDialog.vala:147
+#: src/Utility/Gtk/CustomMessageDialog.vala:151 src/Utility/GtkHelper.vala:108
+#: src/Gtk/SettingsWindow.vala:123 src/Gtk/ExcludeListSummaryWindow.vala:84
+msgid "OK"
+msgstr "OK"
+
+#: src/Gtk/SnapshotBackendBox.vala:188
+msgid ""
+"OS must be installed on a BTRFS partition with Ubuntu-type subvolume layout "
+"(@ and @home subvolumes). Other layouts are not supported."
+msgstr ""
+"ओएस को उबंटू-प्रकार सबवॉल्यूम लेआउट (@ और @home सबवॉल्यूम) के साथ बीटीआरएफएस "
+"विभाजन पर स्थापित किया जाना चाहिए। अन्य लेआउट समर्थित नहीं हैं."
+
+#: src/Core/Main.vala:4329
+msgid "Older log files removed"
+msgstr "पुरानी लॉग फ़ाइलें हटाई गईं"
+
+#: src/Gtk/MainWindow.vala:1021
+msgid "Oldest snapshot"
+msgstr "सबसे पुराना स्नैपशॉट"
+
+#: src/Gtk/SnapshotListBox.vala:296
+msgid "On demand (manual)"
+msgstr "मांग पर (मैनुअल)"
+
+#: src/Core/Main.vala:396 src/Core/Main.vala:3662
+#: src/Gtk/RestoreDeviceBox.vala:511
+msgid ""
+"Only ubuntu-type layouts with @ and @home subvolumes are currently supported."
+msgstr ""
+"वर्तमान में @ और @home सबवॉल्यूम वाले केवल उबंटू-प्रकार लेआउट समर्थित हैं।"
+
+#: src/Gtk/MainWindow.vala:208
+msgid "Open Menu"
+msgstr "मेन्यू खोलें"
+
+#: src/Core/Main.vala:3448
+msgid ""
+"Option --snapshot-device should not be specified for creating snapshots in "
+"BTRFS mode"
+msgstr ""
+"विकल्प --snapshot-device को BTRFS मोड में स्नैपशॉट बनाने के लिए निर्दिष्ट "
+"नहीं किया जाना चाहिए"
+
+#: src/AppConsole.vala:362 src/AppGtk.vala:128
+msgid "Options"
+msgstr "विकल्प"
+
+#: src/Gtk/RestoreExcludeBox.vala:118
+msgid "Other applications (next page)"
+msgstr "अन्य अनुप्रयोग (अगले पृष्ठ)"
+
+#: src/Gtk/BackupBox.vala:99 src/Gtk/RestoreBox.vala:134
+#: src/Gtk/RsyncLogBox.vala:398
+#, c-format
+msgid "Owner"
+msgstr "मालिक"
+
+#: src/Utility/Device.vala:1968
+#, c-format
+msgid "Parent Device"
+msgstr "पैरेंट डिवाइस"
+
+#: src/Core/Main.vala:2670 src/Core/Main.vala:2761 src/Gtk/RsyncLogBox.vala:222
+msgid "Parsing log file..."
+msgstr "पार्सिंग लॉग फ़ाइल..."
+
+#: src/Gtk/RestoreDeviceBox.vala:510
+msgid "Partition has an unsupported subvolume layout."
+msgstr "पार्टीशन में एक असमर्थित सबवॉल्यूम लेआउट है।"
+
+#: src/Core/SnapshotRepo.vala:608 src/Gtk/RestoreDeviceBox.vala:93
+#, c-format
+msgid "Path"
+msgstr "पाथ"
+
+#: src/Gtk/ExcludeBox.vala:166
+msgid "Pattern"
+msgstr "प्रतिमान"
+
+#: src/Gtk/BackupBox.vala:98 src/Gtk/RestoreBox.vala:133
+#: src/Gtk/RsyncLogBox.vala:396
+#, c-format
+msgid "Permissions"
+msgstr "अनुमतियां"
+
+#: src/Core/Main.vala:272
+msgid "Please check if you have multiple windows open."
+msgstr "कृपया जांचें कि क्या आपके पास कई विंडो खुली हैं।"
+
+#: src/Core/Main.vala:2437
+msgid "Please do not interrupt the restore process!"
+msgstr "कृपया पुनर्स्थापना प्रक्रिया को बाधित न करें!"
+
+#: src/Core/Main.vala:367
+msgid "Please install required packages and try running TimeShift again"
+msgstr ""
+"कृपया आवश्यक पैकेज स्थापित करें और टाइमशिफ्ट को फिर से चलाने का प्रयास करें"
+
+#: src/AppGtk.vala:143
+msgid "Please re-run the application as admin (using 'sudo' or 'su')"
+msgstr ""
+"कृपया एप्लिकेशन को व्यवस्थापक के रूप में फिर से चलाएं ('sudo' या 'su' का "
+"उपयोग करके)"
+
+#: src/AppConsole.vala:108
+msgid "Please run the application as admin (using 'sudo' or 'su')"
+msgstr ""
+"कृपया एप्लिकेशन को व्यवस्थापक के रूप में चलाएं ('sudo' या 'su' का उपयोग करके)"
+
+#: src/Core/Main.vala:2387
+msgid "Please save your work and close all applications."
+msgstr "कृपया अपना कार्य सहेजें और सभी एप्लिकेशन बंद करें।"
+
+#: src/Gtk/MainWindow.vala:702
+msgid "Please select a snapshot to view the log!"
+msgstr "लॉग देखने के लिए एक स्नैपशॉट का चयन करें!"
+
+#: src/Gtk/RestoreDeviceBox.vala:498
+msgid "Please select the GRUB device"
+msgstr "कृपया GRUB युक्ति का चयन करें"
+
+#: src/Core/Main.vala:268
+msgid "Please wait a few minutes and try again."
+msgstr "कुछ मिनट इंतज़ार करके दोबारा कोशिश करें।"
+
+#: src/Gtk/MainWindow.vala:769
+msgid "Please wait for snapshots to be deleted."
+msgstr "स्नैपशॉट मिटने का इंतज़ार करें।"
+
+#: src/Gtk/EstimateBox.vala:66
+msgid "Please wait..."
+msgstr "इंतज़ार करें..."
+
+#: src/Gtk/RsyncLogBox.vala:188
+msgid "Populating list..."
+msgstr "पॉप्युलेटिंग लिस्ट..."
+
+#: src/Core/Main.vala:1772 src/Gtk/BackupBox.vala:117
+#: src/Gtk/RestoreBox.vala:88 src/Gtk/DeleteBox.vala:68
+#: src/Gtk/RsyncLogBox.vala:232
+msgid "Preparing..."
+msgstr "तैयार हो रहा है ..."
+
+#: src/Gtk/RestoreWindow.vala:193 src/Gtk/BackupWindow.vala:156
+#: src/Gtk/SetupWizardWindow.vala:195 src/Gtk/DeleteWindow.vala:157
+msgid "Previous"
+msgstr "पिछला"
+
+#: src/AppGtk.vala:130
+msgid "Print debug information"
+msgstr "डीबग जानकारी प्रिंट करें"
+
+#: src/AppConsole.vala:396 src/AppGtk.vala:132
+msgid "Print version number"
+msgstr "संस्करण संख्या मुद्रित करें"
+
+#: src/Core/Main.vala:4019
+msgid "Query completed"
+msgstr "क्वेरी पूर्ण हुई"
+
+#: src/Core/Main.vala:4002
+msgid "Querying subvolume info..."
+msgstr "क्वेरी सबवॉल्यूम जानकारी..."
+
+#: src/Gtk/SnapshotBackendBox.vala:77
+msgid "RSYNC"
+msgstr "RSYNC"
+
+#: src/Gtk/SnapshotBackendBox.vala:193
+msgid "RSYNC Snapshots"
+msgstr "RSYNC स्नैपशॉटस"
+
+#: src/Gtk/BootOptionsBox.vala:137
+msgid ""
+"Re-generates initramfs for all installed kernels. This is generally not "
+"needed. Select this only if the restored system fails to boot."
+msgstr ""
+"सभी अधिष्ठापित कर्नेल के लिए initramfs पुनः उत्पन्न करता है. आमतौर पर इसकी "
+"आवश्यकता नहीं होती है। इसे केवल तभी चुनें जब पुनर्स्थापित सिस्टम बूट करने "
+"में विफल रहता है।"
+
+#: src/AppConsole.vala:1020
+#, c-format
+msgid "Re-install GRUB2 bootloader?"
+msgstr "GRUB2 बूटलोडर को फिर से स्थापित करें?"
+
+#: src/Core/Main.vala:2500
+msgid "Re-installing GRUB2 bootloader..."
+msgstr "GRUB2 बूटलोडर को फिर से स्थापित करना..."
+
+#: src/Gtk/BootOptionsBox.vala:120
+msgid "Re-installs the GRUB2 bootloader on the selected device."
+msgstr "GRUB2 बूटलोडर को चयनित डिवाइस पर पुनः अधिष्ठापित करता है."
+
+#: src/Gtk/RsyncLogBox.vala:181
+#, c-format
+msgid "Read %'d of %'d lines..."
+msgstr "%'d लाइनों का %'d पढ़ें..."
+
+#: src/Core/Main.vala:2600
+msgid "Rebooting system..."
+msgstr "रिबूटिंग सिस्टम..."
+
+#: src/Gtk/RestoreExcludeBox.vala:61 src/Gtk/RestoreExcludeBox.vala:91
+#, c-format
+msgid "Recommended"
+msgstr "अनुशंसित"
+
+#: src/Gtk/BackupDeviceBox.vala:65 src/Gtk/RestoreDeviceBox.vala:70
+msgid "Refresh"
+msgstr "ताज़ा"
+
+#: src/Gtk/BackupDeviceBox.vala:106
+msgid "Remote and network locations are not supported."
+msgstr "दूरस्थ और नेटवर्क स्थान समर्थित नहीं हैं।"
+
+#: src/Gtk/ExcludeBox.vala:262
+msgid "Remove"
+msgstr "हटाऐं"
+
+#: src/Core/Snapshot.vala:511 src/Core/Main.vala:1810 src/Core/Main.vala:1821
+#: src/Core/Main.vala:4325 src/Core/SnapshotRepo.vala:893
+#, c-format
+msgid "Removed"
+msgstr "हटाय़ा गया"
+
+#: src/Utility/CronTab.vala:340
+msgid "Removed cron task"
+msgstr "हटाया गया क्रॉन कार्य"
+
+#: src/Core/Main.vala:3812
+#, c-format
+msgid "Removed mount directory: '%s'"
+msgstr "माउंट निर्देशिका निकाली गई: '%s'"
+
+#: src/Core/Snapshot.vala:557
+msgid "Removed snapshot"
+msgstr "स्नैपशॉट हटाया गया"
+
+#: src/Core/Snapshot.vala:486
+msgid "Removing"
+msgstr "हटाया जा रहा है"
+
+#: src/Core/Snapshot.vala:523
+msgid "Removing snapshot"
+msgstr "स्नैपशॉट हटाया जा रहा है"
+
+#: src/Core/SnapshotRepo.vala:767 src/Core/SnapshotRepo.vala:786
+#: src/Core/SnapshotRepo.vala:804 src/Core/SnapshotRepo.vala:818
+#, c-format
+msgid "Removing snapshots"
+msgstr "स्नैपशॉटस हटाए जा रहे हैं"
+
+#: src/Gtk/MainWindow.vala:150 src/Gtk/RestoreWindow.vala:125
+#: src/Gtk/RsyncLogBox.vala:377 src/Gtk/RsyncLogBox.vala:566
+#: src/Gtk/RestoreFinishBox.vala:71 src/AppConsole.vala:374
+msgid "Restore"
+msgstr "पुनर्स्थापित करें"
+
+#: src/Gtk/UsersBox.vala:325
+msgid "Restore @home subvolume"
+msgstr "@home सबवॉल्यूम पुनर्स्थापित करें"
+
+#: src/Gtk/RestoreWindow.vala:89
+msgid "Restore Device"
+msgstr "डिवाइस पुनर्स्थापित करें"
+
+#: src/Gtk/RestoreWindow.vala:94
+msgid "Restore Exclude"
+msgstr "बहिष्कृत करें पुनर्स्थापित करें"
+
+#: src/Gtk/RestoreWindow.vala:69
+msgid "Restore Snapshot"
+msgstr "स्नैपशॉट पुनर्स्थापित करें"
+
+#: src/Core/Main.vala:3010 src/Core/Main.vala:3052
+msgid "Restore completed"
+msgstr "पुनर्स्थापना पूर्ण हुई"
+
+#: src/Gtk/MainWindow.vala:151
+msgid "Restore selected snapshot"
+msgstr "चयनित स्नैपशॉट पुनर्स्थापित करें"
+
+#: src/AppConsole.vala:375
+msgid "Restore snapshot"
+msgstr "स्नैपशॉट पुनर्स्थापित करें"
+
+#: src/Gtk/RestoreFinishBox.vala:96
+msgid "Restored subvolumes will become active after system is restarted."
+msgstr "स्नैपशॉट पुनर्स्थापित करें"
+
+#: src/Core/Subvolume.vala:247
+msgid "Restored system subvolume"
+msgstr "पुनर्स्थापित सिस्टम सबवॉल्यूम"
+
+#: src/Gtk/RestoreBox.vala:77 src/Gtk/RestoreBox.vala:190
+msgid "Restoring Snapshot..."
+msgstr "स्नैपशॉट को पुनर्स्थापित करना..."
+
+#: src/Gtk/FinishBox.vala:85
+msgid ""
+"Restoring a snapshot will replace system subvolumes, and system subvolumes "
+"currently in use will be preserved as a new snapshot. If required, this "
+"snapshot can be restored later to 'undo' the restore."
+msgstr ""
+"स्नैपशॉट को पुनर्स्थापित करना सिस्टम सबवॉल्यूम को बदल देगा, और वर्तमान में "
+"उपयोग में आने वाले सिस्टम सबवॉल्यूम को एक नए स्नैपशॉट के रूप में संरक्षित "
+"किया जाएगा। यदि आवश्यक हो, तो इस स्नैपशॉट को बाद में पुनर्स्थापना को "
+"'पूर्ववत' करने के लिए पुनर्स्थापित किया जा सकता है।"
+
+#: src/Core/Main.vala:2979
+msgid "Restoring snapshot..."
+msgstr "स्नैपशॉट को पुनर्स्थापित करना..."
+
+#: src/Gtk/FinishBox.vala:88
+msgid ""
+"Restoring snapshots only replaces system files and settings. Non-hidden "
+"files and directories in user home directories will not be touched. This "
+"behaviour can be changed by adding a filter to include these files. Included "
+"files will be backed up when snapshot is created, and replaced when snapshot "
+"is restored."
+msgstr ""
+"स्नैपशॉट को पुनर्स्थापित करना केवल सिस्टम फ़ाइलों और सेटिंग्स को "
+"प्रतिस्थापित करता है। उपयोगकर्ता होम निर्देशिकाओं में गैर-छिपी हुई फ़ाइलों "
+"और निर्देशिकाओं को छुआ नहीं जाएगा। इन फ़ाइलों को शामिल करने के लिए फ़िल्टर "
+"जोड़कर इस व्यवहार को बदला जा सकता है। स्नैपशॉट बनाए जाने पर शामिल फ़ाइलों का "
+"बैकअप लिया जाएगा, और स्नैपशॉट के पुनर्स्थापित होने पर बदल दिया जाएगा।"
+
+#: src/Utility/Device.vala:1958
+#, c-format
+msgid "Revision"
+msgstr "संशोधन"
+
+#: src/Gtk/RestoreDeviceBox.vala:438
+msgid "Root device not selected"
+msgstr "रूट डिवाइस चयनित नहीं है"
+
+#: src/Gtk/RsyncLogWindow.vala:49
+msgid "Rsync Log Viewer"
+msgstr "Rsync लॉग व्यूअर"
+
+#: src/AppGtk.vala:134
+#, c-format
+msgid "Run 'timeshift' for the command-line version of this tool"
+msgstr "इस उपकरण के कमांड लाइन संस्करण के लिए 'timeshift' चलाएँ"
+
+#: src/AppConsole.vala:394
+msgid "Run in non-interactive mode"
+msgstr "गैर-इंटरैक्टिव मोड में चलाएँ"
+
+#: src/Core/Main.vala:204
+msgid "Running"
+msgstr "चल रहा है"
+
+#: src/Gtk/FinishBox.vala:95
+msgid ""
+"Save snapshots to an external disk instead of the system disk to guard "
+"against drive failures."
+msgstr ""
+"ड्राइव विफलताओं से सुरक्षा के लिए सिस्टम डिस्क के बजाय स्नैपशॉट को बाहरी "
+"डिस्क पर सहेजें।"
+
+#: src/Gtk/FinishBox.vala:97
+msgid ""
+"Saving snapshots to a non-system disk allows you to format and re-install "
+"the OS on the system disk without losing snapshots stored on it. You can "
+"even install another Linux distribution and later roll-back the previous "
+"distribution by restoring a snapshot."
+msgstr ""
+"स्नैपशॉट को गैर-सिस्टम डिस्क पर सहेजने से आप उस पर संग्रहीत स्नैपशॉट खोए "
+"बिना सिस्टम डिस्क पर ओएस को प्रारूपित और पुनः स्थापित कर सकते हैं। आप एक और "
+"लिनक्स वितरण भी स्थापित कर सकते हैं और बाद में स्नैपशॉट को पुनर्स्थापित करके "
+"पिछले वितरण को रोल-बैक कर सकते हैं।"
+
+#: src/Core/Main.vala:1464 src/Core/Main.vala:1618 src/Core/Main.vala:1620
+msgid "Saving to device"
+msgstr "डिवाइस में सहेजना"
+
+#: src/Gtk/SettingsWindow.vala:93 src/Gtk/SetupWizardWindow.vala:109
+msgid "Schedule"
+msgstr "अनुसूची"
+
+#: src/Core/Main.vala:275
+msgid "Scheduled snapshot in progress..."
+msgstr "शेड्यूल किया गया स्नैपशॉट प्रगति पर है..."
+
+#: src/Core/Main.vala:1198 src/Gtk/MainWindow.vala:1037
+#: src/Gtk/ScheduleBox.vala:312
+msgid "Scheduled snapshots are disabled"
+msgstr "शेड्यूल किए गए स्नैपशॉट अक्षम हैं"
+
+#: src/Gtk/FinishBox.vala:78
+msgid "Scheduled snapshots are disabled. It's recommended to enable it."
+msgstr ""
+"शेड्यूल किए गए स्नैपशॉट अक्षम हैं। इसे सक्षम करने की अनुशंसा की जाती है।"
+
+#: src/Gtk/ScheduleBox.vala:305
+msgid "Scheduled snapshots are enabled"
+msgstr "शेड्यूल किए गए स्नैपशॉट सक्षम हैं"
+
+#: src/Gtk/FinishBox.vala:75
+msgid ""
+"Scheduled snapshots are enabled. Snapshots will be created automatically for "
+"selected levels."
+msgstr ""
+"शेड्यूल किए गए स्नैपशॉट सक्षम हैं। स्नैपशॉट चयनित स्तरों के लिए स्वचालित रूप "
+"से बनाए जाएंगे।"
+
+#: src/AppConsole.vala:900
+#, c-format
+msgid "Select '%s' device (default = %s)"
+msgstr "'%s' डिवाइस का चयन करें (डिफ़ॉल्ट = %s)"
+
+#: src/Core/SnapshotRepo.vala:514 src/AppConsole.vala:705
+msgid "Select BTRFS system disk with root subvolume (@)"
+msgstr "रूट सबवॉल्यूम (@) के साथ BTRFS सिस्टम डिस्क का चयन करें"
+
+#: src/AppConsole.vala:1037
+msgid "Select GRUB device"
+msgstr "रूट सबवॉल्यूम (@) के साथ BTRFS सिस्टम डिस्क का चयन करें"
+
+#: src/Gtk/MainWindow.vala:701
+msgid "Select Snapshot"
+msgstr "स्नैपशॉट का चयन करें"
+
+#: src/Gtk/ScheduleBox.vala:57
+msgid "Select Snapshot Levels"
+msgstr "स्नैपशॉट स्तर का चयन करें"
+
+#: src/Gtk/BackupDeviceBox.vala:56
+msgid "Select Snapshot Location"
+msgstr "स्नैपशॉट स्थान का चयन करें"
+
+#: src/Gtk/SnapshotBackendBox.vala:62
+msgid "Select Snapshot Type"
+msgstr "स्नैपशॉट प्रकार का चयन करें"
+
+#: src/Gtk/DeleteWindow.vala:85
+msgid "Select Snapshots"
+msgstr "स्नैपशॉटस चुनें"
+
+#: src/Gtk/RestoreDeviceBox.vala:61
+msgid "Select Target Device"
+msgstr "लक्ष्य डिवाइस का चयन करें"
+
+#: src/Gtk/BackupDeviceBox.vala:410
+#, c-format
+msgid "Select a partition on this disk"
+msgstr "इस डिस्क पर एक पार्टीशन का चयन करें"
+
+#: src/Gtk/MainWindow.vala:808
+msgid "Select a single snapshot to restore"
+msgstr "पुनर्स्थापित करने के लिए एक स्नैपशॉट का चयन करें"
+
+#: src/Gtk/RestoreDeviceBox.vala:467
+msgid "Select another device for root file system (/)"
+msgstr "रूट फ़ाइल सिस्टम (/) के लिए किसी अन्य डिवाइस का चयन करें"
+
+#: src/Core/SnapshotRepo.vala:550 src/Core/SnapshotRepo.vala:579
+msgid "Select another device or free up some space"
+msgstr "किसी अन्य डिवाइस का चयन करें या कुछ स्थान खाली करें"
+
+#: src/Gtk/MainWindow.vala:531 src/Gtk/MainWindow.vala:538
+msgid "Select another device to delete snasphots"
+msgstr "स्नैस्फ़ोट्स को हटाने के लिए किसी अन्य डिवाइस का चयन करें"
+
+#: src/Gtk/MainWindow.vala:463
+msgid "Select another device?"
+msgstr "दूसरा डिवाइस चुनें?"
+
+#: src/Gtk/RestoreExcludeBox.vala:57
+msgid "Select applications to exclude from restore"
+msgstr "पुनर्स्थापना से बाहर करने के लिए अनुप्रयोगों का चयन करें"
+
+#: src/AppConsole.vala:688
+msgid "Select backup device"
+msgstr "बैकप डिवाइस चुनें"
+
+#: src/Gtk/ExcludeBox.vala:443
+msgid "Select directory"
+msgstr "डैरक्टरी चुनो"
+
+#: src/Gtk/ExcludeBox.vala:416
+msgid "Select file(s)"
+msgstr "फ़ाइल (फ़ाइलों) का चयन करें"
+
+#: src/AppConsole.vala:768
+msgid "Select snapshot"
+msgstr "स्नैपशॉट का चयन करें"
+
+#: src/Gtk/DeleteWindow.vala:336
+msgid "Select snapshots to delete"
+msgstr "हटाने के लिए स्नैपशॉट का चयन करें"
+
+#: src/Gtk/RestoreDeviceBox.vala:439
+msgid "Select the device for root file system (/)"
+msgstr "रूट फ़ाइल सिस्टम (/) के लिए डिवाइस का चयन करें"
+
+#: src/Gtk/RestoreDeviceBox.vala:83
+msgid "Select the devices where files will be restored."
+msgstr "उन डिवाइसेज़ का चयन करें जहाँ फ़ाइलें पुनर्स्थापित की जाएँगी."
+
+#: src/Gtk/ScheduleBox.vala:313
+msgid "Select the intervals for creating snapshots"
+msgstr "स्नैपशॉट बनाने के लिए अंतराल का चयन करें"
+
+#: src/Gtk/ExcludeBox.vala:283
+msgid "Select the items to be removed from the list"
+msgstr "सूची से हटाए जाने वाले आइटम्स का चयन करें"
+
+#: src/Core/SnapshotRepo.vala:476
+msgid "Select the snapshot device"
+msgstr "स्नैपशॉट डिवाइस का चयन करें"
+
+#: src/Gtk/MainWindow.vala:801
+msgid "Select the snapshot to restore"
+msgstr "पुनर्स्थापित करने के लिए स्नैपशॉट का चयन करें"
+
+#: src/Gtk/DeleteWindow.vala:87
+msgid "Select the snapshots to be deleted"
+msgstr "हटाए जाने वाले स्नैपशॉट का चयन करें"
+
+#: src/Gtk/MainWindow.vala:617
+msgid "Select the snapshots to mark for deletion"
+msgstr "हटाने के लिए चिह्नित करने के लिए स्नैपशॉट का चयन करें"
+
+#: src/Gtk/RestoreDeviceBox.vala:79
+msgid "Select the target devices where system will be cloned."
+msgstr "लक्ष्य उपकरणों का चयन करें जहां सिस्टम क्लोन किया जाएगा।"
+
+#: src/Core/Main.vala:3476
+msgid "Selected default snapshot device"
+msgstr "चयनित डिफ़ॉल्ट स्नैपशॉट डिवाइस"
+
+#: src/Core/Main.vala:3427 src/Core/Main.vala:3431
+msgid "Selected default snapshot type"
+msgstr "चयनित डिफ़ॉल्ट स्नैपशॉट प्रकार"
+
+#: src/Gtk/BackupDeviceBox.vala:388
+msgid "Selected device does not have BTRFS partition"
+msgstr "चयनित डिवाइस BTRFS विभाजन नहीं है"
+
+#: src/Gtk/BackupDeviceBox.vala:385
+msgid "Selected device does not have Linux partition"
+msgstr "चयनित डिवाइस में Linux पार्टीशन नहीं है"
+
+#: src/Core/SnapshotRepo.vala:144
+msgid "Selected snapshot device"
+msgstr "चयनित स्नैपशॉट डिवाइस"
+
+#: src/Core/SnapshotRepo.vala:513 src/AppConsole.vala:704
+msgid "Selected snapshot device is not a system disk"
+msgstr "चयनित स्नैपशॉट डिवाइस सिस्टम डिस्क नहीं है"
+
+#: src/Core/Main.vala:2220
+msgid "Selected snapshot is marked for deletion"
+msgstr "चयनित स्नैपशॉट हटाने के लिए चिह्नित किया गया है"
+
+#: src/Gtk/MainWindow.vala:832
+msgid "Selected snapshot is marked for deletion and cannot be restored"
+msgstr ""
+"चयनित स्नैपशॉट हटाने के लिए चिह्नित किया गया है और पुनर्स्थापित नहीं किया जा "
+"सकता"
+
+#: src/Gtk/UsersBox.vala:234
+msgid ""
+"Selected user has an encrypted home directory. It's not possible to include "
+"only hidden files."
+msgstr ""
+"चयनित उपयोगकर्ता के पास एक एन्क्रिप्टेड होम निर्देशिका है। केवल छिपी हुई "
+"फ़ाइलों को शामिल करना संभव नहीं है।"
+
+#: src/Utility/Device.vala:1957
+#, c-format
+msgid "Serial"
+msgstr "सीरियल"
+
+#: src/Core/Main.vala:232
+msgid "Session log file"
+msgstr "सत्र लॉग फ़ाइल"
+
+#: src/AppConsole.vala:371
+msgid "Set snapshot description"
+msgstr "स्नैपशॉट विवरण सेट करें"
+
+#: src/Gtk/MainWindow.vala:180 src/Gtk/MainWindow.vala:181
+#: src/Gtk/SettingsWindow.vala:56
+msgid "Settings"
+msgstr "सेटिंग"
+
+#: src/Gtk/MainWindow.vala:191
+msgid "Settings wizard"
+msgstr "सेटिंग्स विज़ार्ड"
+
+#: src/Gtk/FinishBox.vala:58
+msgid "Setup Complete"
+msgstr "सेटअप पूर्ण"
+
+#: src/Gtk/SetupWizardWindow.vala:64
+msgid "Setup Wizard"
+msgstr "सेटअप विजार्ड"
+
+#: src/AppConsole.vala:391
+msgid "Show additional debug messages"
+msgstr "अतिरिक्त डीबग संदेश दिखाएं"
+
+#: src/AppConsole.vala:395 src/AppGtk.vala:131
+msgid "Show all options"
+msgstr "सभी विकल्प दिखाएँ"
+
+#: src/Gtk/RestoreExcludeBox.vala:121
+msgid "Show more applications to exclude on the next page"
+msgstr "अगले पृष्ठ पर बहिष्कृत करने के लिए अधिक एप्लिकेशन दिखाएं"
+
+#: src/AppConsole.vala:392
+msgid "Show rsync output (default)"
+msgstr "rsync आउटपुट दिखाएं (डिफ़ॉल्ट)"
+
+#: src/Utility/Device.vala:1960 src/Utility/Device.vala:1975
+#: src/Gtk/SnapshotListBox.vala:173 src/Gtk/BackupBox.vala:96
+#: src/Gtk/BackupDeviceBox.vala:202 src/Gtk/RestoreBox.vala:131
+#: src/Gtk/RsyncLogBox.vala:392 src/AppConsole.vala:470 src/AppConsole.vala:509
+#, c-format
+msgid "Size"
+msgstr "आकार वाला"
+
+#: src/Gtk/SnapshotBackendBox.vala:186
+msgid ""
+"Size of BTRFS snapshots are initially zero. As system files gradually change "
+"with time, data gets written to new data blocks which take up disk space "
+"(copy-on-write). Files in the snapshot continue to point to original data "
+"blocks."
+msgstr ""
+"बीटीआरएफएस स्नैपशॉट का आकार शुरू में शून्य है। जैसे-जैसे सिस्टम फाइलें धीरे-"
+"धीरे समय के साथ बदलती हैं, डेटा नए डेटा ब्लॉक में लिखा जाता है जो डिस्क "
+"स्थान (कॉपी-ऑन-राइट) लेते हैं। स्नैपशॉट में फ़ाइलें मूल डेटा ब्लॉक को इंगित "
+"करना जारी रखती हैं।"
+
+#: src/AppConsole.vala:380
+msgid "Skip GRUB2 reinstall"
+msgstr "GRUB2 को फिर से इंस्टॉल करना छोड़ें"
+
+#: src/Core/Main.vala:2225 src/Core/SnapshotRepo.vala:635
+#: src/Core/SnapshotRepo.vala:688 src/Gtk/SnapshotListBox.vala:94
+#, c-format
+msgid "Snapshot"
+msgstr "स्नैपशॉट"
+
+#: src/Gtk/MainWindow.vala:548
+#, c-format
+msgid ""
+"Snapshot '%s' is being used by the system and cannot be deleted. Restart the "
+"system to activate the restored snapshot."
+msgstr ""
+"स्नैपशॉट '%s' सिस्टम द्वारा उपयोग किया जा रहा है और हटाया नहीं जा सकता. "
+"पुनर्स्थापित स्नैपशॉट को सक्रिय करने के लिए सिस्टम को पुनरारंभ करें।"
+
+#: src/Gtk/BackupFinishBox.vala:60
+msgid "Snapshot Created"
+msgstr "स्नैपशॉट बनाया गया"
+
+#: src/Gtk/SnapshotListBox.vala:295
+#, c-format
+msgid "Snapshot Levels"
+msgstr "स्नैपशॉट स्तर"
+
+#: src/Gtk/MainWindow.vala:768
+msgid "Snapshot deletion in progress..."
+msgstr "स्नैपशॉट हटाना प्रगति पर है..."
+
+#: src/Core/SnapshotRepo.vala:446
+#, c-format
+msgid "Snapshot device"
+msgstr "स्नैपशॉट डिवाइस"
+
+#: src/Core/SnapshotRepo.vala:482 src/AppConsole.vala:678
+msgid "Snapshot device not available"
+msgstr "स्नैपशॉट डिवाइस उपलब्ध नहीं है"
+
+#: src/Core/SnapshotRepo.vala:475 src/AppConsole.vala:674
+msgid "Snapshot device not selected"
+msgstr "स्नैपशॉट डिवाइस चयनित नहीं है"
+
+#: src/Core/SnapshotRepo.vala:450
+#, c-format
+msgid "Snapshot location"
+msgstr "स्नैपशॉट स्थान"
+
+#: src/Core/Main.vala:1335
+msgid "Snapshot saved successfully"
+msgstr "स्नैपशॉट सफलतापूर्वक सहेजा गया"
+
+#: src/Core/Main.vala:2215
+msgid "Snapshot to restore not specified!"
+msgstr "पुनर्स्थापित करने के लिए स्नैपशॉट निर्दिष्ट नहीं है!"
+
+#: src/Core/Main.vala:3067
+msgid "Snapshot will become active after system is rebooted."
+msgstr "सिस्टम रीबूट होने के बाद स्नैपशॉट सक्रिय हो जाएगा।"
+
+#: src/Gtk/DeleteFinishBox.vala:60
+msgid "Snapshot(s) Deleted"
+msgstr "स्नैपशॉट(स) मिटाए गए"
+
+#: src/Gtk/MainWindow.vala:309 src/Gtk/DeleteWindow.vala:89
+msgid "Snapshots"
+msgstr "स्नैपशॉटस"
+
+#: src/Gtk/SnapshotBackendBox.vala:178
+msgid ""
+"Snapshots are created and restored instantly. Snapshot creation is an atomic "
+"transaction at the file system level."
+msgstr ""
+"स्नैपशॉट तुरंत बनाए और पुनर्स्थापित किए जाते हैं। स्नैपशॉट निर्माण फ़ाइल "
+"सिस्टम स्तर पर एक परमाणु लेनदेन है।"
+
+#: src/Gtk/SnapshotBackendBox.vala:195
+msgid ""
+"Snapshots are created by creating copies of system files using rsync, and "
+"hard-linking unchanged files from previous snapshot."
+msgstr ""
+"स्नैपशॉट rsync का उपयोग करके सिस्टम फ़ाइलों की प्रतियां बनाकर बनाए जाते हैं, "
+"और पिछले स्नैपशॉट से अपरिवर्तित फ़ाइलों को हार्ड-लिंक करते हैं।"
+
+#: src/Gtk/SnapshotBackendBox.vala:176
+msgid ""
+"Snapshots are created using the built-in features of the BTRFS file system."
+msgstr ""
+"स्नैपशॉट BTRFS फ़ाइल सिस्टम की अंतर्निहित सुविधाओं का उपयोग करके बनाए जाते "
+"हैं।"
+
+#: src/Gtk/ScheduleBox.vala:167
+#, c-format
+msgid "Snapshots are not scheduled at fixed times."
+msgstr "स्नैपशॉट निश्चित समय पर शेड्यूल नहीं किए जाते हैं।"
+
+#: src/Gtk/SnapshotBackendBox.vala:182
+msgid ""
+"Snapshots are perfect, byte-for-byte copies of the system. Nothing is "
+"excluded."
+msgstr ""
+"स्नैपशॉट एकदम सही हैं, सिस्टम की बाइट-फॉर-बाइट प्रतियां। कुछ भी बाहर नहीं "
+"रखा गया है।"
+
+#: src/Gtk/SnapshotBackendBox.vala:180
+msgid ""
+"Snapshots are restored by replacing system subvolumes. Since files are never "
+"copied, deleted or overwritten, there is no risk of data loss. The existing "
+"system is preserved as a new snapshot after restore."
+msgstr ""
+"स्नैपशॉट सिस्टम सबवॉल्यूम को बदलकर पुनर्स्थापित किए जाते हैं। चूंकि फ़ाइलों "
+"को कभी कॉपी, हटाया या अधिलेखित नहीं किया जाता है, इसलिए डेटा हानि का कोई "
+"जोखिम नहीं होता है। मौजूदा सिस्टम को पुनर्स्थापना के बाद एक नए स्नैपशॉट के "
+"रूप में संरक्षित किया जाता है।"
+
+#: src/Gtk/SnapshotBackendBox.vala:184
+msgid ""
+"Snapshots are saved on the same disk from which they are created (system "
+"disk). Storage on other disks is not supported. If system disk fails then "
+"snapshots stored on it will be lost along with the system."
+msgstr ""
+"स्नैपशॉट उसी डिस्क पर सहेजे जाते हैं जिससे वे बनाए जाते हैं (सिस्टम डिस्क)। "
+"अन्य डिस्क पर संग्रहण समर्थित नहीं है. यदि सिस्टम डिस्क विफल हो जाती है तो "
+"उस पर संग्रहीत स्नैपशॉट सिस्टम के साथ खो जाएंगे।"
+
+#: src/Gtk/BackupDeviceBox.vala:107
+msgid ""
+"Snapshots are saved to /timeshift on selected partition. Other locations are "
+"not supported."
+msgstr ""
+"स्नैपशॉट /timeshift पर चयनित विभाजन में सहेजे जाते हैं. अन्य स्थान समर्थित "
+"नहीं हैं."
+
+#: src/Gtk/BackupDeviceBox.vala:99
+msgid ""
+"Snapshots are saved to /timeshift-btrfs on selected partition. Other "
+"locations are not supported."
+msgstr ""
+"स्नैपशॉट को /timeshift-btrfs में चयनित विभाजन पर सहेजा जाता है. अन्य स्थान "
+"समर्थित नहीं हैं."
+
+#: src/Gtk/MainWindow.vala:982
+msgid "Snapshots available for restore"
+msgstr "पुनर्स्थापना के लिए उपलब्ध स्नैपशॉट"
+
+#: src/Gtk/SnapshotBackendBox.vala:199
+msgid ""
+"Snapshots can be saved to any disk formatted with a Linux file system. "
+"Saving snapshots to non-system or external disk allows the system to be "
+"restored even if system disk is damaged or re-formatted."
+msgstr ""
+"स्नैपशॉट को लिनक्स फाइल सिस्टम के साथ स्वरूपित किसी भी डिस्क पर सहेजा जा "
+"सकता है। स्नैपशॉट को गैर-सिस्टम या बाहरी डिस्क पर सहेजने से सिस्टम को "
+"पुनर्स्थापित करने की अनुमति मिलती है, भले ही सिस्टम डिस्क क्षतिग्रस्त हो या "
+"पुन: स्वरूपित हो।"
+
+#: src/AppConsole.vala:290
+msgid "Snapshots cannot be created in Live CD mode"
+msgstr "स्नैपशॉट लाइव CD मोड में नहीं बनाए जा सकते"
+
+#: src/Gtk/MainWindow.vala:1029
+msgid "Snapshots will be created at selected intervals"
+msgstr "स्नैपशॉट चयनित अंतराल पर बनाए जाएंगे"
+
+#: src/Gtk/ScheduleBox.vala:306
+msgid ""
+"Snapshots will be created at selected intervals if snapshot disk has enough "
+"space (> 1 GB)"
+msgstr ""
+"यदि स्नैपशॉट डिस्क में पर्याप्त स्थान (> 1 जीबी) है, तो स्नैपशॉट चयनित "
+"अंतरालों पर बनाए जाएंगे"
+
+#: src/AppConsole.vala:387
+msgid "Specify backup device (default: config)"
+msgstr "बैकअप डिवाइस निर्दिष्ट करें (डिफ़ॉल्ट: कॉन्फ़िगरेशन)"
+
+#: src/AppConsole.vala:379
+msgid "Specify device for installing GRUB2 bootloader"
+msgstr "GRUB2 बूटलोडर को अधिष्ठापित करने के लिए युक्ति निर्दिष्ट करें"
+
+#: src/AppConsole.vala:377
+msgid "Specify snapshot to restore"
+msgstr "पुनर्स्थापित करने के लिए स्नैपशॉट निर्दिष्ट करें"
+
+#: src/AppConsole.vala:378
+msgid "Specify target device"
+msgstr "लक्ष्य डिवाइस निर्दिष्ट करें"
+
+#: src/Core/SnapshotRepo.vala:456 src/Core/SnapshotRepo.vala:610
+#: src/Gtk/RsyncLogBox.vala:471
+#, c-format
+msgid "Status"
+msgstr "स्थिति"
+
+#: src/Gtk/ScheduleBox.vala:154
+msgid "Stop cron emails for scheduled tasks"
+msgstr "अनुसूचित कार्यों के लिए क्रॉन ईमेल रोकें"
+
+#: src/Gtk/RestoreDeviceBox.vala:101
+msgid "Subvolume"
+msgstr "उपखंड"
+
+#: src/Core/Subvolume.vala:230
+#, c-format
+msgid "Subvolume exists at destination"
+msgstr "सबवॉल्यूम गंतव्य पर मौजूद है"
+
+#: src/Gtk/SnapshotListBox.vala:274
+#, c-format
+msgid "Subvolumes"
+msgstr "सबवॉल्यूम"
+
+#: src/Gtk/ExcludeBox.vala:267 src/Gtk/RestoreWindow.vala:120
+#: src/Gtk/ExcludeAppsBox.vala:134
+msgid "Summary"
+msgstr "संक्षेप"
+
+#: src/AppConsole.vala:389
+msgid "Switch to BTRFS mode (default: config)"
+msgstr "BTRFS मोड पर स्विच करें (डिफ़ॉल्ट: कॉन्फ़िगरेशन)"
+
+#: src/AppConsole.vala:390
+msgid "Switch to RSYNC mode (default: config)"
+msgstr "RSYNC मोड पर स्विच करें (डिफ़ॉल्ट: कॉन्फ़िगरेशन)"
+
+#: src/Core/SnapshotRepo.vala:928
+msgid "Symlinks updated"
+msgstr "सिम्लिंक अपडेट किए गए"
+
+#: src/Core/Main.vala:2575
+msgid "Syncing file systems..."
+msgstr "सिंकिंग फाइल सिस्टम..."
+
+#: src/Core/Main.vala:1540 src/Core/Main.vala:2745 src/Core/Main.vala:2986
+msgid "Syncing files with rsync..."
+msgstr "RSync के साथ फ़ाइलें सिंक करना..."
+
+#: src/AppGtk.vala:126
+msgid "Syntax"
+msgstr "वाक्यविन्यास"
+
+#: src/Utility/Device.vala:1981 src/Gtk/SnapshotListBox.vala:126
+#, c-format
+msgid "System"
+msgstr "प्रणाली"
+
+#: src/Gtk/MainWindow.vala:929
+msgid "System Restore Utility"
+msgstr "सिस्टम पुनर्स्थापना उपयोगिता"
+
+#: src/Gtk/FinishBox.vala:82
+msgid "System can be rolled-back to a previous date by restoring a snapshot."
+msgstr ""
+"सिस्टम को स्नैपशॉट पुनर्स्थापित करके पिछली दिनांक पर रोल-बैक किया जा सकता है।"
+
+#: src/Core/Main.vala:2438
+msgid "System will reboot after files are restored"
+msgstr "फ़ाइलों को पुनर्स्थापित करने के बाद सिस्टम रीबूट हो जाएगा"
+
+#: src/Core/Main.vala:2388
+msgid "System will reboot after files are restored."
+msgstr "फ़ाइलों को पुनर्स्थापित करने के बाद सिस्टम रीबूट हो जाएगा।"
+
+#: src/Core/Main.vala:1271 src/Core/Main.vala:1345
+msgid "Tagged snapshot"
+msgstr "टैग किया गया स्नैपशॉट"
+
+#: src/Gtk/SnapshotListBox.vala:150 src/AppConsole.vala:439
+msgid "Tags"
+msgstr "टैग"
+
+#: src/Core/Main.vala:2250
+msgid "Target device is not mounted"
+msgstr "लक्ष्य डिवाइस माउंट नहीं किया गया है"
+
+#: src/Gtk/RestoreDeviceBox.vala:466
+msgid "Target device is same as system device"
+msgstr "लक्ष्य डिवाइस सिस्टम डिवाइस के समान है"
+
+#: src/Core/Main.vala:2244
+msgid "Target device not specified!"
+msgstr "लक्ष्य डिवाइस निर्दिष्ट नहीं है!"
+
+#: src/Gtk/ScheduleBox.vala:156
+msgid ""
+"The cron service sends the output of scheduled tasks as an email to the "
+"current user. Select this option to suppress the emails for cron tasks "
+"created by Timeshift."
+msgstr ""
+"क्रॉन सेवा वर्तमान उपयोगकर्ता को ईमेल के रूप में शेड्यूल किए गए कार्यों का "
+"आउटपुट भेजती है। टाइमशिफ्ट द्वारा बनाए गए क्रॉन कार्यों के लिए ईमेल को दबाने "
+"के लिए इस विकल्प का चयन करें।"
+
+#: src/Core/Main.vala:395
+msgid "The system partition has an unsupported subvolume layout."
+msgstr "सिस्टम पार्टीशन में एक असमर्थित सबवॉल्यूम लेआउट है."
+
+#: src/Core/Main.vala:3661
+msgid "The target partition has an unsupported subvolume layout."
+msgstr "लक्ष्य विभाजन में एक असमर्थित सबवॉल्यूम लेआउट है।"
+
+#: src/Gtk/BackupDeviceBox.vala:512
+#, c-format
+msgid "There are no snapshots on this device"
+msgstr "इस डिवाइस पर कोई स्नैपशॉट नहीं हैं"
+
+#: src/Utility/Device.vala:1402
+msgid "This device is not encrypted"
+msgstr "यह डिवाइस एन्क्रिप्ट नहीं किया गया है"
+
+#: src/Core/Main.vala:2404
+msgid ""
+"This software comes without absolutely NO warranty and the author takes no "
+"responsibility for any damage arising from the use of this program."
+msgstr ""
+"यह सॉफ्टवेयर बिल्कुल बिना किसी वारंटी के आता है और लेखक इस प्रोग्राम के "
+"उपयोग से उत्पन्न होने वाले किसी भी नुकसान के लिए कोई जिम्मेदारी नहीं लेता है।"
+
+#: src/Gtk/MainWindow.vala:1017 src/Gtk/MainWindow.vala:1028
+msgid "Timeshift is active"
+msgstr "टाइमशिफ्ट सक्रिय है"
+
+#: src/Gtk/BackupBox.vala:97 src/Gtk/RestoreBox.vala:132
+#: src/Gtk/RsyncLogBox.vala:394
+#, c-format
+msgid "Timestamp"
+msgstr "टाइमस्टैम्प"
+
+#: src/AppConsole.vala:626
+#, c-format
+msgid "To restore with default options, press the ENTER key for all prompts!"
+msgstr ""
+"डिफ़ॉल्ट विकल्पों के साथ पुनर्स्थापित करने के लिए, सभी संकेतों के लिए ENTER "
+"कुंजी दबाएं!"
+
+#: src/Utility/Device.vala:1971 src/Gtk/BackupDeviceBox.vala:190
+#: src/Gtk/SettingsWindow.vala:87 src/AppConsole.vala:471
+#: src/AppConsole.vala:510
+#, c-format
+msgid "Type"
+msgstr "प्रकार"
+
+#: src/Utility/Device.vala:1970
+#, c-format
+msgid "UUID"
+msgstr "UUID"
+
+#: src/AppGtk.vala:107
+msgid "Unknown option"
+msgstr "अज्ञात विकल्प"
+
+#: src/Core/Main.vala:1253
+msgid "Unknown snapshot type"
+msgstr "अज्ञात स्नैपशॉट प्रकार"
+
+#: src/Core/Main.vala:1759
+msgid "Unknown value specified for option --tags"
+msgstr "विकल्प --tags के लिए निर्दिष्ट अज्ञात मान"
+
+#: src/Utility/Device.vala:1413 src/Utility/Device.vala:1529
+#, c-format
+msgid "Unlocked device is mapped to '%s'"
+msgstr "अवरोधित डिवाइस को '%s' पर मैप किया गया है"
+
+#: src/Utility/Device.vala:1528
+msgid "Unlocked successfully"
+msgstr "सफलतापूर्वक अनलॉक किया गया"
+
+#: src/Utility/Device.vala:1744
+msgid "Unmounting from"
+msgstr "से अनमाउंट करना"
+
+#: src/Gtk/SnapshotListBox.vala:198
+msgid "Unshared"
+msgstr "अविभक्त"
+
+#: src/Core/Main.vala:3665 src/Gtk/RestoreDeviceBox.vala:508
+msgid "Unsupported Subvolume Layout"
+msgstr "असमर्थित सबवॉल्यूम लेआउट"
+
+#: src/Gtk/BootOptionsBox.vala:150
+msgid "Update GRUB menu"
+msgstr "GRUB मेनू अपडेट करें"
+
+#: src/Gtk/BootOptionsBox.vala:135
+msgid "Update initramfs"
+msgstr "initramfs अपडेट करें"
+
+#: src/Core/Main.vala:2925
+msgid "Updated /etc/crypttab on target device"
+msgstr "लक्ष्य डिवाइस पर अपडेट किया गया /etc/crypttab"
+
+#: src/Core/Main.vala:2845
+msgid "Updated /etc/fstab on target device"
+msgstr "लक्ष्य डिवाइस पर अपडेट किया गया /etc/fstab"
+
+#: src/Gtk/BootOptionsBox.vala:152
+msgid ""
+"Updates the GRUB menu entries (recommended). This is safe to run and should "
+"be left selected."
+msgstr ""
+"GRUB मेनू प्रविष्टियों का अद्यतन करता है (अनुशंसित). यह चलाने के लिए "
+"सुरक्षित है और इसे चुना जाना चाहिए।"
+
+#: src/Core/Main.vala:2558
+msgid "Updating GRUB menu..."
+msgstr "GRUB मेनू अपडेट कर रहा है..."
+
+#: src/Core/Main.vala:2769
+msgid "Updating bootloader configuration..."
+msgstr "बूटलोडर कॉन्फ़िगरेशन अपडेट कर रहा है ..."
+
+#: src/Utility/Device.vala:1978
+#, c-format
+msgid "Used"
+msgstr "प्रयुक्त"
+
+#: src/Gtk/SetupWizardWindow.vala:114 src/Gtk/UsersBox.vala:101
+msgid "User"
+msgstr "उपयोक्ता"
+
+#: src/Gtk/UsersBox.vala:62
+msgid "User Home Directories"
+msgstr "उपयोगकर्ता होम निर्देशिकाएँ"
+
+#: src/Utility/Device.vala:1483
+msgid "User cancelled the password prompt"
+msgstr "उपयोगकर्ता ने पासवर्ड प्रॉम्प्ट रद्द कर दिया"
+
+#: src/Gtk/UsersBox.vala:66
+msgid ""
+"User home directories are excluded by default unless you enable them here"
+msgstr ""
+"उपयोगकर्ता होम निर्देशिकाओं को डिफ़ॉल्ट रूप से बाहर रखा जाता है जब तक कि आप "
+"उन्हें यहां सक्षम नहीं करते हैं"
+
+#: src/Gtk/SettingsWindow.vala:101
+msgid "Users"
+msgstr "उपयोक्ता"
+
+#: src/Gtk/RestoreWindow.vala:114
+msgid "Users Home"
+msgstr "उपयोगकर्ता होम"
+
+#: src/Utility/Device.vala:1955
+#, c-format
+msgid "Vendor"
+msgstr "विक्रेता"
+
+#: src/Gtk/SnapshotListBox.vala:328
+msgid "View Rsync Log for Create"
+msgstr "बनाने के लिए Rsync लॉग देखें"
+
+#: src/Gtk/SnapshotListBox.vala:335
+msgid "View Rsync Log for Restore"
+msgstr "पुनर्स्थापना के लिए Rsync लॉग देखें"
+
+#: src/Gtk/MainWindow.vala:369
+msgid "View TimeShift Logs"
+msgstr "टाइमशिफ्ट लॉग देखें"
+
+#: src/Core/Main.vala:2299 src/Gtk/RestoreSummaryBox.vala:53
+msgid "Warning"
+msgstr "चेतावनी"
+
+#: src/Gtk/RestoreExcludeBox.vala:61
+msgid "Web Browsers"
+msgstr "वेब ब्राउज़र्स"
+
+#: src/Gtk/SnapshotListBox.vala:300 src/Gtk/ScheduleBox.vala:82
+msgid "Weekly"
+msgstr "साप्ताहिक"
+
+#: src/Core/Main.vala:1156
+msgid "Weekly snapshot failed!"
+msgstr "साप्ताहिक स्नैपशॉट विफल!"
+
+#: src/Core/Main.vala:1137
+msgid "Weekly snapshots are enabled"
+msgstr "साप्ताहिक स्नैपशॉट सक्षम हैं"
+
+#: src/Gtk/DeleteFinishBox.vala:63 src/Gtk/BackupFinishBox.vala:63
+msgid "With Errors"
+msgstr "त्रुटियों के साथ"
+
+#: src/Gtk/MainWindow.vala:190
+msgid "Wizard"
+msgstr "विजार्ड"
+
+#: src/Utility/Device.vala:1456 src/Utility/Device.vala:1502
+msgid "Wrong password"
+msgstr "गलत पासवर्ड"
+
+#: src/Utility/Gtk/CustomMessageDialog.vala:156
+msgid "Yes"
+msgstr "हाँ"
+
+#: src/Gtk/RestoreFinishBox.vala:98
+msgid ""
+"You can continue working on the current system. After restart, the current "
+"system will be visible as a new snapshot. This snapshot can be restored "
+"later if required, to 'undo' the restore."
+msgstr ""
+"आप वर्तमान सिस्टम पर कार्य करना जारी रख सकते हैं. पुनरारंभ करने के बाद, "
+"वर्तमान सिस्टम एक नए स्नैपशॉट के रूप में दिखाई देगा। इस स्नैपशॉट को बाद में "
+"पुनर्स्थापित किया जा सकता है, यदि आवश्यक हो, तो पुनर्स्थापना को 'पूर्ववत' "
+"करने के लिए।"
+
+#: src/AppConsole.vala:1058
+#, c-format
+msgid "[ENTER = Default (%s), a = Abort]"
+msgstr "[ENTER = डिफ़ॉल्ट (%s), a = निरस्त करें]"
+
+#: src/AppConsole.vala:911
+#, c-format
+msgid "[ENTER = Default (%s), r = Root device, a = Abort]"
+msgstr "[ENTER = डिफ़ॉल्ट (%s), r = रूट डिवाइस, a = निरस्त करें]"
+
+#: src/Gtk/RestoreDeviceBox.vala:401
+msgid ""
+"[For Experienced Users] Change these settings if the restored system fails "
+"to boot."
+msgstr ""
+"[अनुभवी उपयोगकर्ताओं के लिए] इन सेटिंग्स को बदलें यदि पुनर्स्थापित सिस्टम "
+"बूट करने में विफल रहता है।"
+
+#: src/Utility/AppLock.vala:54
+msgid "[Warning] Deleted invalid lock"
+msgstr "[चेतावनी] हटाया गया अमान्य लॉक"
+
+#: src/Core/SnapshotRepo.vala:818
+msgid "all"
+msgstr "सभी"
+
+#: src/Core/Main.vala:1673 src/Core/Main.vala:4070 src/Core/Main.vala:4155
+#: src/Core/Subvolume.vala:242
+msgid "btrfs returned an error"
+msgstr "BTRFS ने एक त्रुटि लौटाई"
+
+#: src/Core/Snapshot.vala:502 src/Core/Main.vala:1572
+msgid "complete"
+msgstr "पूरा"
+
+#: src/Utility/CronTab.vala:261
+msgid "crontab file exported"
+msgstr "क्रॉस्टैब फ़ाइल निर्यात की गई"
+
+#: src/Utility/CronTab.vala:244
+msgid "crontab file installed"
+msgstr "क्रॉस्टैब फ़ाइल स्थापित"
+
+#: src/Core/SnapshotRepo.vala:804
+msgid "incomplete"
+msgstr "अधूरा"
+
+#: src/Core/SnapshotRepo.vala:786
+msgid "marked for deletion"
+msgstr "हटाने के लिए चिह्नित"
+
+#: src/Core/Main.vala:1464 src/Core/Main.vala:1618 src/Core/Main.vala:1620
+msgid "mounted at path"
+msgstr "पथ पर घुड़सवार"
+
+#: src/Core/Snapshot.vala:503 src/Core/Main.vala:1572
+#: src/Gtk/BackupBox.vala:255 src/Gtk/RestoreBox.vala:237
+#: src/Gtk/DeleteBox.vala:149
+msgid "remaining"
+msgstr "बचा हुआ"
+
+#: src/Core/Main.vala:1583
+msgid "rsync returned an error"
+msgstr "rsync ने एक त्रुटि लौटाई"
+
+#: src/Core/SnapshotRepo.vala:635 src/Core/SnapshotRepo.vala:688
+#: src/Core/SnapshotRepo.vala:767
+msgid "un-tagged"
+msgstr "अन-टैग किया गया"
+
+#: src/share/polkit-1/actions/in.teejeetech.pkexec.timeshift.policy:9
+msgid "Timeshift"
+msgstr "टाइमशिफ्ट"
+
+#: src/share/polkit-1/actions/in.teejeetech.pkexec.timeshift.policy:10
+#: src/share/polkit-1/actions/in.teejeetech.pkexec.timeshift.policy:22
+msgid "Run Timeshift as Administrator"
+msgstr "व्यवस्थापक के रूप में टाइमशिफ्ट चलाएँ"
+
+#: src/share/polkit-1/actions/in.teejeetech.pkexec.timeshift.policy:21
+msgid "Authentication is required to run Timeshift as Administrator"
+msgstr "व्यवस्थापक के रूप में टाइमशिफ्ट चलाने के लिए प्रमाणीकरण आवश्यक है"
