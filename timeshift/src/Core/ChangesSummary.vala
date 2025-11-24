@@ -49,7 +49,15 @@ public class ChangesSummary : GLib.Object {
 	
 	public int total_changes {
 		get {
+			// Only count actual file changes, not directory metadata
 			return files_created + files_deleted + files_modified;
+		}
+	}
+	
+	public int total_items {
+		get {
+			// Total items including directories
+			return all_items.size;
 		}
 	}
 	
@@ -122,27 +130,35 @@ public class ChangesSummary : GLib.Object {
 		
 		string path = item.file_path;
 		
+		// Normalize path - ensure it starts with /
+		if (!path.has_prefix("/")) {
+			path = "/" + path;
+		}
+		
 		// Package installations/removals
 		if (path.has_prefix("/usr/bin/") ||
 		    path.has_prefix("/usr/sbin/") ||
 		    path.has_prefix("/usr/lib/") ||
 		    path.has_prefix("/lib/") ||
-		    path.has_prefix("/lib64/")) {
+		    path.has_prefix("/lib64/") ||
+		    path.contains("/usr/bin/") ||
+		    path.contains("/usr/sbin/") ||
+		    path.contains("/usr/lib/")) {
 			return true;
 		}
 		
 		// System configuration
-		if (path.has_prefix("/etc/")) {
+		if (path.has_prefix("/etc/") || path.contains("/etc/")) {
 			return true;
 		}
 		
 		// Kernel/boot files
-		if (path.has_prefix("/boot/")) {
+		if (path.has_prefix("/boot/") || path.contains("/boot/")) {
 			return true;
 		}
 		
 		// System binaries
-		if (path.has_prefix("/sbin/")) {
+		if (path.has_prefix("/sbin/") || path.contains("/sbin/")) {
 			return true;
 		}
 		
@@ -154,12 +170,21 @@ public class ChangesSummary : GLib.Object {
 		
 		string path = item.file_path;
 		
+		// Normalize path
+		if (!path.has_prefix("/")) {
+			path = "/" + path;
+		}
+		
 		return path.has_prefix("/usr/bin/") ||
 		       path.has_prefix("/usr/sbin/") ||
 		       path.has_prefix("/usr/lib/") ||
 		       path.has_prefix("/usr/share/") ||
 		       path.has_prefix("/lib/") ||
-		       path.has_prefix("/lib64/");
+		       path.has_prefix("/lib64/") ||
+		       path.contains("/usr/bin/") ||
+		       path.contains("/usr/sbin/") ||
+		       path.contains("/usr/lib/") ||
+		       path.contains("/usr/share/");
 	}
 	
 	private bool is_config_file(FileItem item) {
@@ -167,7 +192,12 @@ public class ChangesSummary : GLib.Object {
 		
 		string path = item.file_path;
 		
-		return path.has_prefix("/etc/");
+		// Normalize path
+		if (!path.has_prefix("/")) {
+			path = "/" + path;
+		}
+		
+		return path.has_prefix("/etc/") || path.contains("/etc/");
 	}
 	
 	public string get_status_icon(FileItem item) {

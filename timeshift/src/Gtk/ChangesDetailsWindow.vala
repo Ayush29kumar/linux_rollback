@@ -1,3 +1,4 @@
+
 /*
  * ChangesDetailsWindow.vala
  *
@@ -134,7 +135,7 @@ public class ChangesDetailsWindow : Gtk.Dialog {
 		var treeview = new Gtk.TreeView();
 		treeview.headers_visible = true;
 		treeview.reorderable = false;
-		treeview.get_selection().mode = SelectionMode.MULTIPLE;
+		treeview.get_selection().mode = SelectionMode.SINGLE; // Changed from MULTIPLE to SINGLE
 		
 		// Column: Status Icon
 		var col_icon = new Gtk.TreeViewColumn();
@@ -176,6 +177,11 @@ public class ChangesDetailsWindow : Gtk.Dialog {
 		col_size.set_attributes(cell_size, "text", 3);
 		treeview.append_column(col_size);
 		
+		// Add double-click handler to open files
+		treeview.row_activated.connect((path, column) => {
+			open_selected_file(treeview);
+		});
+		
 		return treeview;
 	}
 	
@@ -208,11 +214,34 @@ public class ChangesDetailsWindow : Gtk.Dialog {
 		
 		foreach (var item in items) {
 			model.append(out iter);
+			
+			// Get size - handle both _size and size property
+			string size_text = "—";
+			if (item.file_status != "deleted") {
+				if (item.size > 0) {
+					size_text = format_file_size(item.size);
+				} else {
+					// Try to get size from actual file if it exists
+					var file = File.new_for_path(item.file_path);
+					if (file.query_exists()) {
+						try {
+							var info = file.query_info("standard::size", FileQueryInfoFlags.NONE);
+							int64 fsize = info.get_size();
+							if (fsize > 0) {
+								size_text = format_file_size(fsize);
+							}
+						} catch (Error e) {
+							// Ignore
+						}
+					}
+				}
+			}
+			
 			model.set(iter,
 				0, summary.get_status_icon(item),
 				1, summary.get_status_text(item),
 				2, item.file_path,
-				3, (item.file_status == "deleted") ? "—" : format_file_size(item.size));
+				3, size_text);
 		}
 		
 		treeview.set_model(model);
@@ -244,10 +273,31 @@ public class ChangesDetailsWindow : Gtk.Dialog {
 			txt += "All Changes (%d)\n".printf(summary.total_changes);
 			txt += "----------------\n";
 			foreach (var item in summary.all_items) {
+				// Get size using same logic as display
+				string size_str = "";
+				if (item.file_status != "deleted") {
+					if (item.size > 0) {
+						size_str = format_file_size(item.size);
+					} else {
+						var file = File.new_for_path(item.file_path);
+						if (file.query_exists()) {
+							try {
+								var info = file.query_info("standard::size", FileQueryInfoFlags.NONE);
+								int64 fsize = info.get_size();
+								if (fsize > 0) {
+									size_str = format_file_size(fsize);
+								}
+							} catch (Error e) {
+								// Ignore
+							}
+						}
+					}
+				}
+				
 				txt += "%s\t%s\t%s\n".printf(
 					summary.get_status_text(item),
 					item.file_path,
-					(item.file_status == "deleted") ? "" : format_file_size(item.size)
+					size_str
 				);
 			}
 			
@@ -268,5 +318,63 @@ public class ChangesDetailsWindow : Gtk.Dialog {
 		}
 		
 		dialog.destroy();
+	}
+	
+	private void open_selected_file(Gtk.TreeView treeview) {
+		/* Open selected file with default application */
+		
+		var selection = treeview.get_selection();
+		Gtk.TreeModel model;
+		Gtk.TreeIter iter;
+		
+		if (!selection.get_selected(out model, out iter)) {
+			return;
+		}
+		
+		// Get file path from model (column 2)
+		string file_path;
+		model.get(iter, 2, out file_path, -1);
+		
+		// Check if file exists
+		var file = File.new_for_path(file_path);
+		if (!file.query_exists()) {
+			gtk_messagebox(
+				_("File Not Found"),
+				_("The file no longer exists:\n%s").printf(file_path),
+				this, true
+			);
+			return;
+		}
+		
+		// Check if it's a directory
+		try {
+			var info = file.query_info("standard::type", FileQueryInfoFlags.NONE);
+			if (info.get_file_type() == FileType.DIRECTORY) {
+				// Open directory in file manager
+				try {
+					AppInfo.launch_default_for_uri("file://" + file_path, null);
+				} catch (Error e) {
+					gtk_messagebox(
+						_("Error"),
+						_("Could not open directory:\n%s").printf(e.message),
+						this, true
+					);
+				}
+				return;
+			}
+		} catch (Error e) {
+			// Continue to try opening as file
+		}
+		
+		// Open file with default application
+		try {
+			AppInfo.launch_default_for_uri("file://" + file_path, null);
+		} catch (Error e) {
+			gtk_messagebox(
+				_("Error Opening File"),
+				_("Could not open file:\n%s\n\nError: %s").printf(file_path, e.message),
+				this, true
+			);
+		}
 	}
 }
