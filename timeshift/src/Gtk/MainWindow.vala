@@ -43,6 +43,10 @@ class MainWindow : Gtk.Window{
 	private uint tmr_init;
 	private int def_width = 800;
 	private int def_height = 600;
+	
+	// Export state
+	private bool export_cancelled = false;
+	private bool export_complete = false;
 
     //private int TOOLBAR_ICON_SIZE = 24;
 
@@ -813,6 +817,15 @@ class MainWindow : Gtk.Window{
 				lbl_time.margin = 6;
 				content.add(lbl_time);
 				
+				// Current file label
+				var lbl_current_file = new Gtk.Label("");
+				lbl_current_file.xalign = 0;
+				lbl_current_file.margin = 6;
+				lbl_current_file.ellipsize = Pango.EllipsizeMode.MIDDLE;
+				lbl_current_file.max_width_chars = 70;
+				lbl_current_file.set_markup("<small><i>" + _("Preparing...") + "</i></small>");
+				content.add(lbl_current_file);
+				
 				var progress = new Gtk.ProgressBar();
 				progress.margin = 12;
 				progress.set_text(_("Copying files..."));
@@ -826,8 +839,9 @@ class MainWindow : Gtk.Window{
 				int64 start_time = get_monotonic_time();
 				
 				// Pulse the progress bar while copying
-				bool export_cancelled = false;
-				bool export_complete = false;
+				// Pulse the progress bar while copying
+				export_cancelled = false;
+				export_complete = false;
 				
 				uint timeout_id = Timeout.add(100, () => {
 					if (export_complete || export_cancelled) {
@@ -861,69 +875,15 @@ class MainWindow : Gtk.Window{
 			// Need sudo because snapshot files are owned by root
 			// For RSYNC snapshots, files are in the "localhost" subdirectory
 			string source_path = bak.btrfs_mode ? bak.path : (bak.path + "/localhost");
-			// Use --info=progress2 for progress tracking (removed --delete as it's dangerous for export)
+			// Use -v for verbose output and --info=progress2,name for file tracking
 			// Note: No shell redirection needed - exec_sync() captures stdout/stderr separately
-			string cmd = "pkexec rsync -a --info=progress2 '%s/' '%s/'".printf(source_path, dest_path);
+			// string cmd = "pkexec rsync -av --info=progress2,name '%s/' '%s/'".printf(source_path, dest_path);
 				
-				try {
-					new Thread<void*>("export-snapshot", () => {
-						string std_out = "";
-						string std_err = "";
-						int status = -1;
-						
-						if (!export_cancelled) {
-							status = exec_sync(cmd, out std_out, out std_err);
-						}
-						
-						Idle.add(() => {
-							export_complete = true;
-							Source.remove(timeout_id);
-							progress_dialog.destroy();
-							
-							if (export_cancelled) {
-								gtk_messagebox(
-									_("Export Cancelled"),
-									_("Snapshot export was cancelled."),
-									this, false
-								);
-							} else if (status == 0) {
-								gtk_messagebox(
-									_("Export Complete"),
-									_("Snapshot exported successfully to:\n%s").printf(dest_path),
-									this, false
-								);
-							} else {
-								// Show detailed error
-								string error_msg = std_err;
-								if (error_msg.length == 0) {
-									error_msg = std_out;
-								}
-								if (error_msg.length > 500) {
-									error_msg = error_msg.substring(0, 500) + "...";
-								}
-								
-								gtk_messagebox(
-									_("Export Failed"),
-									_("Failed to export snapshot.\n\nError:\n%s").printf(error_msg),
-									this, true
-								);
-							}
-							
-							return false;
-						});
-						
-						return null;
-					});
-				} catch (Error e) {
-					log_error(e.message);
-					Source.remove(timeout_id);
-					progress_dialog.destroy();
-					gtk_messagebox(
-						_("Export Error"),
-						_("Failed to start export: %s").printf(e.message),
-						this, true
-					);
-				}
+				new Thread<void*>("export-snapshot", () => {
+					export_snapshot_task(source_path, dest_path, timeout_id, progress_dialog, lbl_current_file);
+					return null;
+				});
+
 				} else {
 					dialog.destroy();
 				}
@@ -931,6 +891,92 @@ class MainWindow : Gtk.Window{
 				return;
 			}
 			iterExists = store.iter_next (ref iter);
+		}
+	}
+
+	private void export_snapshot_task(string source_path, string dest_path, uint timeout_id, Gtk.Dialog progress_dialog, Gtk.Label lbl_current_file) {
+		// OPTIMIZATION: Added -W (whole-file) which is much faster for local copies
+		// Added --info=progress2,name to get progress and filenames
+		string cmd_args = "pkexec rsync -aW --info=progress2,name '%s/' '%s/'".printf(source_path, dest_path);
+		
+		try {
+			string[] argv = {"/bin/sh", "-c", cmd_args};
+			string[] env = Environ.get();
+			
+			Pid child_pid;
+			int std_out;
+			int std_err;
+			
+			Process.spawn_async_with_pipes(
+				null, argv, env,
+				SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
+				null,
+				out child_pid,
+				null,
+				out std_out,
+				out std_err
+			);
+			
+			// Read output in real-time
+			var channel = new IOChannel.unix_new(std_out);
+			string line;
+			size_t length;
+			int64 last_update = 0;
+			
+			while (channel.read_line(out line, out length, null) == IOStatus.NORMAL) {
+				if (export_cancelled) {
+					Posix.kill(child_pid, Posix.Signal.TERM);
+					break;
+				}
+				
+				line = line.strip();
+				if (line.length == 0) continue;
+				
+				// Throttle UI updates to every 50ms to prevent freezing
+				int64 now = get_monotonic_time();
+				if (now - last_update > 50000) { // 50ms
+					last_update = now;
+					
+					// Filter out progress lines to find filenames
+					if (!line.has_prefix("sending") && !line.has_prefix("total") && 
+						!line.contains("%") && !line.contains("xfr#")) {
+						
+						string current_file = line;
+						Idle.add(() => {
+							lbl_current_file.set_markup("<small><i>" + _("Copying: ") + GLib.Markup.escape_text(current_file) + "</i></small>");
+							return false;
+						});
+					}
+				}
+			}
+			
+			// Wait for process to finish
+			int status;
+			Process.close_pid(child_pid);
+			
+			Idle.add(() => {
+				export_complete = true;
+				Source.remove(timeout_id);
+				progress_dialog.destroy();
+				
+				if (!export_cancelled) {
+					gtk_messagebox(
+						_("Export Complete"),
+						_("Snapshot exported successfully to:\n%s").printf(dest_path),
+						this, false
+					);
+				}
+				return false;
+			});
+			
+		} catch (Error err_export) {
+			string msg = err_export.message;
+			log_error(msg);
+			Idle.add(() => {
+				progress_dialog.destroy();
+				gtk_messagebox(_("Export Failed"), msg, this, true);
+				return false;
+			});
 		}
 	}
 
