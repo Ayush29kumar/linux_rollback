@@ -1,1 +1,328 @@
 # linux_rollback
+# KSCST SPP 49th Series Form Answers
+## LinuxRollback Project
+
+> **Form:** Karnataka State Council for Science and Technology (KSCST) Student Project Programme 49th Series (2025-2026)
+
+---
+
+## Page 1 - Basic Information
+
+### 1. Name of the College
+```
+[Fill in your college name]
+```
+
+### 2. Project Title
+```
+LinuxRollback: Space-Efficient System Restore Utility for Linux
+```
+
+### 3. Branch
+```
+Computer Science and Engineering
+```
+
+### 4. Theme (as per KSCST poster)
+```
+Software Tools and Systems: Developing efficient system administration and backup utilities
+```
+*Alternative theme if above not available:*
+```
+Mechatronics & Automation: Integrating diverse system components for automated backup control
+```
+
+### 5. Name(s) of Project Guide(s)
+```
+1. Name: [Fill in your guide's name]
+   Email id: [Guide's email]
+   Contact No.: [Guide's phone]
+```
+
+---
+
+## Page 2 - Team Details
+
+### 6. Name of Team Members (Max 4 students)
+
+| Name | USN No. | Email | Mobile No. |
+|------|---------|-------|------------|
+| [STUDENT 1 NAME] | [USN] | [Email] | [Mobile] |
+| [STUDENT 2 NAME] | [USN] | [Email] | [Mobile] |
+| [STUDENT 3 NAME] | [USN] | [Email] | [Mobile] |
+| [STUDENT 4 NAME] | [USN] | [Email] | [Mobile] |
+
+*(Paste passport size photos adjacent to names)*
+
+### 7. Team Leader of the Project
+```
+Name: [TEAM LEADER NAME]
+USN No.: [USN]
+Email id: [Email]
+Mobile No: [Mobile]
+```
+
+### 8. Processing Fee Details
+```
+Processing fee: Rs. 1180/- (Inclusive of 18% GST)
+Payment details: [See last page format]
+```
+
+### 9. Date of Commencement of the Project
+```
+[Your start date, e.g., 01/01/2025]
+```
+
+### 10. Probable Date of Completion
+```
+[Your end date, e.g., 30/04/2026]
+```
+
+### 11. Timeline Structure
+
+| Milestone | Task | Start Date | End Date | Duration | % Achievable |
+|-----------|------|------------|----------|----------|--------------|
+| Project Initiation | Requirements gathering, environment setup | [Date] | [Date] | 2 Weeks | 5% |
+| Research Phase | Study existing backup solutions, Vala/GTK3 | [Date] | [Date] | 1 Month | 15% |
+| Core Development | Implement RSYNC & BTRFS snapshot engines | [Date] | [Date] | 3 Months | 40% |
+| GUI Development | Build GTK3 interface, wizards, dialogs | [Date] | [Date] | 2 Months | 25% |
+| Testing Phase | Unit testing, integration testing | [Date] | [Date] | 1 Month | 10% |
+| Mid-term Evaluation | Submit PPT and Abstract to KSCST | March 2026 | April 2026 | - | - |
+| Final Review | Documentation, final testing | [Date] | [Date] | 2 Weeks | 5% |
+| Project Submission | Submit Completion Report to KSCST | April/May 2026 | - | - | - |
+
+---
+
+## Page 3 - Technical Details
+
+### 12. Scope / Objectives of the Project
+
+**1. Enable System Recovery**
+To develop a reliable system restore utility that allows Linux users to recover their entire operating system to a previous working state within minutes, similar to Windows System Restore or macOS Time Machine.
+
+**2. Dual Snapshot Mode Architecture**
+To implement two distinct backup mechanisms:
+- RSYNC mode using hard-links for space-efficient backups on any Linux filesystem (ext4, XFS, F2FS)
+- BTRFS mode leveraging native Copy-on-Write snapshots for near-instantaneous operations
+
+**3. Space-Efficient Storage**
+To achieve up to 90% storage savings through intelligent hard-linking, where unchanged files across snapshots share the same disk blocks.
+
+**4. Automated Protection**
+To implement scheduled backups at configurable intervals (hourly, daily, weekly, monthly, boot-time) with customizable retention policies.
+
+**5. Comprehensive System Support**
+To support diverse system configurations including LUKS-encrypted partitions, LVM volumes, and GRUB2 bootloader configurations.
+
+**6. Visual Change Tracking**
+To develop a snapshot diff viewer showing exactly what files changed between snapshots.
+
+---
+
+### 13. Methodology
+
+**Approach:**
+
+**1. Layered Architecture Design:**
+- GUI Layer (GTK3): MainWindow, BackupWindow, RestoreWindow, SettingsWindow
+- Core Layer: Snapshot management, scheduling logic, device detection
+- Utility Layer: RsyncTask, Device handling, CronTab integration
+- System Layer: Integration with rsync, btrfs-progs, GRUB2
+
+**2. RSYNC Hard-Link Implementation:**
+```bash
+rsync -aii --recursive --delete --sparse \
+    --link-dest=<previous_snapshot> \
+    --exclude-from=<exclude_list> \
+    / <snapshot_path>
+```
+When rsync encounters unchanged files, it creates hard-links pointing to existing disk blocks, enabling each snapshot to appear as a complete filesystem while sharing storage.
+
+**3. BTRFS Native Snapshots:**
+```bash
+btrfs subvolume snapshot -r /@ /timeshift/snapshots/<name>/@
+btrfs subvolume snapshot -r /@home /timeshift/snapshots/<name>/@home
+```
+Leverages filesystem-level Copy-on-Write for instantaneous, atomic snapshots.
+
+**Tools & Technologies:**
+
+| Component | Technology |
+|-----------|------------|
+| Core Language | Vala (compiles to C via valac) |
+| GUI Framework | GTK3 (libgtk-3) |
+| Build System | Meson 0.54+ |
+| Backup Engine | rsync with hard-links |
+| Filesystem | BTRFS snapshots, ext4, XFS |
+| Data Format | JSON (configuration, metadata) |
+| Scheduling | Linux Cron |
+| Encryption | LUKS/cryptsetup integration |
+
+---
+
+## Page 4 - Outcomes & Industry Relevance
+
+### 14. Expected Outcome of the Project
+
+1. **Functional Desktop Application:**
+   A complete system restore utility with both graphical (GTK3) and command-line interfaces, capable of creating, managing, and restoring filesystem snapshots.
+
+2. **Dual-Mode Backup System:**
+   - RSYNC mode working on ext4, XFS, and other traditional filesystems
+   - BTRFS mode with native Copy-on-Write snapshot support
+
+3. **Space Efficiency:**
+   Demonstrated storage savings of up to 90% through hard-linking, where a 20GB system with 5 daily snapshots uses approximately 25GB total instead of 100GB.
+
+4. **Automated Protection:**
+   Working cron-based scheduling with hourly, daily, weekly, and monthly backup policies and automatic retention management.
+
+5. **Enhanced Features:**
+   - Snapshot Changes Viewer for visual file diffs
+   - Export to external drives for offsite backup
+   - User configuration backup capability
+   - Optimized size calculation with queued I/O
+
+6. **Cross-Distribution Support:**
+   Successfully tested and functional on Ubuntu, Fedora, Linux Mint, and Debian-based distributions.
+
+---
+
+### 15. Is the Project Relevant to Industry/Society/Institution?
+
+**Yes / No:** Yes
+
+**Details:**
+The project is highly relevant to:
+
+1. **Educational Institutions:** Computer labs require frequent system resets between classes or sessions. LinuxRollback enables quick restoration without complete reinstallation.
+
+2. **Small/Medium Enterprises:** Businesses running Linux workstations need protection against system failures. This solution reduces IT support time and costs.
+
+3. **Developer Community:** Developers frequently experiment with configurations that may break their systems. Quick rollback capability is essential.
+
+4. **Linux Mint/Ubuntu Community:** The project extends the widely-used Timeshift utility with additional features.
+
+**Contact Details:**
+- Linux Mint Community: https://linuxmint.com
+- Ubuntu Forums: https://ubuntuforums.org
+
+**Industry Support:** Open-source community support; no external funding.
+
+---
+
+### 16. Can the Product be Patented?
+
+**Yes / No:** No
+
+**Reason:** The project is based on open-source technologies (rsync, BTRFS) and extends the GPLv2-licensed Timeshift project. It is intended to remain open-source under GPL license.
+
+**Prior Art Search Done?**
+**Yes / No:** Yes
+
+Prior art includes: Timeshift, Snapper, BackInTime, Duplicity - our project differentiates by combining RSYNC and BTRFS modes with system-focused approach and visual diff features.
+
+---
+
+### 17. Budget Details
+
+| Item | Amount (Rs.) |
+|------|--------------|
+| Development Hardware (if needed) | 0.00 |
+| Testing on Virtual Machines (cloud credits) | 500.00 |
+| Documentation & Printing | 300.00 |
+| Travel for Mid-term Evaluation | [Estimate based on location] |
+| Travel for Annual Exhibition | [Estimate based on location] |
+| Miscellaneous | 500.00 |
+| **Total** | **[Calculate based on travel]** |
+
+*Note: LinuxRollback is a software project with minimal hardware requirements. Most development uses existing college infrastructure.*
+
+---
+
+## Page 5 - Additional Details
+
+### 18. Any Other Technical Details
+
+**Codebase Statistics:**
+- ~82 source files
+- 15,000+ lines of Vala code
+- Core module (Main.vala): 4,500+ lines
+- 66 language translations
+- GPL-2.0-or-later license
+
+**Dependencies:**
+- valac (Vala compiler)
+- libgtk-3-dev
+- libjson-glib-1.0-dev
+- libvte-2.91-dev
+- rsync
+- btrfs-progs (optional, for BTRFS mode)
+
+**Testing Methodology:**
+- Unit tests for core functions
+- Integration tests on multiple distributions
+- Virtual machine testing for restore scenarios
+
+---
+
+### 19. SPP Coordinator (Identified by College)
+
+```
+Name: [To be identified by Principal]
+Email id: [Coordinator's email]
+Contact No.: [Coordinator's phone]
+```
+
+---
+
+## Page 6 - Declaration
+
+*Standard declaration text - sign with:*
+- Names of students with USN numbers
+- Signatures with date
+- Project Guide signature
+- SPP Coordinator signature
+
+---
+
+## Page 7 - Endorsement
+
+*To be filled on college/department letterhead*
+
+---
+
+## Page 8 - Payment Details
+
+Fill in after making payment:
+
+| Field | Value |
+|-------|-------|
+| 1. Title of the Project | LinuxRollback: Space-Efficient System Restore Utility for Linux |
+| 2. Name of Team Leader | [Your name] |
+| 3. Email ID | [Your email] |
+| 4. Contact Mobile No. | [Your mobile] |
+| 5. Bank Ref. No. / UTR No. / UPI No. | [12-digit reference] |
+| 6. Transaction ID | [Transaction ID] |
+| 7. Name of Sender/Account Holder | [Your name] |
+| 8. Name of Bank | [Bank name] |
+| 9. Processing Fees | Rs. 1,180/- (Inclusive of 18% GST) |
+| 10. Date of Payment | [Date] |
+| 11. Time | [Time] |
+| 12. Mode of Payment | [NEFT/UPI] |
+
+---
+
+## Quick Reference - Key Points for Judges
+
+| Aspect | Value |
+|--------|-------|
+| **Problem Solved** | System recovery after failures on Linux |
+| **Unique Feature** | Dual RSYNC + BTRFS modes, visual diff |
+| **Technology** | Vala, GTK3, rsync, btrfs-progs |
+| **Space Savings** | Up to 90% via hard-links |
+| **Target Users** | Linux desktop users, system admins, developers |
+
+---
+
+> **Note:** Fill in sections marked with `[brackets]` with your actual information.
