@@ -606,7 +606,7 @@ public class Snapshot : GLib.Object{
 		}
 		
 		if (file_exists(rsync_changes_log_file)) {
-			// Count lines in changes file (each line = one changed file)
+			// Count only actual file changes (not directory metadata)
 			int count = 0;
 			try {
 				var file = File.new_for_path(rsync_changes_log_file);
@@ -615,7 +615,22 @@ public class Snapshot : GLib.Object{
 				
 				while ((line = dis.read_line(null)) != null) {
 					line = line.strip();
-					if (line.length > 0 && !line.has_prefix("#")) {
+					
+					// Skip empty lines and comments
+					if (line.length == 0 || line.has_prefix("#")) {
+						continue;
+					}
+					
+					// Only count actual file changes, not directory metadata
+					// File changes start with ">f" or "<f" (created/deleted files)
+					// Directory changes start with "cd" or ".d" (metadata only)
+					if (line.has_prefix(">f") || line.has_prefix("<f") || 
+					    line.has_prefix("*f") || line.has_prefix(".f")) {
+						count++;
+					}
+					// Also count symlinks
+					else if (line.has_prefix(">L") || line.has_prefix("<L") ||
+					         line.has_prefix("*L") || line.has_prefix(".L")) {
 						count++;
 					}
 				}
@@ -653,6 +668,11 @@ public class Snapshot : GLib.Object{
 			var items = task.parse_log(rsync_changes_log_file);
 			
 			foreach (var item in items) {
+				// Only process actual files and symlinks, skip directories
+				if (item.file_type == FileType.DIRECTORY) {
+					continue; // Skip directory entries
+				}
+				
 				summary.all_items.add(item);
 				
 				switch (item.file_status) {
@@ -665,6 +685,12 @@ public class Snapshot : GLib.Object{
 						summary.deleted_items.add(item);
 						break;
 					case "modified":
+					case "checksum":
+					case "size":
+					case "timestamp":
+					case "permissions":
+					case "owner":
+					case "group":
 						summary.files_modified++;
 						summary.modified_items.add(item);
 						break;
@@ -675,56 +701,54 @@ public class Snapshot : GLib.Object{
 		return summary;
 	}
 
+	// Static queue for size calculations to prevent disk thrashing
+	private static AsyncQueue<Snapshot> size_calc_queue = null;
+	private static Thread<void*>? size_calc_thread = null;
+
 	public void calculate_size_async() {
-		/* Calculate size for RSYNC snapshots using du command - OPTIMIZED */
+		/* Calculate size for RSYNC snapshots using du command - QUEUED & OPTIMIZED */
 		
-		if (btrfs_mode) {
-			// BTRFS size already calculated in subvolumes
+		if (btrfs_mode || size_bytes > 0) {
 			return;
 		}
 		
-		if (size_bytes > 0) {
-			// Already calculated
-			return;
+		// Initialize queue if needed
+		if (size_calc_queue == null) {
+			size_calc_queue = new AsyncQueue<Snapshot>();
+			
+			// Start worker thread
+			try {
+				size_calc_thread = new Thread<void*>("size-calc-worker", () => {
+					while (true) {
+						Snapshot? snap = size_calc_queue.pop();
+						if (snap == null) break; // Should not happen
+						
+						// Check again if size calculated while waiting
+						if (snap.size_bytes > 0) continue;
+						
+						// Use high priority (nice -n -5) and high IO priority (ionice -c 2 -n 0)
+						// This ensures size is calculated as fast as possible without thrashing
+						string cmd = "sudo nice -n -5 ionice -c 2 -n 0 du -sb '%s' 2>/dev/null | cut -f1".printf(snap.path);
+						string std_out, std_err;
+						int status = exec_sync(cmd, out std_out, out std_err);
+						
+						if (status == 0 && std_out.length > 0) {
+							int64 accurate_size = int64.parse(std_out.strip());
+							if (accurate_size > 0) {
+								snap.size_bytes = accurate_size;
+								snap.update_control_file();
+								log_debug("Calculated size for %s: %s".printf(snap.name, format_file_size(snap.size_bytes)));
+							}
+						}
+					}
+					return null;
+				});
+			} catch (Error e) {
+				log_error("Failed to start size calculation thread: " + e.message);
+			}
 		}
 		
-		// Quick estimate using directory size (very fast but inaccurate)
-		try {
-			var file = File.new_for_path(path);
-			var info = file.query_info("standard::*", FileQueryInfoFlags.NONE);
-			int64 quick_size = info.get_size();
-			
-			if (quick_size > 0) {
-				size_bytes = quick_size * 1000; // Rough estimate
-				log_debug("Quick estimate for %s: %s".printf(name, format_file_size(size_bytes)));
-			}
-		} catch (Error e) {
-			// Ignore errors
-		}
-		
-		// Now calculate accurate size in background
-		new Thread<void*>.try("calc-size-%s".printf(name), () => {
-			// Use faster du command with timeout
-			string cmd = "timeout 30 du -s --block-size=1 '%s' 2>/dev/null | cut -f1".printf(path);
-			string std_out, std_err;
-			int status = exec_sync(cmd, out std_out, out std_err);
-			
-			if (status == 0 && std_out.length > 0) {
-				int64 accurate_size = int64.parse(std_out.strip());
-				if (accurate_size > 0) {
-					size_bytes = accurate_size;
-					// Save to control file
-					update_control_file();
-					log_debug("Calculated accurate size for %s: %s".printf(name, format_file_size(size_bytes)));
-				}
-			} else if (status == 124) {
-				// Timeout - use estimate
-				log_debug("Size calculation timed out for %s, using estimate".printf(name));
-			} else {
-				log_debug("Failed to calculate size for %s".printf(name));
-			}
-			
-			return null;
-		});
+		// Add to queue
+		size_calc_queue.push(this);
 	}
 }
